@@ -1,0 +1,18 @@
+import HeaderModels from "../components/layout/HeaderModels";
+import FiltersModels from "../components/ui/FiltersModels";
+import ModelsGallery from "../components/sections/ModelsGallery/ModelsGallery";
+import Footer from "../components/layout/Footer";
+
+const Models: React.FC = () => {
+  return (
+    <div className="min-h-screen bg-white">
+      <HeaderModels backgroundImage="/images/models-hero.jpg" />
+      <FiltersModels />
+      <ModelsGallery />
+      <div className="mt-32">
+        <Footer />
+      </div>
+    </div>
+  );
+};
+export default Models;
