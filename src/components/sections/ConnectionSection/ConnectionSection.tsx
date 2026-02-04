@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const ConnectionSection: React.FC = () => {
   return (
@@ -13,8 +14,9 @@ const ConnectionSection: React.FC = () => {
       
       <div className="absolute inset-0 z-10 text-white px-4 sm:px-6 md:px-8">
         {/* Connexion - Positionné en haut à gauche */}
-        <div 
-          className="absolute top-4 sm:top-6 md:top-8 lg:top-6 left-4 sm:left-6 md:left-8 lg:left-6"
+        <Link 
+          to="/login"
+          className="absolute top-4 sm:top-6 md:top-8 lg:top-6 left-4 sm:left-6 md:left-8 lg:left-6 cursor-pointer hover:opacity-80 transition-opacity"
           style={{
             fontFamily: 'Inter',
             fontWeight: 700,
@@ -25,7 +27,7 @@ const ConnectionSection: React.FC = () => {
           }}
         >
           Connexion
-        </div>
+        </Link>
 
         {/* Vous êtes - Créatif */}
         <div 
