@@ -13,11 +13,11 @@ const AnimatedInput: React.FC<AnimatedInputProps> = ({
   placeholder, 
   value, 
   onChange, 
-  showPasswordToggle = false 
+  showPasswordToggle: _showPasswordToggle = false 
 }) => {
   const [isFocused, setIsFocused] = useState(false);
   const [hasValue, setHasValue] = useState(false);
-  const [showPassword, setShowPassword] = useState(false);
+  const [showPassword] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
 
   const handleFocus = () => {
@@ -31,10 +31,6 @@ const AnimatedInput: React.FC<AnimatedInputProps> = ({
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     onChange(e);
     setHasValue(e.target.value.length > 0);
-  };
-
-  const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword);
   };
 
   const inputType = type === 'password' && showPassword ? 'text' : type;

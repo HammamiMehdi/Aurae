@@ -12,7 +12,7 @@ const HeroSignUp: React.FC<HeroSignUpProps> = ({
   profile, 
   backgroundImage, 
   mainText, 
-  subText 
+  subText: _subText 
 }) => {
   const location = useLocation();
   const [activeNav, setActiveNav] = useState<string>(location.pathname);

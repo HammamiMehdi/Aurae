@@ -1,5 +1,4 @@
 import React from 'react';
-import HeroSignUp from '../components/sections/Hero/HeroSignUp';
 import Footer from '../components/layout/Footer';
 import HeroProfileAgence from '../components/sections/Hero/HeroProfileAgence';
 import ProfileAgenceContent from '../components/sections/ProfileAgence/ProfileAgenceContent';

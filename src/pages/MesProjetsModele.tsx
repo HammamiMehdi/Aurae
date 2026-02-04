@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import HeroMesProjetsModele from "../components/sections/Hero/HeroMesProjetsModele";
 import ProjectCarousel from "../components/sections/ProjectCarousel/ProjectCarousel";
 import ArchivedCarousel from "../components/sections/ArchivedCarousel/ArchivedCarousel";

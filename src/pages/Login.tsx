@@ -28,18 +28,6 @@ const Login: React.FC = () => {
     },
   };
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 12,
-      },
-    },
-  };
 
   const handleGoogleLogin = () => {
     console.log("Connexion avec Google");

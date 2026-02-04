@@ -16,7 +16,7 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({ 
   showSignup = true, 
   onSignupClick,
-  logoSize = 'medium',
+  logoSize: _logoSize = 'medium',
   textColor = 'text-white',
   backgroundColor = 'bg-transparent',
   navItems = [],

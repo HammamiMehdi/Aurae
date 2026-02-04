@@ -17,14 +17,6 @@ const FiltersModels: React.FC = () => {
     }));
   };
 
-  const resetFilters = () => {
-    setSelectedFilters({
-      localisation: false,
-      disponibilite: false,
-      apparence: false,
-      iaOption: false,
-    });
-  };
 
   return (
     <div className="w-full bg-white py-8">

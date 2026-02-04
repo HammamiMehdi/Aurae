@@ -1,6 +1,5 @@
 import React from 'react';
 import Hero from '../components/sections/Hero/Hero';
-import ProfileSelection from '../components/sections/ProfileSelection/ProfileSelection';
 import Footer from '../components/layout/Footer';
 import ConnectionSection from '../components/sections/ConnectionSection/ConnectionSection';
 
