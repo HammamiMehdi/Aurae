@@ -15,6 +15,8 @@ import Projet from './pages/Projet.tsx'
 import Models from './pages/Models.tsx'
 import ContratClient from './pages/ContratClient.tsx'
 import AddProjectPage from './pages/AddProjectPage.tsx'
+import MatchsChat from './pages/MatchsChat.tsx'
+import ChatMessage from './pages/ChatMessage.tsx'
 import PageTransition from './components/ui/PageTransition.tsx'
 
 function AnimatedRoutes() {
@@ -35,6 +37,8 @@ function AnimatedRoutes() {
         <Route path="/Models" element={<PageTransition><Models /></PageTransition>} />
         <Route path="/add-project" element={<PageTransition><AddProjectPage /></PageTransition>} />
         <Route path="/contrat-client" element={<PageTransition><ContratClient /></PageTransition>} />
+        <Route path="/matchs" element={<PageTransition><MatchsChat /></PageTransition>} />
+        <Route path="/chat/:modelId" element={<PageTransition><ChatMessage /></PageTransition>} />
       </Routes>
     </AnimatePresence>
   );
