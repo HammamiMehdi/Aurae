@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import Footer from '../components/layout/Footer';
 import HeroProjet from '../components/sections/Hero/HeroProjet';
 import NouveauProjet from '../components/sections/Projet/NouveauProjet';
-import MoodboardUpload from './../components/sections/Projet/MoodboardUpload';
+import Moodboard from '../components/sections/Projet/Moodboard';
+import Contrat from '../components/sections/Projet/Contrat';
 
 const Projet: React.FC = () => {
     const [isSaving, setIsSaving] = useState(false);
@@ -22,8 +23,8 @@ const Projet: React.FC = () => {
         
         {/* Brief section*/}
         <NouveauProjet />
-        <MoodboardUpload title="Moodboard" />
-        <MoodboardUpload title="Contrat" />
+        <Moodboard />
+        <Contrat />
          {/* Texte cliquable Enregistrer */}
       <div className="flex justify-center pb-16 bg-white">
         <button
@@ -33,7 +34,7 @@ const Projet: React.FC = () => {
             isSaving ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'
           }`}
           style={{
-            fontFamily: 'Red Hat Mono',
+            fontFamily: 'Inter',
             fontWeight: 400,
             fontStyle: 'regular',
             fontSize: '12px',
@@ -43,7 +44,7 @@ const Projet: React.FC = () => {
             textDecoration: 'underline',
           }}
         >
-          {isSaving ? 'Enregistrement...' : 'Enregistrer'}
+          {isSaving ? 'recherche...' : 'Trouver un modèle'}
         </button>
       </div>
         <Footer />

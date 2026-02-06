@@ -14,7 +14,7 @@ const MissionAurae: React.FC = () => {
         <h3 
           className="text-center mb-6 sm:mb-8"
           style={{
-            fontFamily: 'Red Hat Mono, monospace',
+            fontFamily: 'Inter, monospace',
             fontWeight: 700,
             fontStyle: 'normal',
             fontSize: '25px',

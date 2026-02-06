@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 
 interface MoodboardUploadProps {
-    title?: string;
+  title?: string;
 }
 
 const MoodboardUpload: React.FC<MoodboardUploadProps> = ({ title = "Moodboard" }) => {
@@ -23,7 +23,7 @@ const MoodboardUpload: React.FC<MoodboardUploadProps> = ({ title = "Moodboard" }
   const handleDrop = (e: React.DragEvent) => {
     e.preventDefault();
     setIsDragOver(false);
-    
+
     const files = e.dataTransfer.files;
     if (files && files[0]) {
       handleFileSelection(files[0]);
@@ -36,14 +36,14 @@ const MoodboardUpload: React.FC<MoodboardUploadProps> = ({ title = "Moodboard" }
       alert('Le fichier dépasse la taille maximale de 100MB');
       return;
     }
-    
+
     // Vérifier le type de fichier
     const allowedTypes = ['image/jpeg', 'image/png', 'application/pdf'];
     if (!allowedTypes.includes(file.type)) {
       alert('Type de fichier non autorisé. Veuillez utiliser JPEG, PNG ou PDF.');
       return;
     }
-    
+
     setSelectedFile(file);
   };
 
@@ -59,7 +59,7 @@ const MoodboardUpload: React.FC<MoodboardUploadProps> = ({ title = "Moodboard" }
   };
 
   return (
-    <motion.div 
+    <motion.div
       className="w-full py-16"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
@@ -68,7 +68,7 @@ const MoodboardUpload: React.FC<MoodboardUploadProps> = ({ title = "Moodboard" }
     >
       <div className="max-w-7xl mx-auto px-8">
         {/* Titre principal dynamique */}
-        <motion.h1 
+        <motion.h1
           className="text-gray-900 mb-12 text-left"
           style={{
             fontFamily: 'Inter',
@@ -86,37 +86,36 @@ const MoodboardUpload: React.FC<MoodboardUploadProps> = ({ title = "Moodboard" }
         </motion.h1>
 
         {/* Zone d'upload */}
-        <motion.div 
+        <motion.div
           className="flex justify-center"
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.4 }}
         >
-         <div
-  className={`relative flex items-center justify-center cursor-pointer transition-all duration-300 ${
-    isDragOver ? 'bg-gray-50 border-blue-400' : 'hover:bg-gray-50'
-  }`}
-  style={{
-    height: '600px',
-    width: '100%',
-    border: '2px dashed #00000080',
-    borderRadius: '8px',
-    backgroundColor: '#FDF9F5',
-  }}
-  onDragOver={handleDragOver}
-  onDragLeave={handleDragLeave}
-  onDrop={handleDrop}
-  onClick={handleClick}
->
+          <div
+            className={`relative flex items-center justify-center cursor-pointer transition-all duration-300 ${isDragOver ? 'bg-gray-50 border-blue-400' : 'hover:bg-gray-50'
+              }`}
+            style={{
+              height: '600px',
+              width: '100%',
+              border: '2px dashed #00000080',
+              borderRadius: '8px',
+              backgroundColor: '#FDF9F5',
+            }}
+            onDragOver={handleDragOver}
+            onDragLeave={handleDragLeave}
+            onDrop={handleDrop}
+            onClick={handleClick}
+          >
             {/* Contenu centré */}
             <div className="flex flex-col items-center justify-center">
               {/* SVG Upload */}
-              <svg 
-                width="35" 
-                height="35" 
-                viewBox="0 0 24 24" 
-                fill="none" 
-                stroke="currentColor" 
+              <svg
+                width="35"
+                height="35"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
                 strokeWidth="2"
                 className="mb-4 text-gray-600"
               >
@@ -126,7 +125,7 @@ const MoodboardUpload: React.FC<MoodboardUploadProps> = ({ title = "Moodboard" }
               </svg>
 
               {/* Texte principal */}
-              <div 
+              <div
                 className="text-gray-700 mb-2"
                 style={{
                   fontFamily: 'Inter Tight',
@@ -141,7 +140,7 @@ const MoodboardUpload: React.FC<MoodboardUploadProps> = ({ title = "Moodboard" }
               </div>
 
               {/* Texte secondaire */}
-              <div 
+              <div
                 className="text-gray-500"
                 style={{
                   fontFamily: 'Inter Tight',
@@ -157,7 +156,7 @@ const MoodboardUpload: React.FC<MoodboardUploadProps> = ({ title = "Moodboard" }
 
               {/* Affichage du fichier sélectionné */}
               {selectedFile && (
-                <motion.div 
+                <motion.div
                   className="mt-4 p-3 bg-green-50 border border-green-200 rounded-lg"
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}

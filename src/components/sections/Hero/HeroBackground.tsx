@@ -9,11 +9,12 @@ const HeroBackground: React.FC<HeroBackgroundProps> = ({ imageUrl, overlayOpacit
   return (
     <>
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat w-full h-full"
+        className="absolute inset-0 bg-cover bg-no-repeat w-full h-full"
         style={{
           backgroundImage: `url('${imageUrl}')`,
-          filter: 'brightness(1.60)', // ⬅️ éclaircit l’image
-          transform: 'scale(1.20)',
+          backgroundPosition: 'center 47%',
+          filter: 'brightness(1.60)', 
+          transform: 'scale(1.10)',
         }}
       />
       <div 

@@ -22,11 +22,11 @@ const ProfileModeleProjets: React.FC = () => {
   return (
     <div className="w-full bg-white ">
       {/* Titre aligné à droite */}
-      <div className="max-w-7xl mx-auto px-8 mb-16">
+      <div className="w-full mb-16" style={{ padding: '0 20px' }}>
         <div className="flex justify-start">
           <div
             style={{
-              fontFamily: "Red Hat Mono",
+              fontFamily: "Inter",
               fontWeight: 700,
               fontStyle: "Bold",
               fontSize: "30px",
@@ -35,13 +35,13 @@ const ProfileModeleProjets: React.FC = () => {
             }}
             className="text-black"
           >
-            MES DERNIERS PROJETS
+            Ses projets
           </div>
         </div>
       </div>
 
       {/* Div contenant les images */}
-      <div className="w-[95%] mx-auto">
+      <div className="w-full" style={{ padding: '0 20px' }}>
         {projets.map((projet, index) => (
           <div
             key={projet.id}

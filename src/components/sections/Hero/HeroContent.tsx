@@ -12,20 +12,9 @@ interface HeroContentProps {
 const HeroContent: React.FC<HeroContentProps> = ({ 
   mainText, 
   subText, 
-  textSizes = { mainText: 'large', subText: 'medium' }
 }) => {
-  // Configuration des tailles
-  const mainTextSizes = {
-    small: 'clamp(30px, 6vw, 60px)',
-    medium: 'clamp(40px, 8vw, 80px)',
-    large: 'clamp(50px, 10vw, 100px)'
-  };
 
-  const subTextSizes = {
-    small: 'clamp(12px, 1.5vw, 14px)',
-    medium: 'clamp(14px, 2vw, 16px)',
-    large: 'clamp(16px, 2.5vw, 18px)'
-  };
+
 
   return (
     <div className="flex-grow flex items-center justify-center relative px-4 sm:px-6 md:px-8">
@@ -38,7 +27,7 @@ const HeroContent: React.FC<HeroContentProps> = ({
               fontFamily: 'Inter, sans-serif',
               fontWeight: 700,
               fontStyle: 'normal',
-              fontSize: mainTextSizes[textSizes.mainText || 'large'],
+              fontSize: '110px',
               lineHeight: '120%',
               letterSpacing: '-2%',
             }}
@@ -55,13 +44,12 @@ const HeroContent: React.FC<HeroContentProps> = ({
               fontFamily: 'Inter, sans-serif',
               fontWeight: 400,
               fontStyle: 'normal',
-              fontSize: subTextSizes[textSizes.subText || 'medium'],
+              fontSize: '14px',
               lineHeight: '120%',
               letterSpacing: '-2%',
               textAlign: 'center',
               margin: '0 auto',
               maxWidth: '100%',
-              width: 'clamp(250px, 35vw, 320px)'
             }}
           >
             {subText}

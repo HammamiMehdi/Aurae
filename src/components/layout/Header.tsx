@@ -48,7 +48,7 @@ const Header: React.FC<HeaderProps> = ({
       <header className={`relative z-30 flex justify-between items-center p-3 sm:p-4 md:p-6 lg:p-8 ${backgroundColor}`}>
         <Link to="/" className={`${textColor} hover:opacity-80 transition-opacity cursor-pointer`}>
           <h1 
-            className="text-[16px] sm:text-[18px] md:text-[20px] font-bold leading-[1.2] tracking-[-0.72px]"
+            className="text-[22px]  font-bold leading-[1.2] tracking-[-0.72px]"
             style={{ 
               fontFamily: 'Inter, sans-serif',
               fontWeight: 700,
@@ -57,7 +57,7 @@ const Header: React.FC<HeaderProps> = ({
           >
             <span>Auræ</span>{' '}
             <span 
-              className="italic text-[16px] sm:text-[18px] md:text-[20px] leading-[1.2] tracking-[-0.72px]"
+              className="italic text-[22px]  leading-[1.2] tracking-[-0.72px]"
               style={{ 
                 fontFamily: 'Instrument Sans, sans-serif',
                 fontWeight: 400,
@@ -73,8 +73,15 @@ const Header: React.FC<HeaderProps> = ({
         {showSignup && (
           <button 
             onClick={onSignupClick}
-            className={`hidden md:block ${textColor} bg-transparent border border-current px-3 sm:px-4 md:px-6 py-1.5 sm:py-2 rounded-full hover:bg-white hover:text-black transition-all duration-300 cursor-pointer text-xs sm:text-sm md:text-base`}
-            style={{fontFamily: 'Red Hat Mono, monospace'}}
+            className={`hidden md:block ${textColor} bg-transparent  px-3 sm:px-4 md:px-6 py-1.5 sm:py-2 rounded-full transition-all duration-300 cursor-pointer`}
+            style={{
+              fontFamily: 'Inter, sans-serif',
+              fontWeight: 400,
+              fontStyle: 'normal',
+              fontSize: '15px',
+              lineHeight: '120%',
+              letterSpacing: '-2%'
+            }}
           >
             Sign up
           </button>
@@ -155,7 +162,7 @@ const Header: React.FC<HeaderProps> = ({
             <button 
               onClick={handleSignupClick}
               className="text-white bg-black border border-black px-6 py-2.5 rounded-full hover:bg-gray-800 transition-all duration-300 cursor-pointer text-sm font-medium mt-auto mb-6"
-              style={{fontFamily: 'Red Hat Mono, monospace'}}
+              style={{fontFamily: 'Inter, monospace'}}
             >
               Sign up
             </button>

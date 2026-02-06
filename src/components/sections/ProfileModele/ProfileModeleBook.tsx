@@ -132,29 +132,11 @@ const ProfileModeleBook: React.FC = () => {
   return (
     <div className="w-full bg-white py-16">
       {/* Nouvelle ligne avec icônes et textes */}
-      <div className="max-w-7xl mx-auto px-8 mb-8">
+      <div className="w-full mb-8" style={{ padding: '0 20px' }}>
         <div className="flex justify-between items-center">
           {/* Partie gauche - Mes projets */}
           <div className="flex items-center gap-2">
-            <ProjectIcon />
-            <span
-              style={{
-                fontFamily: "Inter",
-                fontWeight: 700,
-                fontStyle: "Bold",
-                fontSize: "15px",
-                lineHeight: "120%",
-                letterSpacing: "-2%",
-                textAlign: "center",
-              }}
-            >
-              Mes projets
-            </span>
-          </div>
-
-          {/* Partie droite - Mon agenda */}
-          <div className="flex items-center gap-2">
-            <CalendarIcon />
+          <CalendarIcon />
             <span
               style={{
                 fontFamily: "Inter",
@@ -169,24 +151,45 @@ const ProfileModeleBook: React.FC = () => {
               Mon agenda
             </span>
           </div>
+
+          {/* Partie droite - Mon agenda */}
+          <div className="flex items-center gap-2">
+            
+            <ProjectIcon />
+            <span
+              style={{
+                fontFamily: "Inter",
+                fontWeight: 700,
+                fontStyle: "Bold",
+                fontSize: "15px",
+                lineHeight: "120%",
+                letterSpacing: "-2%",
+                textAlign: "center",
+              }}
+            >
+              
+              Mes projets
+            </span>
+          </div>
         </div>
       </div>
 
       {/* Titre et description */}
-      <div className="max-w-7xl mx-auto px-8 mb-12">
-        <div className="text-center mb-6">
+      <div className="w-full mb-12" style={{ padding: '0 20px' }}>
+        <div className="mb-6">
           <div
             className="mb-4"
             style={{
-              fontFamily: "Red Hat Mono",
+              fontFamily: "Inter",
               fontWeight: 700,
               fontStyle: "bold",
-              fontSize: "30px",
+              fontSize: "50px",
               lineHeight: "100%",
               letterSpacing: "0%",
+              textAlign: "left",
             }}
           >
-            MON BOOK
+            Son book
           </div>
           <div
             className="max-w-4xl mx-auto mt-10"

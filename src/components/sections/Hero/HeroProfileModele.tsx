@@ -36,8 +36,7 @@ const HeroProfileModele: React.FC<HeroProfileModeleProps> = ({
         }`}
         style={{
           backgroundImage: `url('${backgroundImage}')`,
-          filter: "grayscale(100%) brightness(0.9)",
-          transform: isLoaded ? "scale(1.4)" : "scale(1.6)",
+          transform: isLoaded ? "scale(1.4) translateX(-10%)" : "scale(1.6) translateX(-10%)",
         }}
       />
 
@@ -126,61 +125,69 @@ const HeroProfileModele: React.FC<HeroProfileModeleProps> = ({
 
       {/* Contenu texte avec animations d'entrée */}
       <div className="absolute inset-0 z-20 text-white">
-        {/* Katharina.G avec animation */}
+        {/* Container for Katharina.G and Submit the project */}
         <div
-          className={`absolute transition-all duration-1000 ${
-            isLoaded
-              ? "translate-x-0 opacity-100"
-              : "translate-x-8 opacity-0"
-          }`}
+          className="absolute flex flex-col items-end"
           style={{
-            top: "350px",
-            left: "800px",
-            width: "360px",
-            height: "77px",
-            fontFamily: "Inter",
-            fontWeight: 700,
-            fontStyle: "normal",
-            fontSize: "45px",
-            lineHeight: "120%",
-            letterSpacing: "-2%",
-            transitionDelay: "300ms",
+            left: "60%",
+            top: "40%",
           }}
         >
-          Katharina.G
-        </div>
-
-        {/* Submit the project avec animation */}
-        <div
-          className={`absolute flex items-center justify-center transition-all duration-1000 ${
-            isLoaded
-              ? "translate-x-0 opacity-100"
-              : "translate-x-8 opacity-0"
-          }`}
-          style={{
-            top: "420px",
-            left: "830px",
-            width: "230px",
-            height: "30px",
-            backgroundColor: "#1B1F26B8",
-            borderRadius: "16px",
-            opacity: 0.5,
-            transitionDelay: "400ms",
-          }}
-        >
-          <span
+          {/* Katharina.G avec animation */}
+          <div
+            className={`transition-all duration-1000 ${
+              isLoaded
+                ? "translate-x-0 opacity-100"
+                : "translate-x-8 opacity-0"
+            }`}
             style={{
-              fontFamily: "Red Hat Mono",
-              fontWeight: 400,
+              width: "360px",
+              height: "77px",
+              fontFamily: "Inter",
+              fontWeight: 700,
               fontStyle: "normal",
-              fontSize: "15px",
-              lineHeight: "100%",
-              letterSpacing: "0%",
-              fontVariantNumeric: "lining-nums proportional-nums",
+              fontSize: "40px",
+              lineHeight: "120%",
+              letterSpacing: "-2%",
+              transitionDelay: "300ms",
+              textAlign: "right",
+              marginRight: "30px",
             }}
           >
-            Submit the project
-          </span>
+            Katharina.G
+          </div>
+
+          {/* Submit the project avec animation */}
+          <div
+            className={`flex items-center justify-center transition-all duration-1000 ${
+              isLoaded
+                ? "translate-x-0 opacity-100"
+                : "translate-x-8 opacity-0"
+            }`}
+            style={{
+              width: "auto",
+              padding: "10px 20px",
+              height: "30px",
+              backgroundColor: "#1B1F26B8",
+              borderRadius: "16px",
+              opacity: 0.5,
+              transitionDelay: "400ms",
+            }}
+          >
+            <span
+              style={{
+                fontFamily: "Inter",
+                fontWeight: 400,
+                fontStyle: "normal",
+                fontSize: "12px",
+                lineHeight: "100%",
+                letterSpacing: "0%",
+                fontVariantNumeric: "lining-nums proportional-nums",
+              }}
+            >
+              Proposer le projet
+            </span>
+          </div>
         </div>
 
         {/* Mesures du modèle avec animation */}
@@ -191,11 +198,11 @@ const HeroProfileModele: React.FC<HeroProfileModeleProps> = ({
               : "translate-y-8 opacity-0"
           }`}
           style={{
-            top: "600px",
+            top: "70%",
             left: "100px",
             width: "308px",
             height: "126px",
-            fontFamily: "Red Hat Mono",
+            fontFamily: "Inter",
             fontWeight: 400,
             fontStyle: "normal",
             fontSize: "12px",
@@ -221,56 +228,97 @@ const HeroProfileModele: React.FC<HeroProfileModeleProps> = ({
           Eyes browns
         </div>
 
-        {/* Background IA option avec animation */}
+        {/* Informations supplémentaires avec animation */}
         <div
           className={`absolute transition-all duration-1000 ${
             isLoaded
-              ? "translate-x-0 opacity-100"
-              : "translate-x-8 opacity-0"
+              ? "translate-y-0 opacity-100"
+              : "translate-y-8 opacity-0"
           }`}
           style={{
-            top: "680px",
-            left: "1050px",
-            width: "135px",
-            height: "30px",
-            transitionDelay: "600ms",
+            top: "calc(70% + 100px)",
+            left: "100px",
+            width: "308px",
+            fontFamily: "Inter",
+            fontWeight: 400,
+            fontStyle: "normal",
+            fontSize: "12px",
+            lineHeight: "100%",
+            letterSpacing: "0%",
+            fontVariantNumeric: "lining-nums proportional-nums",
+            color: "white",
+            transitionDelay: "550ms",
           }}
         >
-          {/* Background semi-transparent */}
-          <div
-            style={{
-              position: "absolute",
-              inset: 0,
-              backgroundColor: "#FFFFFF",
-              borderRadius: "16px",
-              opacity: 0.5,
-            }}
-          />
+          Âge : 25 ans  <br /> Agence : Modelmanagement Paris  <br /> Langues : Anglais, Allemand, Français
+        </div>
 
-          {/* Texte au premier plan */}
+        {/* Container for IA option and location - Bottom right */}
+        <div
+          className="absolute flex flex-col items-end"
+          style={{
+            bottom: "20px",
+            right: "20px",
+          }}
+        >
+          {/* Background IA option avec animation */}
           <div
-            className="relative w-full h-full flex items-center justify-center"
+            className={`transition-all duration-1000 flex items-center justify-center ${
+              isLoaded
+                ? "translate-x-0 opacity-100"
+                : "translate-x-8 opacity-0"
+            }`}
             style={{
-              zIndex: 10,
+              width: "135px",
+              height: "30px",
+              marginBottom: "35px",
+              transitionDelay: "600ms",
+              background: "#FFFFFF80",
+              borderRadius: "16px",
             }}
           >
             <span
               style={{
-                fontFamily: "Red Hat Mono",
+                fontFamily: "Inter",
                 fontWeight: 400,
                 fontStyle: "normal",
-                fontSize: "17px",
+                fontSize: "15px",
                 lineHeight: "120%",
-                letterSpacing: "0%",
+                letterSpacing: "-2%",
                 textAlign: "center",
-                fontVariantNumeric: "lining-nums proportional-nums",
                 color: "#fff",
-                transform: "rotate(-0.33deg)",
-                textShadow: "0 0 3px rgba(0,0,0,0.5)",
               }}
             >
               IA option
             </span>
+          </div>
+
+          {/* 📍 Europe & Asie */}
+          <div
+            className={`transition-all duration-1000 ${
+              isLoaded
+                ? "translate-x-0 opacity-100"
+                : "translate-x-8 opacity-0"
+            }`}
+            style={{
+              transitionDelay: "700ms",
+            }}
+          >
+            <div
+              style={{
+                fontFamily: "Inter",
+                fontWeight: 400,
+                fontStyle: "italic",
+                fontSize: "15px",
+                lineHeight: "100%",
+                letterSpacing: "0%",
+                fontVariantNumeric: "lining-nums proportional-nums",
+                textAlign: "right",
+                color: "#fff",
+              }}
+            >
+              📍 Europe & Asie
+            </div>
           </div>
         </div>
       </div>

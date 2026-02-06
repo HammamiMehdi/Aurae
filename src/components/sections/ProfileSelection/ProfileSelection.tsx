@@ -11,7 +11,7 @@ const ProfileSelection: React.FC = () => {
         <h2 
           className="text-center mb-12 sm:mb-16 md:mb-20"
           style={{
-            fontFamily: 'Red Hat Mono, monospace',
+            fontFamily: 'Inter, monospace',
             fontWeight: 700,
             fontStyle: 'normal',
             fontSize: '30px',
@@ -57,7 +57,7 @@ const ProfileSelection: React.FC = () => {
                 <h3 
                   className="text-white text-center"
                   style={{
-                    fontFamily: 'Red Hat Mono, monospace',
+                    fontFamily: 'Inter, monospace',
                     fontWeight: 700,
                     fontStyle: 'normal',
                     fontSize: '40px',
@@ -115,7 +115,7 @@ const ProfileSelection: React.FC = () => {
                 <h3 
                   className="text-white text-center"
                   style={{
-                    fontFamily: 'Red Hat Mono, monospace',
+                    fontFamily: 'Inter, monospace',
                     fontWeight: 700,
                     fontStyle: 'normal',
                     fontSize: '40px',

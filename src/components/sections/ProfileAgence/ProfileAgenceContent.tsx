@@ -8,7 +8,7 @@ const ProfileAgenceContent: React.FC = () => {
         <div className="max-w-7xl mx-auto flex justify-center sm:justify-end mb-6">
           <div 
             style={{
-              fontFamily: 'Red Hat Mono',
+              fontFamily: 'Inter',
               fontWeight: 400,
               fontStyle: 'normal',
               fontSize: 'clamp(13px, 1.5vw, 15px)',
@@ -32,7 +32,7 @@ const ProfileAgenceContent: React.FC = () => {
             <div 
               className="mb-6 sm:mb-8"
               style={{
-                fontFamily: 'Red Hat Mono',
+                fontFamily: 'Inter',
                 fontWeight: 900,
                 fontStyle: 'bold',
                 fontSize: 'clamp(20px, 3vw, 28px)',

@@ -7,7 +7,6 @@ interface NavigationProps {
   activeNav: string;
   onNavClick: (href: string) => void;
   textColor?: string;
-  fontSize?: 'small' | 'medium' | 'large';
   width?: 'full' | 'large' | 'medium';
   spacing?: 'tight' | 'normal' | 'wide';
   justify?: 'center' | 'start' | 'end';
@@ -18,18 +17,10 @@ const Navigation: React.FC<NavigationProps> = ({
   activeNav, 
   onNavClick,
   textColor = 'text-white',
-  fontSize = 'small',
   width = 'full',
   spacing = 'normal',
   justify = 'center'
 }) => {
-  // Configuration des tailles
-  const fontSizes = {
-    small: 'text-sm',
-    medium: 'text-base',
-    large: 'text-lg'
-  };
-
   // Configuration des espacements
   const spacings = {
     tight: 'space-x-4',
@@ -59,9 +50,10 @@ const Navigation: React.FC<NavigationProps> = ({
             key={item.href}
             to={item.href}
             onClick={() => onNavClick(item.href)}
-            className={`${textColor} hover:text-gray-300 transition-colors font-medium text-xs sm:text-sm md:text-base ${
+            className={`${textColor} hover:text-gray-300 transition-colors font-medium ${
               activeNav === item.href ? 'font-bold' : 'font-normal'
-            } ${fontSizes[fontSize]} whitespace-nowrap`}
+            } whitespace-nowrap`}
+            style={{ fontSize: '13px' }}
           >
             {item.label}
           </Link>

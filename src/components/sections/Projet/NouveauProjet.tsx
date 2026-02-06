@@ -9,7 +9,7 @@ const NouveauProjet: React.FC = () => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
     >
-      <div className="max-w-7xl mx-auto px-8">
+      <div className="w-full" style={{ padding: '0 20px' }}>
         {/* Titre principal */}
         <motion.h1 
           className="text-gray-900 mb-4"

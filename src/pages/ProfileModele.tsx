@@ -19,10 +19,22 @@ const ProfileModele: React.FC = () => {
 
       {/* Contenu principal du profil modèle */}
       <div className="flex-1">
-        {/* Ici vous pouvez ajouter le reste du contenu du profil modèle */}
         <div className="p-8">
-          <h2 className="text-2xl font-bold mb-4">Informations du modèle</h2>
-          {/* Ajoutez ici les sections supplémentaires du profil modèle */}
+          <div
+            style={{
+              fontFamily: 'Inter',
+              fontWeight: 400,
+              fontStyle: 'normal',
+              fontSize: '15px',
+              lineHeight: '120%',
+              letterSpacing: '-2%',
+              textAlign: 'center',
+              marginTop: '30px',
+              marginBottom: '30px',
+            }}
+          >
+            Proposer le projet
+          </div>
         </div>
       </div>
 

@@ -49,7 +49,7 @@ const AddProjectPage: React.FC = () => {
             isSubmitting ? 'bg-gray-400 cursor-not-allowed' : 'bg-black hover:bg-gray-900'
           }`}
           style={{
-            fontFamily: 'Red Hat Mono, monospace',
+            fontFamily: 'Inter, monospace',
             fontWeight: 400,
             fontStyle: 'normal',
             fontSize: '12px',

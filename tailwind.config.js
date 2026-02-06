@@ -26,7 +26,7 @@ export default {
       fontFamily: {
         'sans': ['Inter', 'system-ui', 'sans-serif'],
         'instrument': ['Instrument Sans', 'sans-serif'],
-        'mono': ['Red Hat Mono', 'monospace'],
+        'mono': ['Inter'],
       },
       screens: {
         'xs': '475px',

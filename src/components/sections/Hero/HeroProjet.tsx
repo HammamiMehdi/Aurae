@@ -13,7 +13,6 @@ interface HeroProjetProps {
       { label: 'Home page', href: '/' },
       { label: 'Aurae Profile', href: '/profile-agence' },
       { label: 'Trouver un model', href: '/Models' },
-      { label: 'Add Project', href: '/add-project' },
       { label: 'Mes Projets', href: '/projets-modele' },
     ];
   
@@ -28,13 +27,10 @@ interface HeroProjetProps {
           className="absolute inset-0 bg-center bg-no-repeat"
           style={{
             backgroundImage: `url('${backgroundImage}')`,
-            backgroundSize: '150%',
+            backgroundSize: 'clamp(110%, 100%, 140%)',
             backgroundPosition: 'center bottom',
           }}
         />
-  
-        {/* Overlay sombre pour améliorer la lisibilité */}
-        <div className="absolute inset-0 bg-black bg-opacity-40" />
         
         {/* Header avec logo et navigation */}
         <header className="relative z-50 flex justify-between items-center p-5">
@@ -87,7 +83,7 @@ interface HeroProjetProps {
           <div 
             className="absolute top-1/2 transform -translate-y-1/2"
             style={{
-              left: '70%',
+              left: '57%',
               transform: 'translateY(-50%)',
             }}
           >
@@ -96,11 +92,11 @@ interface HeroProjetProps {
               style={{
                 fontFamily: 'Inter',
                 fontWeight: 700,
-                fontStyle: 'bold',
-                fontSize: 'clamp(28px, 4vw, 40px)',
+                fontStyle: 'normal',
+                fontSize: 'clamp(32px, 5vw, 55px)',
                 lineHeight: '120%',
-                letterSpacing: '-2%',
-                textAlign: 'left',
+                letterSpacing: '-10%',
+                textAlign: 'right',
               }}
             >
               Production 520
@@ -110,14 +106,14 @@ interface HeroProjetProps {
             <div 
               className="mt-3 sm:mt-4"
               style={{
-                fontFamily: 'Red Hat Mono',
+                fontFamily: 'Inter',
                 fontWeight: 400,
                 fontStyle: 'normal',
-                fontSize: 'clamp(11px, 1.3vw, 12px)',
+                fontSize: 'clamp(12px, 1.5vw, 15px)',
                 lineHeight: '100%',
                 letterSpacing: '0%',
                 fontVariantNumeric: 'lining-nums proportional-nums',
-                textAlign: 'left',
+                textAlign: 'right',
               }}
             >
               vérifiée par Auræ
@@ -126,7 +122,7 @@ interface HeroProjetProps {
 
           {/* Description du concept */}
           <div 
-            className="absolute top-[90%] left-1/2 transform -translate-x-1/2 w-[90%] sm:w-[85%] md:w-[80%] lg:w-[80%] max-w-4xl"
+            className="absolute top-[90%] left-1/2 transform -translate-x-1/2 w-[80%] sm:w-[85%] md:w-[80%] lg:w-[70%] max-w-4xl"
             style={{
               fontFamily: 'Inter, sans-serif',
               fontWeight: 200,
@@ -138,15 +134,14 @@ interface HeroProjetProps {
               fontVariantNumeric: 'lining-nums proportional-nums',
             }}
           >
-            Explique le concept de ton agence : <br/>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+            Production 520 est une agence de production et de post-production photo, vidéo et 360° spécialisée dans la mode et le luxe <br/> (e-shop, lookbook, edito, campagne etc.).
           </div>
 
           {/* 📍 Localisation */}
           <div 
             className="absolute bottom-4 sm:bottom-6 md:bottom-8 right-4 sm:right-6 md:right-8"
             style={{
-              fontFamily: 'Red Hat Mono',
+              fontFamily: 'Inter',
               fontWeight: 400,
               fontStyle: 'italic',
               fontSize: 'clamp(12px, 1.5vw, 15px)',

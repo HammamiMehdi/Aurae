@@ -78,9 +78,7 @@ const ContratClient: React.FC = () => {
             <Link to="/Models" className="text-white hover:text-gray-300 transition-colors font-medium" style={{fontSize: '14px'}}>
               Find a model
             </Link>
-            <Link to="/add-project" className="text-white hover:text-gray-300 transition-colors font-medium" style={{fontSize: '14px'}}>
-              Add Project
-            </Link>
+            
             <Link to="/projets-modele" className="text-white hover:text-gray-300 transition-colors font-medium" style={{fontSize: '14px'}}>
               Mes projets
             </Link>

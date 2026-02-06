@@ -63,33 +63,27 @@ const Login: React.FC = () => {
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
         <div className="text-black">
-          <h1 className="text-[24px] font-bold">
+          <h1 className="text-[20px] font-bold">
             <span className="font-inter font-bold">Auræ</span>{" "}
             <span className="font-instrument-sans italic">Studio</span>
           </h1>
         </div>
       </motion.header>
 
-      {/* Section principale avec vidéo de fond */}
+      {/* Section principale avec image de fond */}
       <div ref={sectionRef} className="relative min-h-screen">
-        {/* Vidéo de fond */}
+        {/* Image de fond */}
         <motion.div
           className="absolute inset-0"
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 1 }}
         >
-          <video
+          <img
+            src="/images/login-background.png"
+            alt="Login background"
             className="absolute inset-0 w-full h-full object-cover"
-            autoPlay
-            muted
-            loop
-            playsInline
-          >
-            <source src="/images/media (2).mp4" type="video/mp4" />
-            Votre navigateur ne supporte pas la lecture de vidéos.
-          </video>
-          <div className="absolute inset-0 bg-black bg-opacity-30" />
+          />
         </motion.div>
 
         {/* Contenu principal */}
@@ -100,14 +94,14 @@ const Login: React.FC = () => {
           variants={containerVariants}
         >
           {/* Titre principal */}
-          <motion.div className="text-center mb-4">
+          <motion.div className="text-center  mt-15">
             <h1
               className="text-white font-bold"
               style={{
                 fontFamily: "Inter",
                 fontWeight: 700,
                 fontStyle: "bold",
-                fontSize: "55px",
+                fontSize: "45px",
                 lineHeight: "120%",
                 letterSpacing: "-2%",
               }}
@@ -117,14 +111,14 @@ const Login: React.FC = () => {
           </motion.div>
 
           {/* Sous-titre */}
-          <motion.div className="text-center mb-12">
+          <motion.div className="text-center mb-8">
             <p
-              className="text-white font-bold"
+              className="text-white"
               style={{
                 fontFamily: "Inter",
-                fontWeight: 700,
-                fontStyle: "bold",
-                fontSize: "12px",
+                fontWeight: 400,
+                fontStyle: "regular",
+                fontSize: "15px",
                 lineHeight: "120%",
                 letterSpacing: "-2%",
               }}
@@ -135,22 +129,22 @@ const Login: React.FC = () => {
           </motion.div>
 
           {/* Boutons sociaux */}
-          <motion.div className="flex gap-6 mb-8">
+          <motion.div className="flex flex-col items-center gap-4 mb-4">
             {/* Bouton Google */}
             <motion.button
               onClick={handleGoogleLogin}
               className="flex items-center justify-center bg-white text-black hover:bg-gray-100 transition-colors"
               style={{
-                width: "285px",
-                height: "40px",
+                width: "195px",
+                height: "25px",
                 borderRadius: "20px",
-                padding: "5px 25px",
-                gap: "10px",
+                padding: "5px 20px",
+                gap: "8px",
               }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
                 <path
                   d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
                   fill="#4285F4"
@@ -168,7 +162,7 @@ const Login: React.FC = () => {
                   fill="#EA4335"
                 />
               </svg>
-              <span className="font-inter text-sm">
+              <span className="font-inter" style={{ fontSize: '10px' }}>
                 Se connecter avec Google
               </span>
             </motion.button>
@@ -178,22 +172,22 @@ const Login: React.FC = () => {
               onClick={handleFacebookLogin}
               className="flex items-center justify-center bg-blue-600 text-white hover:bg-blue-700 transition-colors"
               style={{
-                width: "304px",
-                height: "40px",
+                width: "210px",
+                height: "25px",
                 borderRadius: "20px",
-                padding: "5px 25px",
-                gap: "10px",
+                padding: "5px 20px",
+                gap: "8px",
               }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
                 <path
                   d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
                   fill="white"
                 />
               </svg>
-              <span className="font-inter text-sm">
+              <span className="font-inter" style={{ fontSize: '10px' }}>
                 Se connecter avec Facebook
               </span>
             </motion.button>
@@ -225,7 +219,7 @@ const Login: React.FC = () => {
                 fontFamily: "Inter",
                 fontWeight: 400,
                 fontStyle: "italic",
-                fontSize: "12px",
+                fontSize: "10px",
                 lineHeight: "120%",
                 letterSpacing: "-2%",
               }}
@@ -245,10 +239,9 @@ const Login: React.FC = () => {
               padding: "12px 20px",
               gap: "8px",
               backdropFilter: "blur(35px)",
-              backgroundColor: "rgba(255, 255, 255, 0.2)",
-              //border: "1px solid rgba(255, 255, 255, 0.3)",
+              backgroundColor: "rgb(255, 255, 255, 0.30)",
               fontFamily: "Inter, sans-serif",
-              fontWeight: 700, // Bold
+              fontWeight: 600, // Bold
               fontStyle: "normal",
             }}
             whileHover={{ scale: 1.05 }}

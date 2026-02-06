@@ -8,7 +8,7 @@ interface ChatMessageComponentProps {
 const ChatMessageComponent: React.FC<ChatMessageComponentProps> = ({ modelName, modelImage }) => {
   return (
     <div 
-      className="relative w-full min-h-screen flex items-center justify-center"
+      className="relative w-full min-h-screen flex flex-col items-center justify-center"
       style={{
         backgroundImage: `url('${modelImage}')`,
         backgroundSize: 'cover',
@@ -16,12 +16,13 @@ const ChatMessageComponent: React.FC<ChatMessageComponentProps> = ({ modelName, 
         backgroundRepeat: 'no-repeat',
       }}
     >
+
       {/* Rectangle Container */}
       <div
         className="relative"
         style={{
           width: '560px',
-          height: '751px',
+          height: '651px',
           borderRadius: '20px',
           backdropFilter: 'blur(10px)',
           background: 'rgba(255, 255, 255, 0.2)', // #FFFFFF33 equivalent

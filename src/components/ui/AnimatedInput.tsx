@@ -36,7 +36,7 @@ const AnimatedInput: React.FC<AnimatedInputProps> = ({
   const inputType = type === 'password' && showPassword ? 'text' : type;
 
   return (
-    <div className="relative mb-6 sm:mb-8">
+    <div className="relative mb-4 sm:mb-6">
       {/* Input sans bordure */}
       <input
         ref={inputRef}
@@ -46,14 +46,14 @@ const AnimatedInput: React.FC<AnimatedInputProps> = ({
         onFocus={handleFocus}
         onBlur={handleBlur}
         className={`
-          w-full px-0 py-4 bg-transparent border-none outline-none 
+          w-full px-0 py-5 bg-transparent border-none outline-none 
           transition-all duration-300 ease-in-out pr-10
-          ${isFocused || hasValue ? 'pt-6 pb-2' : 'py-4'}
+          ${isFocused || hasValue ? 'pt-7 pb-3' : 'py-5'}
         `}
         style={{
-          fontSize: '11px', // Réduit de clamp(14px, 2vw, 16px) à 14px
+          fontSize: '14px',
           fontFamily: 'Inter, sans-serif',
-          borderBottom: '2px solid transparent',
+          borderBottom: '1px solid transparent',
           color: 'white'
         }}
       />
@@ -62,14 +62,14 @@ const AnimatedInput: React.FC<AnimatedInputProps> = ({
       <label className={`
         absolute right-0 transition-all duration-300 ease-in-out pointer-events-none
         ${isFocused || hasValue 
-          ? '-top-2 text-xs text-white' 
-          : 'top-4 text-base text-white'
+          ? '-top-3 text-xs text-white' 
+          : 'top-5 text-base text-white'
         }
         ${isFocused ? 'text-white font-medium' : ''}
       `}
       style={{
         fontFamily: 'Inter, sans-serif',
-        fontSize: isFocused || hasValue ? '10px' : '14px', // Réduit de clamp(10px, 1.5vw, 12px) à 10px et 14px
+        fontSize: isFocused || hasValue ? '12px' : '14px',
         color : 'white'
       }}>
         {placeholder}

@@ -116,7 +116,7 @@ const ProfileAgenceProjects: React.FC = () => {
           <div
             className="mb-3 sm:mb-4"
             style={{
-              fontFamily: "Red Hat Mono",
+              fontFamily: "Inter",
               fontWeight: 700,
               fontStyle: "bold",
               fontSize: "clamp(22px, 3.5vw, 30px)",
@@ -257,7 +257,7 @@ const ProfileAgenceProjects: React.FC = () => {
       <div className="w-full flex justify-center mt-6 sm:mt-8 md:mt-10 px-4">
         <span
           style={{
-            fontFamily: "Red Hat Mono",
+            fontFamily: "Inter",
             fontWeight: 400,
             fontSize: "clamp(13px, 1.5vw, 15px)",
             lineHeight: "100%",

@@ -13,7 +13,6 @@ const HeaderModels: React.FC<HeaderModelsProps> = ({ backgroundImage }) => {
     { label: 'Home page', href: '/' },
     { label: 'Aurae Profile', href: '/profile-agence' },
     { label: 'Trouver un model', href: '/Models' },
-    { label: 'Add Project', href: '/add-project' },
     { label: 'Mes Projets', href: '/projets-modele' },
   ];
 

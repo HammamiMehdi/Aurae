@@ -14,7 +14,6 @@ const HeroProfileAgence: React.FC<HeroProfileAgenceProps> = ({ backgroundImage }
     { label: 'Home page', href: '/' },
     { label: 'Aurae Profile', href: '/profile-agence' },
     { label: 'Trouver un model', href: '/Models' },
-    { label: 'Add Project', href: '/add-project' },
     { label: 'Mes Projets', href: '/projets-modele' },
   ];
 
@@ -35,13 +34,10 @@ const HeroProfileAgence: React.FC<HeroProfileAgenceProps> = ({ backgroundImage }
           className="absolute inset-0 bg-center bg-no-repeat"
           style={{
             backgroundImage: `url('${backgroundImage}')`,
-            backgroundSize: 'clamp(150%, 200%, 200%)',
+            backgroundSize: 'clamp(110%, 100%, 140%)',
             backgroundPosition: 'center bottom',
           }}
         />
-
-        {/* Overlay sombre pour améliorer la lisibilité */}
-        <div className="absolute inset-0 bg-black bg-opacity-40" />
         
         {/* Header avec logo et navigation */}
         <header className="relative z-50 flex justify-between items-center p-3 sm:p-4 md:p-5">
@@ -68,30 +64,44 @@ const HeroProfileAgence: React.FC<HeroProfileAgenceProps> = ({ backgroundImage }
             </h1>
           </Link>
 
-          {/* Hamburger menu button - visible only on mobile */}
-          <button
-            onClick={toggleMenu}
-            className="md:hidden text-white p-2 focus:outline-none transition-opacity hover:opacity-80"
-            aria-label="Toggle menu"
-          >
-            <div className="w-6 h-6 flex flex-col justify-center space-y-1.5">
-              <span 
-                className={`block h-0.5 w-6 bg-current transition-all duration-300 ${
-                  isMenuOpen ? 'rotate-45 translate-y-2' : ''
-                }`}
+          <div className="flex items-center gap-3">
+            {/* Profile Circle */}
+            <Link 
+              to="/profile-agence" 
+              className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gray-300 overflow-hidden hover:opacity-80 transition-opacity"
+            >
+              <img
+                src={backgroundImage}
+                alt="Profile"
+                className="w-full h-full object-cover"
               />
-              <span 
-                className={`block h-0.5 w-6 bg-current transition-all duration-300 ${
-                  isMenuOpen ? 'opacity-0' : 'opacity-100'
-                }`}
-              />
-              <span 
-                className={`block h-0.5 w-6 bg-current transition-all duration-300 ${
-                  isMenuOpen ? '-rotate-45 -translate-y-2' : ''
-                }`}
-              />
-            </div>
-          </button>
+            </Link>
+
+            {/* Hamburger menu button - visible only on mobile */}
+            <button
+              onClick={toggleMenu}
+              className="md:hidden text-white p-2 focus:outline-none transition-opacity hover:opacity-80"
+              aria-label="Toggle menu"
+            >
+              <div className="w-6 h-6 flex flex-col justify-center space-y-1.5">
+                <span 
+                  className={`block h-0.5 w-6 bg-current transition-all duration-300 ${
+                    isMenuOpen ? 'rotate-45 translate-y-2' : ''
+                  }`}
+                />
+                <span 
+                  className={`block h-0.5 w-6 bg-current transition-all duration-300 ${
+                    isMenuOpen ? 'opacity-0' : 'opacity-100'
+                  }`}
+                />
+                <span 
+                  className={`block h-0.5 w-6 bg-current transition-all duration-300 ${
+                    isMenuOpen ? '-rotate-45 -translate-y-2' : ''
+                  }`}
+                />
+              </div>
+            </button>
+          </div>
         </header>
 
         {/* Navigation - hidden on mobile */}
@@ -131,7 +141,7 @@ const HeroProfileAgence: React.FC<HeroProfileAgenceProps> = ({ backgroundImage }
                 fontSize: 'clamp(32px, 5vw, 55px)',
                 lineHeight: '120%',
                 letterSpacing: '-10%',
-                textAlign: 'left',
+                textAlign: 'right',
               }}
             >
               Production 520
@@ -141,14 +151,14 @@ const HeroProfileAgence: React.FC<HeroProfileAgenceProps> = ({ backgroundImage }
             <div 
               className="mt-3 sm:mt-4"
               style={{
-                fontFamily: 'Red Hat Mono',
+                fontFamily: 'Inter',
                 fontWeight: 400,
                 fontStyle: 'normal',
                 fontSize: 'clamp(12px, 1.5vw, 15px)',
                 lineHeight: '100%',
                 letterSpacing: '0%',
                 fontVariantNumeric: 'lining-nums proportional-nums',
-                textAlign: 'left',
+                textAlign: 'right',
               }}
             >
               vérifiée par Auræ
@@ -159,7 +169,7 @@ const HeroProfileAgence: React.FC<HeroProfileAgenceProps> = ({ backgroundImage }
           <div 
             className="absolute top-[90%] left-1/2 transform -translate-x-1/2 w-[90%] sm:w-[85%] md:w-[80%] lg:w-[80%] max-w-4xl"
             style={{
-              fontFamily: 'Red Hat Mono',
+              fontFamily: 'Inter',
               fontWeight: 400,
               fontStyle: 'normal',
               fontSize: 'clamp(11px, 1.3vw, 15px)',
@@ -177,7 +187,7 @@ const HeroProfileAgence: React.FC<HeroProfileAgenceProps> = ({ backgroundImage }
           <div 
             className="absolute bottom-4 sm:bottom-6 md:bottom-8 right-4 sm:right-6 md:right-8"
             style={{
-              fontFamily: 'Red Hat Mono',
+              fontFamily: 'Inter',
               fontWeight: 400,
               fontStyle: 'italic',
               fontSize: 'clamp(12px, 1.5vw, 15px)',
