@@ -53,7 +53,7 @@ const Navigation: React.FC<NavigationProps> = ({
             className={`${textColor} hover:text-gray-300 transition-colors font-medium ${
               activeNav === item.href ? 'font-bold' : 'font-normal'
             } whitespace-nowrap`}
-            style={{ fontSize: '13px' }}
+            style={{ fontSize: '15px' }}
           >
             {item.label}
           </Link>
