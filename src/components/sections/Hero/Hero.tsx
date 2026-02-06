@@ -63,13 +63,25 @@ const Hero: React.FC<HeroProps> = ({
   const navItems = getNavItems();
 
   return (
-    <section className="relative w-screen h-screen min-h-[600px] overflow-hidden">
+    <section 
+      className="relative w-screen overflow-hidden"
+      style={{
+        height: '100vh',
+        minHeight: 'clamp(600px, 100vh, 1200px)'
+      }}
+    >
       <HeroBackground 
         imageUrl={backgroundImage} 
         overlayOpacity={overlayOpacity}
       />
       
-      <div className="relative z-10 flex flex-col h-screen min-h-[600px]">
+      <div 
+        className="relative z-10 flex flex-col"
+        style={{
+          height: '100vh',
+          minHeight: 'clamp(600px, 100vh, 1200px)'
+        }}
+      >
         <Header 
           onSignupClick={onSignupClick}
           showSignup={showSignup}

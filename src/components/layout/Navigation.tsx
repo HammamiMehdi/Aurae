@@ -21,18 +21,28 @@ const Navigation: React.FC<NavigationProps> = ({
   spacing = 'normal',
   justify = 'center'
 }) => {
-  // Configuration des espacements
-  const spacings = {
-    tight: 'space-x-4',
-    normal: 'space-x-8',
-    wide: 'space-x-12 sm:space-x-16 md:space-x-20'
+  // Configuration des espacements avec clamp() - responsive entre les items
+  const getSpacing = () => {
+    switch (spacing) {
+      case 'tight':
+        return 'clamp(0.5rem, 1.5vw, 1rem)'; // 8px à 16px
+      case 'wide':
+        return 'clamp(1.5rem, 3.5vw, 3rem)'; // 24px à 48px
+      default: // normal
+        return 'clamp(0.875rem, 2vw, 1.75rem)'; // 14px à 28px
+    }
   };
 
-  // Configuration des largeurs
-  const widths = {
-    full: 'w-full max-w-6xl mx-auto',
-    large: 'w-full max-w-5xl mx-auto',
-    medium: 'w-full max-w-4xl mx-auto'
+  // Configuration des largeurs avec clamp()
+  const getMaxWidth = () => {
+    switch (width) {
+      case 'large':
+        return 'clamp(80rem, 90vw, 90rem)';
+      case 'medium':
+        return 'clamp(60rem, 75vw, 70rem)';
+      default: // full
+        return 'clamp(70rem, 95vw, 100rem)';
+    }
   };
 
   // Configuration de l'alignement
@@ -43,8 +53,23 @@ const Navigation: React.FC<NavigationProps> = ({
   };
 
   return (
-    <nav className="hidden md:block px-4 sm:px-6 md:px-8 pb-4 sm:pb-6 md:pb-8 flex-shrink-0">
-      <div className={`flex ${spacings[spacing]} ${widths[width]} ${justifications[justify]} flex-wrap justify-center sm:justify-center`}>
+    <nav 
+      className="hidden md:block flex-shrink-0"
+      style={{
+        paddingLeft: 'clamp(1rem, 3vw, 2rem)',
+        paddingRight: 'clamp(1rem, 3vw, 2rem)',
+        paddingBottom: 'clamp(1rem, 2.5vw, 2rem)'
+      }}
+    >
+      <div 
+        className={`flex ${justifications[justify]} flex-wrap`}
+        style={{
+          maxWidth: getMaxWidth(),
+          width: '100%',
+          margin: '0 auto',
+          gap: getSpacing()
+        }}
+      >
         {navItems.map((item) => (
           <Link
             key={item.href}
@@ -53,7 +78,9 @@ const Navigation: React.FC<NavigationProps> = ({
             className={`${textColor} hover:text-gray-300 transition-colors font-medium ${
               activeNav === item.href ? 'font-bold' : 'font-normal'
             } whitespace-nowrap`}
-            style={{ fontSize: '15px' }}
+            style={{ 
+              fontSize: 'clamp(13px, 1.2vw, 16px)'
+            }}
           >
             {item.label}
           </Link>

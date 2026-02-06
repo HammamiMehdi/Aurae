@@ -61,7 +61,7 @@ const ConnectionSection: React.FC = () => {
         </div>
 
         {/* Mannequin */}
-        <div className="absolute top-[400px] sm:top-[450px] md:top-[500px] lg:top-[550px] right-4 sm:right-8 md:right-12 lg:right-[100px]">
+        <div className="absolute top-[400px] sm:top-[450px] md:top-[500px] lg:top-[550px] right-4 sm:right-8 md:right-12 lg:right-[250px]">
           <div 
             style={{
               fontFamily: 'Inter',
