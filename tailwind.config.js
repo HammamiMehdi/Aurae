@@ -35,6 +35,15 @@ export default {
         'lg': '1024px',
         'xl': '1280px',
         '2xl': '1536px',
+        '3xl': '1728px', // Ajoutez ce breakpoint
+      },
+      spacing: {
+        '18': '4.5rem',
+        '112': '28rem',
+        '128': '32rem',
+      },
+      maxWidth: {
+        'screen-3xl': '1728px',
       }
     },
   },
