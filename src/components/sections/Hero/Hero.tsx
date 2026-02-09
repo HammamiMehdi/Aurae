@@ -67,7 +67,7 @@ const Hero: React.FC<HeroProps> = ({
       className="relative w-screen overflow-hidden"
       style={{
         height: '100vh',
-        minHeight: 'clamp(600px, 100vh, 1200px)'
+        minHeight: 'clamp(37.5rem, 100vh, 75rem)' // 600px à 1200px convertis en rem
       }}
     >
       <HeroBackground 
@@ -79,7 +79,7 @@ const Hero: React.FC<HeroProps> = ({
         className="relative z-10 flex flex-col"
         style={{
           height: '100vh',
-          minHeight: 'clamp(600px, 100vh, 1200px)'
+          minHeight: 'clamp(37.5rem, 100vh, 75rem)' // 600px à 1200px convertis en rem
         }}
       >
         <Header 

@@ -58,8 +58,8 @@ const Header: React.FC<HeaderProps> = ({
               fontFamily: 'Inter, sans-serif',
               fontWeight: 700,
               fontStyle: 'normal',
-              fontSize: 'clamp(18px, 2.2vw, 24px)',
-              letterSpacing: '-0.72px'
+              fontSize: 'clamp(1.125rem, 2.2vw, 1.5rem)', // 18px à 24px convertis en rem
+              letterSpacing: '-0.045rem' // -0.72px converti en rem
             }}
           >
             <span>Auræ</span>{' '}
@@ -69,8 +69,8 @@ const Header: React.FC<HeaderProps> = ({
                 fontFamily: 'Instrument Sans, sans-serif',
                 fontWeight: 400,
                 fontStyle: 'italic',
-                fontSize: 'clamp(18px, 2.2vw, 24px)',
-                letterSpacing: '-0.72px'
+                fontSize: 'clamp(1.125rem, 2.2vw, 1.5rem)', // 18px à 24px convertis en rem
+                letterSpacing: '-0.045rem' // -0.72px converti en rem
               }}
             >
               Studio
@@ -87,7 +87,7 @@ const Header: React.FC<HeaderProps> = ({
               fontFamily: 'Inter, sans-serif',
               fontWeight: 400,
               fontStyle: 'normal',
-              fontSize: 'clamp(13px, 1.2vw, 16px)',
+              fontSize: 'clamp(0.8125rem, 1.2vw, 1rem)', // 13px à 16px convertis en rem
               lineHeight: '120%',
               letterSpacing: '-2%',
               padding: 'clamp(0.375rem, 0.8vw, 0.5rem) clamp(0.75rem, 2vw, 1.5rem)'
@@ -119,7 +119,7 @@ const Header: React.FC<HeaderProps> = ({
                 isMenuOpen ? 'rotate-45 translate-y-2' : ''
               }`}
               style={{
-                height: '2px',
+                height: '0.125rem', // 2px converti en rem
                 width: 'clamp(1.25rem, 4vw, 1.5rem)'
               }}
             />
@@ -128,7 +128,7 @@ const Header: React.FC<HeaderProps> = ({
                 isMenuOpen ? 'opacity-0' : 'opacity-100'
               }`}
               style={{
-                height: '2px',
+                height: '0.125rem', // 2px converti en rem
                 width: 'clamp(1.25rem, 4vw, 1.5rem)'
               }}
             />
@@ -137,7 +137,7 @@ const Header: React.FC<HeaderProps> = ({
                 isMenuOpen ? '-rotate-45 -translate-y-2' : ''
               }`}
               style={{
-                height: '2px',
+                height: '0.125rem', // 2px converti en rem
                 width: 'clamp(1.25rem, 4vw, 1.5rem)'
               }}
             />
@@ -159,7 +159,7 @@ const Header: React.FC<HeaderProps> = ({
           isMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
         style={{
-          width: 'clamp(250px, 30vw, 300px)'
+          width: 'clamp(15.625rem, 30vw, 18.75rem)' // 250px à 300px convertis en rem
         }}
       >
         <div 

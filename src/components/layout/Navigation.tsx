@@ -72,7 +72,7 @@ const Navigation: React.FC<NavigationProps> = ({
               activeNav === item.href ? 'font-bold' : 'font-normal'
             } whitespace-nowrap`}
             style={{ 
-              fontSize: 'clamp(13px, 1.2vw, 16px)'
+              fontSize: 'clamp(0.8125rem, 1.2vw, 1rem)' // 13px à 16px convertis en rem
             }}
           >
             {item.label}
