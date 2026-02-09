@@ -240,7 +240,12 @@ const HeroProfileAgence: React.FC<HeroProfileAgenceProps> = ({ backgroundImage }
           </button>
 
           {/* Navigation items */}
-          <nav className="flex flex-col space-y-4">
+          <nav 
+            className="flex flex-col"
+            style={{
+              gap: 'clamp(1.5rem, 3vw, 2rem)' // Espacement augmenté : 24px à 32px convertis en rem
+            }}
+          >
             {navItems.map((item) => (
               <Link
                 key={item.href}
