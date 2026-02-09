@@ -92,9 +92,9 @@ const ConnectionSection: React.FC = () => {
           </div>
 
           <div 
-            className="absolute right-[-0.5rem] sm:right-[-0.5rem] md:right-[-0.75rem] lg:right-[-3rem]"
+            className="absolute right-0"
             style={{
-              top: '5rem', // 80px converti en rem
+              top: 'clamp(3.5rem, 5vh, 3rem)', // Marge verticale réduite : 40px à 48px convertis en rem
               fontFamily: 'Inter',
               fontWeight: 400,
               fontStyle: 'normal',
@@ -172,7 +172,7 @@ const ConnectionSection: React.FC = () => {
         </div>
         {/* Texte de connexion */}
         <div 
-          className="absolute top-[65%] left-1/2 transform -translate-x-1/2 w-[90%] sm:w-[80%] md:w-[60%] px-4 py-3"
+          className="absolute top-[70%] left-1/2 transform -translate-x-1/2 w-[90%] sm:w-[80%] md:w-[60%] px-4 py-3"
           style={{
             maxWidth: '25rem', // 400px converti en rem
             fontFamily: 'Inter',
@@ -197,7 +197,7 @@ const ConnectionSection: React.FC = () => {
             fontFamily: 'Inter',
             fontWeight: 300,
             fontStyle: 'regular',
-            fontSize: 'clamp(0.875rem, 1.3vw, 1.125rem)', // Responsive optimisé : 14px à 18px
+            fontSize: 'clamp(0.875rem, 1.1vw, 1.125rem)', // Responsive optimisé : 14px à 18px
             lineHeight: '120%',
             letterSpacing: '-2%',
             textAlign: 'center',
