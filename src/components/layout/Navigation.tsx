@@ -18,19 +18,12 @@ const Navigation: React.FC<NavigationProps> = ({
   onNavClick,
   textColor = 'text-white',
   width = 'full',
-  spacing = 'normal',
+  spacing: _spacing = 'normal',
   justify = 'center'
 }) => {
-  // Configuration des espacements avec clamp() - responsive entre les items
+  // Configuration des espacements - fixe à 9px
   const getSpacing = () => {
-    switch (spacing) {
-      case 'tight':
-        return 'clamp(0.5rem, 1.5vw, 1rem)'; // 8px à 16px
-      case 'wide':
-        return 'clamp(1.5rem, 3.5vw, 3rem)'; // 24px à 48px
-      default: // normal
-        return 'clamp(0.875rem, 2vw, 1.75rem)'; // 14px à 28px
-    }
+    return '7%'; // Espacement fixe de 9px entre les items
   };
 
   // Configuration des largeurs avec clamp()

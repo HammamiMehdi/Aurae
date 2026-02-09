@@ -13,7 +13,7 @@ const Home: React.FC<HomeProps> = ({ onSignupClick }) => {
       {/* Hero avec configuration complète */}
       <Hero
         profile="agence"
-        backgroundImage="/images/Image_home_page.png"
+        backgroundImage="/images/Image_home_page_v2.png"
         mainText="Auræ"
         subText="Révéler les talents, créer l'exception"
         onSignupClick={onSignupClick}
