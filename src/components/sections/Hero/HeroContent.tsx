@@ -40,7 +40,7 @@ const HeroContent: React.FC<HeroContentProps> = ({
               fontFamily: 'Inter, sans-serif',
               fontWeight: 700,
               fontStyle: 'normal',
-              fontSize: 'clamp(50px, 10vw, 150px)',
+              fontSize: 'clamp(45px, 10vw, 120px)',
               lineHeight: '120%',
               letterSpacing: '-2%',
             }}
