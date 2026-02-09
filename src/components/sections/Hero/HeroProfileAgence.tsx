@@ -14,7 +14,7 @@ const HeroProfileAgence: React.FC<HeroProfileAgenceProps> = ({ backgroundImage }
     { label: 'Home page', href: '/' },
     { label: 'Aurae Profile', href: '/profile-agence' },
     { label: 'Trouver un model', href: '/Models' },
-    { label: 'Mes Projets', href: '/projets-modele' },
+    { label: 'Match&chat', href: '/projets-modele' },
   ];
 
   const handleNavClick = (href: string) => {

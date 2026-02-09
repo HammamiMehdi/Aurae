@@ -94,7 +94,7 @@ const ConnectionSection: React.FC = () => {
           <div 
             className="absolute right-0"
             style={{
-              top: 'clamp(3.5rem, 5vh, 3rem)', // Marge verticale réduite : 40px à 48px convertis en rem
+              top: 'clamp(5rem, 7vh, 5.5rem)', // Marge augmentée : 80px à 88px convertis en rem
               fontFamily: 'Inter',
               fontWeight: 400,
               fontStyle: 'normal',

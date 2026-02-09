@@ -21,7 +21,7 @@ const HeaderModels: React.FC<HeaderModelsProps> = ({ backgroundImage }) => {
   };
 
   return (
-    <section className="relative w-screen h-[50vh] overflow-hidden bg-white">
+    <section className="relative w-screen h-[35vh] overflow-hidden bg-white">
       {/* Background Image optionnel */}
       {backgroundImage && (
         <div 
@@ -80,7 +80,7 @@ const HeaderModels: React.FC<HeaderModelsProps> = ({ backgroundImage }) => {
       </nav>
 
       {/* Contenu du hero pour Models */}
-      <div className="absolute inset-0 z-20 flex items-center justify-center">
+      <div className="absolute inset-0 z-20 flex items-end justify-center pb-8">
         <div className="text-center">
         <h2 
             className="text-black"
@@ -91,10 +91,9 @@ const HeaderModels: React.FC<HeaderModelsProps> = ({ backgroundImage }) => {
               fontSize: '44px',
               lineHeight: '120%',
               letterSpacing: '-2%',
-              marginTop: '32px',
             }}
           >
-            Nos Models
+           Nos modèles
           </h2>
          
         </div>

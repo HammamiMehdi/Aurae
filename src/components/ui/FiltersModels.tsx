@@ -19,15 +19,15 @@ const FiltersModels: React.FC = () => {
 
 
   return (
-    <div className="w-full bg-white py-8">
+    <div className="w-full bg-white pb-4 mt-8">
       <div className="max-w-7xl mx-auto px-8">
         {/* Main Filter Container */}
-        <div className="flex items-center justify-center gap-4">
+        <div className="flex items-center justify-center gap-2">
           {/* Heart Icon */}
-          <button className="flex-shrink-0 w-12 h-12 flex items-center justify-center">
+          <button className="flex-shrink-0 w-10 h-10 flex items-center justify-center">
             <svg
-              width="24"
-              height="24"
+              width="20"
+              height="20"
               viewBox="0 0 24 24"
               fill="red"
               stroke="red"
@@ -38,10 +38,10 @@ const FiltersModels: React.FC = () => {
           </button>
 
           {/* Filter Pills */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2">
             <button
               onClick={() => toggleFilter('localisation')}
-              className={`px-6 py-3 rounded-full border-2 transition-all duration-200 ${
+              className={`px-8 py-2 rounded-2xl border-2 transition-all duration-200 ${
                 selectedFilters.localisation
                   ? 'border-black bg-black text-white'
                   : 'border-gray-300 bg-white text-black hover:border-gray-400'
@@ -53,6 +53,7 @@ const FiltersModels: React.FC = () => {
                 fontSize: '15px',
                 lineHeight: '120%',
                 letterSpacing: '-2%',
+                boxShadow: '0px 3px 5px 0px #00000040',
               }}
             >
               Localisation
@@ -60,7 +61,7 @@ const FiltersModels: React.FC = () => {
 
             <button
               onClick={() => toggleFilter('disponibilite')}
-              className={`px-6 py-3 rounded-full border-2 transition-all duration-200 ${
+              className={`px-8 py-2 rounded-2xl border-2 transition-all duration-200 ${
                 selectedFilters.disponibilite
                   ? 'border-black bg-black text-white'
                   : 'border-gray-300 bg-white text-black hover:border-gray-400'
@@ -72,6 +73,7 @@ const FiltersModels: React.FC = () => {
                 fontSize: '15px',
                 lineHeight: '120%',
                 letterSpacing: '-2%',
+                boxShadow: '0px 3px 5px 0px #00000040',
               }}
             >
               Disponibilité
@@ -79,7 +81,7 @@ const FiltersModels: React.FC = () => {
 
             <button
               onClick={() => toggleFilter('apparence')}
-              className={`px-6 py-3 rounded-full border-2 transition-all duration-200 ${
+              className={`px-8 py-2 rounded-2xl border-2 transition-all duration-200 ${
                 selectedFilters.apparence
                   ? 'border-black bg-black text-white'
                   : 'border-gray-300 bg-white text-black hover:border-gray-400'
@@ -91,6 +93,7 @@ const FiltersModels: React.FC = () => {
                 fontSize: '15px',
                 lineHeight: '120%',
                 letterSpacing: '-2%',
+                boxShadow: '0px 3px 5px 0px #00000040',
               }}
             >
               Apparence
@@ -98,7 +101,7 @@ const FiltersModels: React.FC = () => {
 
             <button
               onClick={() => toggleFilter('iaOption')}
-              className={`px-6 py-3 rounded-full border-2 transition-all duration-200 ${
+              className={`px-8 py-2 rounded-2xl border-2 transition-all duration-200 ${
                 selectedFilters.iaOption
                   ? 'border-black bg-black text-white'
                   : 'border-gray-300 bg-white text-black hover:border-gray-400'
@@ -110,6 +113,7 @@ const FiltersModels: React.FC = () => {
                 fontSize: '15px',
                 lineHeight: '120%',
                 letterSpacing: '-2%',
+                boxShadow: '0px 3px 5px 0px #00000040',
               }}
             >
               IA Option
@@ -118,32 +122,7 @@ const FiltersModels: React.FC = () => {
           </div>
 
         {/* More Filters Button */}
-        <div className="flex justify-center mt-6">
-          <button
-            onClick={() => setShowMoreFilters(!showMoreFilters)}
-            className="flex items-center gap-2 px-6 py-3 rounded-full border-2 border-gray-300 bg-white text-black hover:border-gray-400 transition-all duration-200"
-            style={{
-              fontFamily: 'Inter',
-              fontWeight: 700,
-              fontStyle: 'bold',
-              fontSize: '15px',
-              lineHeight: '120%',
-              letterSpacing: '-2%',
-            }}
-          >
-            ... plus de filtres
-            <svg 
-              width="20"
-              height="20"
-              viewBox="0 0 24 24" 
-              fill="none" 
-              stroke="currentColor" 
-              strokeWidth="2"
-            >
-              <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" />
-            </svg>
-          </button>
-        </div>
+        
       </div>
     </div>
   );
