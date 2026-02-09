@@ -115,7 +115,7 @@ const FiltersModels: React.FC = () => {
               IA Option
             </button>
           </div>
-        </div>
+          </div>
 
         {/* More Filters Button */}
         <div className="flex justify-center mt-6">
@@ -132,12 +132,12 @@ const FiltersModels: React.FC = () => {
             }}
           >
             ... plus de filtres
-            <svg
+            <svg 
               width="20"
               height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
+              viewBox="0 0 24 24" 
+              fill="none" 
+              stroke="currentColor" 
               strokeWidth="2"
             >
               <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" />

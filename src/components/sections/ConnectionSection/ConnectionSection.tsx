@@ -3,14 +3,23 @@ import { Link } from 'react-router-dom';
 
 const ConnectionSection: React.FC = () => {
   return (
-    <div className="relative w-full min-h-[800px] sm:min-h-[1000px] md:min-h-[1200px] lg:h-[1500px] overflow-hidden">
-      <div className="absolute inset-0 z-0 min-h-full">
-        <img 
-          src="/images/Image_home2_page.jpg" 
-          alt="Background" 
-          className="w-full h-full object-cover scale-[1.8] sm:scale-[1.6] md:scale-[1.5] lg:scale-[1.6] translate-y-[-15%] translate-x-[-15%] sm:translate-x-[-10%] md:translate-x-[-5%] lg:translate-x-[-28%]"
-        />
-      </div>
+    <div 
+      className="relative w-full overflow-hidden"
+      style={{
+        minHeight: 'clamp(80rem, 180vh, 150rem)' // 800px à 1500px convertis en rem, responsive avec vh
+      }}
+    >
+      <img 
+        src="/images/Image_home2_page.png" 
+        alt="Background" 
+        className="absolute inset-0 z-0 object-cover "
+        style={{
+          width: '100%',
+          height: '100%',
+          minWidth: '100%',
+          minHeight: '100%'
+        }}
+      />
       
       <div className="absolute inset-0 z-10 text-white px-4 sm:px-6 md:px-8">
         {/* Connexion - Positionné en haut à gauche */}
@@ -21,7 +30,7 @@ const ConnectionSection: React.FC = () => {
             fontFamily: 'Inter',
             fontWeight: 700,
             fontStyle: 'normal',
-            fontSize: 'clamp(28px, 5vw, 55px)',
+            fontSize: 'clamp(1.5rem, 4vw, 3.4375rem)', // Responsive optimisé : 24px à 55px
             lineHeight: '120%',
             letterSpacing: '-2%',
           }}
@@ -30,13 +39,13 @@ const ConnectionSection: React.FC = () => {
         </Link>
 
         {/* Vous êtes - Créatif */}
-        <div className="absolute top-[18%] sm:top-[22%] md:top-[23%] lg:top-[20%] left-[2%] sm:left-[3%] md:left-[4%] lg:left-[13%]">
+        <div className="absolute top-[17%] sm:top-[20%] md:top-[21%] lg:top-[19%] left-[12%] ">
           <div 
             style={{
               fontFamily: 'Inter',
               fontWeight: 400,
               fontStyle: 'Regular',
-              fontSize: '17px',
+              fontSize: 'clamp(0.875rem, 1.2vw, 1.0625rem)', // Responsive : 14px à 17px
               lineHeight: '120%',
               letterSpacing: '-2%',
               textAlign: 'center',
@@ -46,12 +55,13 @@ const ConnectionSection: React.FC = () => {
           </div>
 
           <div 
-            className="absolute top-[40px] sm:top-[50px] md:top-[60px] lg:top-[25px] left-0 sm:left-[15px] md:left-[30px] lg:left-[30px]"
+            className="absolute left-0 sm:left-[0.9375rem] md:left-[1.875rem] lg:left-[1.875rem]"
             style={{
+              top: 'clamp(1.35rem, 1.6vh, 1.1rem)', // Marge réduite : 20px à 15px convertis en rem
               fontFamily: 'Inter',
               fontWeight: 700,
               fontStyle: 'bold',
-              fontSize: 'clamp(28px, 5vw, 56px)',
+              fontSize: 'clamp(1.5rem, 4vw, 3.5rem)', // Responsive optimisé : 24px à 56px
               lineHeight: '120%',
               letterSpacing: '-2%',
             }}
@@ -61,13 +71,18 @@ const ConnectionSection: React.FC = () => {
         </div>
 
         {/* Mannequin */}
-        <div className="absolute top-[400px] sm:top-[450px] md:top-[500px] lg:top-[550px] right-4 sm:right-8 md:right-12 lg:right-[250px]">
+        <div 
+          className="absolute right-1 sm:right-4 md:right-8 lg:right-[10rem]"
+          style={{
+            top: 'clamp(30rem, 52vh, 37rem)' // Déplacé vers le bas
+          }}
+        >
           <div 
             style={{
               fontFamily: 'Inter',
               fontWeight: 700,
               fontStyle: 'normal',
-              fontSize: 'clamp(32px, 5vw, 60px)',
+              fontSize: 'clamp(1.75rem, 4vw, 3.75rem)', // Responsive optimisé : 28px à 60px
               lineHeight: '120%',
               letterSpacing: '-2%',
               textAlign: 'right',
@@ -77,12 +92,13 @@ const ConnectionSection: React.FC = () => {
           </div>
 
           <div 
-            className="absolute top-[80px] sm:top-[80px] md:top-[80px] lg:top-[80px] right-0 sm:right-0 md:right-[-4px] lg:right-[-40px]"
+            className="absolute right-0 sm:right-0 md:right-[-0.25rem] lg:right-[-2.5rem]"
             style={{
+              top: '5rem', // 80px converti en rem
               fontFamily: 'Inter',
               fontWeight: 400,
               fontStyle: 'normal',
-              fontSize: 'clamp(12px, 1.5vw, 15px)',
+              fontSize: 'clamp(0.6875rem, 1.2vw, 0.9375rem)', // Responsive optimisé : 11px à 15px
               lineHeight: '100%',
               letterSpacing: '0%',
               textAlign: 'right',
@@ -96,62 +112,79 @@ const ConnectionSection: React.FC = () => {
 
         
 
+        {/* Conteneur pour "Vous êtes une", "Agence" et "de mannequins" */}
         <div 
-          className="absolute top-[770px] left-4 sm:left-8 md:left-16 lg:left-[260px]"
+          className="absolute  sm:left-4 md:left-8 lg:left-[8rem] w-auto"
           style={{
-            fontFamily: 'Inter',
-            fontWeight: 300,
-            fontStyle: 'regular',
-            fontSize: 'clamp(15px, 1.5vw, 17px)',
-            lineHeight: '100%',
-            letterSpacing: '0%',
-            textAlign: 'left',
+            top: 'clamp(45rem, 70vh, 45rem)', // 770px converti en rem, responsive avec vh
+            width: '40%',
           }}
         >
-          Vous êtes une
-        </div>
+          {/* Vous êtes une */}
+          <div 
+            style={{
+              fontFamily: 'Inter',
+              fontWeight: 300,
+              fontStyle: 'regular',
+              fontSize: 'clamp(0.875rem, 1.2vw, 1.0625rem)', // Responsive optimisé : 14px à 17px
+              lineHeight: '100%',
+              letterSpacing: '0%',
+              textAlign: 'left',
+            }}
+          >
+            Vous êtes une
+          </div>
+          
           {/* Agence */}
-        <div 
-          className="absolute top-[780px] left-[340px]"
-          style={{
-            fontFamily: 'Inter',
-            fontWeight: 700,
-            fontStyle: 'normal',
-            fontSize: 'clamp(32px, 5vw, 60px)',
-            lineHeight: '120%',
-            letterSpacing: '-2%',
-          }}
-        >
-          Agence
-        </div>
-        <div 
-          className="absolute top-[825px] left-[570px]"
-          style={{
-            fontFamily: 'Inter',
-            fontWeight: 400,
-            fontStyle: 'normal',
-            fontSize: 'clamp(12px, 1.5vw, 15px)',
-            lineHeight: '100%',
-            letterSpacing: '0%',
-            textAlign: 'left',
-          }}
-        >
-          de mannequins
+          <div 
+            className="absolute"
+            style={{
+              top: 'clamp(0.625rem, 1vh, 0.625rem)', // Position relative au conteneur
+              left: 'clamp(5rem, 15vw, 5rem)', // Position relative au conteneur
+              fontFamily: 'Inter',
+              fontWeight: 700,
+              fontStyle: 'normal',
+              fontSize: 'clamp(2rem, 5vw, 3.75rem)', // 32px à 60px convertis en rem
+              lineHeight: '120%',
+              letterSpacing: '-2%',
+            }}
+          >
+            Agence
+          </div>
+          
+          {/* de mannequins */}
+          <div 
+            className="absolute"
+            style={{
+              top: 'clamp(3.4375rem, 5vh, 3.4375rem)', // Position relative au conteneur
+              left: 'clamp(19.625rem, 35vw, 19.625rem)', // Position relative au conteneur
+              fontFamily: 'Inter',
+              fontWeight: 400,
+              fontStyle: 'normal',
+              fontSize: 'clamp(0.75rem, 1.5vw, 0.9375rem)', // 12px à 15px convertis en rem
+              lineHeight: '100%',
+              letterSpacing: '0%',
+              textAlign: 'left',
+            }}
+          >
+            de mannequins
+          </div>
         </div>
         {/* Texte de connexion */}
         <div 
-          className="absolute top-[70%]  left-1/2 transform -translate-x-1/2 w-[90%] sm:w-[80%] md:w-[60%] lg:w-[400px] max-w-[400px] px-4 py-3"
+          className="absolute top-[65%] left-1/2 transform -translate-x-1/2 w-[90%] sm:w-[80%] md:w-[60%] px-4 py-3"
           style={{
+            maxWidth: '25rem', // 400px converti en rem
             fontFamily: 'Inter',
             fontWeight: 600,
             fontStyle: 'normal',
-            fontSize: 'clamp(12px, 1.5vw, 15px)',
+            fontSize: 'clamp(0.75rem, 1.5vw, 0.9375rem)', // 12px à 15px convertis en rem
             lineHeight: '140%',
             letterSpacing: '0%',
             textAlign: 'center',
             background: '#FFFFFF38',
             backdropFilter: 'blur(35px)',
-            borderRadius: '26px',
+            borderRadius: '1.625rem', // 26px converti en rem
           }}
         >
           Connectez-vous pour révéler votre présence.
@@ -159,12 +192,12 @@ const ConnectionSection: React.FC = () => {
 
         {/* Texte description */}
         <div 
-          className="absolute top-[90%]  left-1/2 transform -translate-x-1/2 w-[70%] px-4 pb-8 sm:pb-12 md:pb-16"
+          className="absolute top-[90%] left-1/2 transform -translate-x-1/2 w-[70%] px-4 pb-8 sm:pb-12 md:pb-16"
           style={{
             fontFamily: 'Inter',
             fontWeight: 300,
             fontStyle: 'regular',
-            fontSize: '18px',
+            fontSize: 'clamp(0.875rem, 1.3vw, 1.125rem)', // Responsive optimisé : 14px à 18px
             lineHeight: '120%',
             letterSpacing: '-2%',
             textAlign: 'center',
