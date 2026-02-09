@@ -51,7 +51,9 @@ const Navigation: React.FC<NavigationProps> = ({
       style={{
         paddingLeft: 'clamp(1rem, 3vw, 2rem)',
         paddingRight: 'clamp(1rem, 3vw, 2rem)',
-        paddingBottom: 'clamp(1rem, 2.5vw, 2rem)'
+        paddingTop: 'clamp(0.25rem, 0.5vw, 0.5rem)', // Padding top réduit
+        paddingBottom: 'clamp(0.5rem, 1vw, 1rem)', // Padding bottom réduit
+        marginTop: 'clamp(-1rem, -2vw, -0.5rem)' // Marge négative pour monter la navigation
       }}
     >
       <div 

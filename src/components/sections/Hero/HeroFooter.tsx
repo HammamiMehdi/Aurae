@@ -29,7 +29,7 @@ const HeroFooter: React.FC<HeroFooterProps> = ({
             fontFamily: 'Inter, sans-serif',
             fontWeight: 300,
             fontStyle: 'normal',
-            fontSize: 'clamp(0.6875rem, 1.3vw, 1rem)', // 11px à 16px convertis en rem
+            fontSize: 'clamp(0.625rem, 1.1vw, 0.875rem)', // Réduit : 10px à 14px convertis en rem
             lineHeight: '120%',
             letterSpacing: '-2%',
             textAlign: 'center',

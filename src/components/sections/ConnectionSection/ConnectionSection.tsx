@@ -92,7 +92,7 @@ const ConnectionSection: React.FC = () => {
           </div>
 
           <div 
-            className="absolute right-0 sm:right-0 md:right-[-0.25rem] lg:right-[-2.5rem]"
+            className="absolute right-[-0.5rem] sm:right-[-0.5rem] md:right-[-0.75rem] lg:right-[-3rem]"
             style={{
               top: '5rem', // 80px converti en rem
               fontFamily: 'Inter',
