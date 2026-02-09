@@ -153,7 +153,7 @@ const ProfileAgenceProjects: React.FC = () => {
           ref={carouselRef}
         >
           <div
-            className="flex transition-transform duration-500 ease-in-out h-full gap-4 sm:gap-6 md:gap-[30px]"
+            className="flex transition-transform duration-500 ease-in-out h-full "
             style={{
               transform: `translateX(calc(-${currentIndex * 100}% - ${currentIndex * 1}rem + ${currentTranslate}px))`,
             }}

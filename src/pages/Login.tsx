@@ -123,7 +123,7 @@ const Login: React.FC = () => {
                 letterSpacing: "-2%",
               }}
             >
-              Mannequins réels et présences IA pour un nouveau langage du
+              Talents réels et présences IA pour un nouveau langage du
               casting
             </p>
           </motion.div>
