@@ -34,8 +34,8 @@ const HeroProfileAgence: React.FC<HeroProfileAgenceProps> = ({ backgroundImage }
           className="absolute inset-0 bg-center bg-no-repeat"
           style={{
             backgroundImage: `url('${backgroundImage}')`,
-            backgroundSize: 'clamp(110%, 100%, 140%)',
-            backgroundPosition: 'center bottom',
+            backgroundSize: 'clamp(140%, 157%, 160%)',
+            backgroundPosition: `center clamp(78%, 80%, 85%)`, // Position verticale responsive
           }}
         />
         
@@ -105,16 +105,27 @@ const HeroProfileAgence: React.FC<HeroProfileAgenceProps> = ({ backgroundImage }
         </header>
 
         {/* Navigation - hidden on mobile */}
-        <nav className="hidden md:block relative z-50 px-4 sm:px-6 md:px-8 pb-4 sm:pb-6 md:pb-8 justify-center flex">
+        <nav 
+          className="hidden md:block relative z-50 px-4 sm:px-6 md:px-8 justify-center flex"
+          style={{
+            paddingTop: 'clamp(0.25rem, 0.5vw, 0.5rem)', // Padding top réduit
+            paddingBottom: 'clamp(0.5rem, 1vw, 1rem)', // Padding bottom réduit
+            marginTop: 'clamp(-1rem, -2vw, -0.5rem)' // Marge négative pour monter la navigation
+          }}
+        >
           <div className="flex space-x-4 sm:space-x-6 md:space-x-8 flex-wrap justify-center">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 to={item.href}
                 onClick={() => handleNavClick(item.href)}
-                className={`text-white hover:text-gray-300 transition-colors font-medium cursor-pointer text-xs sm:text-sm md:text-base ${
+                className={`text-white hover:text-gray-300 transition-colors cursor-pointer whitespace-nowrap ${
                   activeNav === item.href ? 'font-bold' : 'font-normal'
-                } whitespace-nowrap`}
+                }`}
+                style={{
+                  fontSize: 'clamp(0.9rem, 1.1vw, 1rem)', // Taille réduite : 11px à 14px convertis en rem
+                  fontWeight: activeNav === item.href ? 700 : 400 // Gras pour la page actuelle
+                }}
               >
                 {item.label}
               </Link>
@@ -138,7 +149,7 @@ const HeroProfileAgence: React.FC<HeroProfileAgenceProps> = ({ backgroundImage }
                 fontFamily: 'Inter',
                 fontWeight: 700,
                 fontStyle: 'normal',
-                fontSize: 'clamp(32px, 5vw, 55px)',
+                fontSize: 'clamp(1.75rem, 4vw, 3rem)', // Réduit : 28px à 48px convertis en rem
                 lineHeight: '120%',
                 letterSpacing: '-10%',
                 textAlign: 'right',
@@ -154,7 +165,7 @@ const HeroProfileAgence: React.FC<HeroProfileAgenceProps> = ({ backgroundImage }
                 fontFamily: 'Inter',
                 fontWeight: 400,
                 fontStyle: 'normal',
-                fontSize: 'clamp(12px, 1.5vw, 15px)',
+                fontSize: 'clamp(0.6875rem, 1.2vw, 0.875rem)', // Réduit : 11px à 14px convertis en rem
                 lineHeight: '100%',
                 letterSpacing: '0%',
                 fontVariantNumeric: 'lining-nums proportional-nums',
@@ -167,19 +178,19 @@ const HeroProfileAgence: React.FC<HeroProfileAgenceProps> = ({ backgroundImage }
 
           {/* Description de l'agence */}
           <div 
-            className="absolute top-[90%] left-1/2 transform -translate-x-1/2 w-[90%] sm:w-[85%] md:w-[80%] lg:w-[80%] max-w-4xl"
+            className="absolute top-[92%] left-1/2 transform -translate-x-1/2 w-[90%] sm:w-[85%] md:w-[80%] lg:w-[80%] max-w-4xl"
             style={{
               fontFamily: 'Inter',
               fontWeight: 400,
               fontStyle: 'normal',
-              fontSize: 'clamp(11px, 1.3vw, 15px)',
+              fontSize: 'clamp(0.625rem, 1.1vw, 0.875rem)', // Réduit : 10px à 14px convertis en rem
               lineHeight: '140%',
               letterSpacing: '0%',
               textAlign: 'center',
               fontVariantNumeric: 'lining-nums proportional-nums',
             }}
           >
-            Production 520 est une agence de production et de post-production photo, vidéo et 360° spécialisée dans la mode et le luxe
+            Production 520 est une agence de production et de post-production photo, vidéo et 360° spécialisée dans la mode et le luxe <br/>
             (e-shop, lookbook, edito, campagne etc.).
           </div>
 

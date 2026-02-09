@@ -18,7 +18,7 @@ const ProfileAgenceContent: React.FC = () => {
             }}
             className="text-black"
           >
-            Ajouter un nouveau projet
+           Créer un nouveau projet
           </div>
         </div>
       </div>
