@@ -29,7 +29,8 @@ const HeroContent: React.FC<HeroContentProps> = ({
         style={{
           maxWidth: 'clamp(20rem, 80vw, 56rem)',
           paddingLeft: 'clamp(1rem, 3vw, 2rem)',
-          paddingRight: 'clamp(1rem, 3vw, 2rem)'
+          paddingRight: 'clamp(1rem, 3vw, 2rem)',
+          transform: 'translateY(clamp(-2.8rem, -5vh, -1.5rem))' // Déplace le contenu vers le haut
         }}
       >
         {/* Texte principal */}
