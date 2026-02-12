@@ -113,7 +113,7 @@ const HeroProfileAgence: React.FC<HeroProfileAgenceProps> = ({ backgroundImage }
             marginTop: 'clamp(-1rem, -2vw, -0.5rem)' // Marge négative pour monter la navigation
           }}
         >
-          <div className="flex space-x-4 sm:space-x-6 md:space-x-8 flex-wrap justify-center">
+          <div className="flex space-x-4 sm:space-x-6 md:space-x-24 flex-wrap justify-center">
             {navItems.map((item) => (
               <Link
                 key={item.href}

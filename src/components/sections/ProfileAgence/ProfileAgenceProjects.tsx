@@ -109,30 +109,30 @@ const ProfileAgenceProjects: React.FC = () => {
   };
 
   return (
-    <div className="w-full bg-white py-12 sm:py-14 md:py-16">
+    <div className="w-full bg-white  py-12 sm:py-14 md:py-16">
       {/* Titre et description */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 mb-8 sm:mb-10 md:mb-12">
-        <div className="text-center mb-4 sm:mb-6">
+      <div className=" mx-10 mb-8 sm:mb-10 md:mb-12">
+        <div className="text-left mb-4 sm:mb-6">
           <div
             className="mb-3 sm:mb-4"
             style={{
               fontFamily: "Inter",
               fontWeight: 700,
               fontStyle: "bold",
-              fontSize: "clamp(22px, 3.5vw, 30px)",
+              fontSize: "clamp(45px, 5vw, 50px)",
               lineHeight: "100%",
               letterSpacing: "0%",
             }}
           >
-            NOS PROJETS
+            Nos projets
           </div>
           <div
-            className="max-w-4xl mx-auto mt-6 sm:mt-8 md:mt-10 px-4"
+            className="max-w-7xl mx-auto mt-6 sm:mt-8 md:mt-10"
             style={{
               fontFamily: "Inter",
               fontWeight: 400,
-              fontStyle: "normal",
-              fontSize: "clamp(13px, 1.8vw, 16px)",
+              fontStyle: "Italic",
+              fontSize: "clamp(11px, 1.5vw, 14px)",
               lineHeight: "140%",
               letterSpacing: "-2%",
               textAlign: "center",
@@ -153,7 +153,7 @@ const ProfileAgenceProjects: React.FC = () => {
           ref={carouselRef}
         >
           <div
-            className="flex transition-transform duration-500 ease-in-out h-full "
+            className="flex transition-transform duration-500 ease-in-out h-full gap-4 "
             style={{
               transform: `translateX(calc(-${currentIndex * 100}% - ${currentIndex * 1}rem + ${currentTranslate}px))`,
             }}
@@ -168,9 +168,9 @@ const ProfileAgenceProjects: React.FC = () => {
             {projects.map((project) => (
               <div
                 key={project.id}
-                className="flex-shrink-0 h-full flex justify-center items-center select-none px-2 sm:px-4"
+                className="flex-shrink-0 h-full flex justify-center items-center select-none"
               >
-                <div className="relative w-[280px] sm:w-[320px] md:w-[360px] lg:w-[400px] h-full">
+                <div className="relative w-auto h-full">
                   <img
                     src={project.image}
                     alt={project.name}
@@ -254,18 +254,19 @@ const ProfileAgenceProjects: React.FC = () => {
         </div>
       </div>
       {/* Texte "Voir tous les projets" */}
-      <div className="w-full flex justify-center mt-6 sm:mt-8 md:mt-10 px-4">
+      <div className="w-full flex justify-center mt-6 sm:mt-8 md:mt-10">
         <span
           style={{
             fontFamily: "Inter",
             fontWeight: 400,
+            fontStyle: "Italic",
             fontSize: "clamp(13px, 1.5vw, 15px)",
             lineHeight: "100%",
             letterSpacing: "0%",
             fontVariantNumeric: "lining-nums proportional-nums",
           }}
         >
-          Voir tous les projets
+          Créer un nouveau projet
         </span>
       </div>
     </div>
