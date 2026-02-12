@@ -80,7 +80,7 @@ const Login: React.FC = () => {
           transition={{ duration: 1 }}
         >
           <img
-            src="/images/login-background.png"
+            src="/images/login-background2.png"
             alt="Login background"
             className="absolute inset-0 w-full h-full object-cover"
           />
@@ -94,7 +94,7 @@ const Login: React.FC = () => {
           variants={containerVariants}
         >
           {/* Titre principal */}
-          <motion.div className="text-center  mt-15">
+          <motion.div className="text-center  mt-20">
             <h1
               className="text-white font-bold"
               style={{
@@ -118,7 +118,7 @@ const Login: React.FC = () => {
                 fontFamily: "Inter",
                 fontWeight: 400,
                 fontStyle: "regular",
-                fontSize: "15px",
+                fontSize: "10px",
                 lineHeight: "120%",
                 letterSpacing: "-2%",
               }}
@@ -162,7 +162,7 @@ const Login: React.FC = () => {
                   fill="#EA4335"
                 />
               </svg>
-              <span className="font-inter" style={{ fontSize: '10px' }}>
+              <span className="font-inter" style={{ fontSize: '10px', color: 'gray' }}>
                 Se connecter avec Google
               </span>
             </motion.button>
