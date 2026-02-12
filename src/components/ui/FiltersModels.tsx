@@ -8,8 +8,6 @@ const FiltersModels: React.FC = () => {
     iaOption: false,
   });
 
-  const [showMoreFilters, setShowMoreFilters] = useState(false);
-
   const toggleFilter = (filterType: keyof typeof selectedFilters) => {
     setSelectedFilters(prev => ({
       ...prev,
