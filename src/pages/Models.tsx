@@ -9,10 +9,12 @@ const Models: React.FC = () => {
       <HeaderModels backgroundImage="/images/models-hero.jpg" />
       <FiltersModels />
       <ModelsGallery />
-      <div className="mt-32">
+      {/* Gallery section below ModelsGallery component */}
+      <div className="mt-64">
         <Footer />
       </div>
     </div>
   );
 };
+
 export default Models;

@@ -15,12 +15,21 @@ const FiltersModels: React.FC = () => {
     }));
   };
 
+  const resetFilters = () => {
+    setSelectedFilters({
+      localisation: false,
+      disponibilite: false,
+      apparence: false,
+      iaOption: false,
+    });
+  };
+
 
   return (
-    <div className="w-full bg-white pb-4 mt-8">
-      <div className="max-w-7xl mx-auto px-8">
+    <div className="w-full bg-white h-auto min-h-0 pb-4 mt-8">
+      <div className="max-w-7xl mx-auto px-8 flex flex-col">
         {/* Main Filter Container */}
-        <div className="flex items-center justify-center gap-2">
+        <div className="flex items-center justify-center gap-2 mb-16">
           {/* Heart Icon */}
           <button className="flex-shrink-0 w-10 h-10 flex items-center justify-center">
             <svg
@@ -117,10 +126,26 @@ const FiltersModels: React.FC = () => {
               IA Option
             </button>
           </div>
-          </div>
+          
+        </div>
 
-        {/* More Filters Button */}
-        
+        {/* Réinitialiser Button */}
+        <div className="flex justify-center mt-8">
+          <button
+            onClick={resetFilters}
+            className="hover:opacity-80 transition-opacity cursor-pointer"
+            style={{
+              fontFamily: 'Inter',
+              fontWeight: 400,
+              fontStyle: 'normal',
+              fontSize: '15px',
+              lineHeight: '120%',
+              letterSpacing: '-2%',
+            }}
+          >
+            Réinitialiser
+          </button>
+        </div>
       </div>
     </div>
   );
