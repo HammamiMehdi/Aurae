@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import Navigation from '../../layout/Navigation';
+import type { NavItem } from '../../../types/profiles';
 
 interface HeroProfileAgenceProps {
   backgroundImage: string;
@@ -10,7 +12,7 @@ const HeroProfileAgence: React.FC<HeroProfileAgenceProps> = ({ backgroundImage }
   const [activeNav, setActiveNav] = useState<string>(location.pathname);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const navItems = [
+  const navItems: NavItem[] = [
     { label: 'Home page', href: '/' },
     { label: 'Aurae Profile', href: '/profile-agence' },
     { label: 'Trouver un model', href: '/Models' },
@@ -104,34 +106,16 @@ const HeroProfileAgence: React.FC<HeroProfileAgenceProps> = ({ backgroundImage }
           </div>
         </header>
 
-        {/* Navigation - hidden on mobile */}
-        <nav 
-          className="hidden md:block relative z-50 px-4 sm:px-6 md:px-8 justify-center flex"
-          style={{
-            paddingTop: 'clamp(0.25rem, 0.5vw, 0.5rem)', // Padding top réduit
-            paddingBottom: 'clamp(0.5rem, 1vw, 1rem)', // Padding bottom réduit
-            marginTop: 'clamp(-1rem, -2vw, -0.5rem)' // Marge négative pour monter la navigation
-          }}
-        >
-          <div className="flex space-x-4 sm:space-x-6 md:space-x-24 flex-wrap justify-center">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                to={item.href}
-                onClick={() => handleNavClick(item.href)}
-                className={`text-white hover:text-gray-300 transition-colors cursor-pointer whitespace-nowrap ${
-                  activeNav === item.href ? 'font-bold' : 'font-normal'
-                }`}
-                style={{
-                  fontSize: 'clamp(0.9rem, 1.1vw, 1rem)', // Taille réduite : 11px à 14px convertis en rem
-                  fontWeight: activeNav === item.href ? 700 : 400 // Gras pour la page actuelle
-                }}
-              >
-                {item.label}
-              </Link>
-            ))}
-          </div>
-        </nav>
+        {/* Navigation */}
+        <div className="relative z-50">
+          <Navigation
+            navItems={navItems}
+            activeNav={activeNav}
+            onNavClick={handleNavClick}
+            textColor="text-white"
+            justify="center"
+          />
+        </div>
 
         {/* Contenu texte avec positionnement absolu selon les spécifications */}
         <div className="absolute inset-0 z-20 text-white px-4 sm:px-6 md:px-8">

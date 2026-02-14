@@ -33,7 +33,7 @@ const ModelCard: React.FC<ModelCardProps> = ({ model }) => {
 
   return (
     <div
-      className="absolute w-full"
+      className="absolute w-full h-auto"
       style={{
         top: model.top,
         left: model.left,

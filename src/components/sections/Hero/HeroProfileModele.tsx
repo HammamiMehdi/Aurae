@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
+import Navigation from '../../layout/Navigation';
+import type { NavItem } from '../../../types/profiles';
 
 interface HeroProfileModeleProps {
   backgroundImage: string;
@@ -12,7 +14,7 @@ const HeroProfileModele: React.FC<HeroProfileModeleProps> = ({
   const [activeNav, setActiveNav] = useState<string>(location.pathname);
   const [isLoaded, setIsLoaded] = useState(false);
 
-  const navItems = [
+  const navItems: NavItem[] = [
     { label: "Home page", href: "/" },
     { label: "Aurae Profile", href: "/profile-modele" },
     { label: "Trouver un model", href: "/Models" },
@@ -97,31 +99,20 @@ const HeroProfileModele: React.FC<HeroProfileModeleProps> = ({
         </div>
       </header>
 
-      {/* Navigation avec animation */}
-      <nav
-        className={`relative z-50 px-8 pb-8 justify-center flex transition-all duration-700 ${
+      {/* Navigation */}
+      <div 
+        className={`relative z-50 transition-all duration-700 ${
           isLoaded ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
         }`}
       >
-        <div className="flex space-x-16">
-          {navItems.map((item, index) => (
-            <Link
-              key={item.href}
-              to={item.href}
-              onClick={() => handleNavClick(item.href)}
-              className={`text-white hover:text-gray-300 transition-all duration-300 font-medium cursor-pointer ${
-                activeNav === item.href ? "font-bold" : "font-normal"
-              } ${isLoaded ? "opacity-100" : "opacity-0"}`}
-              style={{
-                fontSize: "14px",
-                transitionDelay: `${index * 100}ms`,
-              }}
-            >
-              {item.label}
-            </Link>
-          ))}
-        </div>
-      </nav>
+        <Navigation
+          navItems={navItems}
+          activeNav={activeNav}
+          onNavClick={handleNavClick}
+          textColor="text-white"
+          justify="center"
+        />
+      </div>
 
       {/* Contenu texte avec animations d'entrée */}
       <div className="absolute inset-0 z-20 text-white">

@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import Navigation from './Navigation';
+import type { NavItem } from '../../types/profiles';
 
 interface HeaderMatchsChatProps {
   backgroundImage?: string;
@@ -10,11 +12,11 @@ const HeaderMatchsChat: React.FC<HeaderMatchsChatProps> = ({ backgroundImage }) 
   const [activeNav, setActiveNav] = useState<string>(location.pathname);
   const navigate = useNavigate();
 
-  const navItems = [
+  const navItems: NavItem[] = [
     { label: 'Home page', href: '/' },
     { label: 'Aurae Profile', href: '/profile-agence' },
     { label: 'Trouver un model', href: '/Models' },
-    { label: 'Mes projets', href: '/projets-modele' },
+    { label: 'Matchs & Chat', href: '/projets-modele' },
   ];
 
   const handleNavClick = (href: string) => {
@@ -78,24 +80,16 @@ const HeaderMatchsChat: React.FC<HeaderMatchsChatProps> = ({ backgroundImage }) 
         </Link>
       </header>
 
-      {/* Navigation - texte en noir */}
-      <nav className="relative z-50 px-8 pb-8 justify-center flex">
-        <div className="flex space-x-8">
-          {navItems.map((item) => (
-            <Link
-              key={item.href}
-              to={item.href}
-              onClick={() => handleNavClick(item.href)}
-              className={`text-black hover:text-gray-600 transition-colors font-medium cursor-pointer ${
-                activeNav === item.href ? 'font-bold' : 'font-normal'
-              }`}
-              style={{fontSize: '14px'}}
-            >
-              {item.label}
-            </Link>
-          ))}
-        </div>
-      </nav>
+      {/* Navigation */}
+      <div className="relative z-50">
+        <Navigation
+          navItems={navItems}
+          activeNav={activeNav}
+          onNavClick={handleNavClick}
+          textColor="text-black"
+          justify="center"
+        />
+      </div>
     </section>
   );
 };

@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import Navigation from './Navigation';
+import type { NavItem } from '../../types/profiles';
 
 interface HeaderModelsProps {
   backgroundImage?: string;
@@ -9,11 +11,11 @@ const HeaderModels: React.FC<HeaderModelsProps> = ({ backgroundImage }) => {
   const location = useLocation();
   const [activeNav, setActiveNav] = useState<string>(location.pathname);
 
-  const navItems = [
+  const navItems: NavItem[] = [
     { label: 'Home page', href: '/' },
     { label: 'Aurae Profile', href: '/profile-agence' },
     { label: 'Trouver un model', href: '/Models' },
-    { label: 'Mes Projets', href: '/projets-modele' },
+    { label: 'Matchs & Chat', href: '/projets-modele' },
   ];
 
   const handleNavClick = (href: string) => {
@@ -60,24 +62,16 @@ const HeaderModels: React.FC<HeaderModelsProps> = ({ backgroundImage }) => {
         </Link>
       </header>
 
-      {/* Navigation - texte en noir */}
-      <nav className="relative z-50 px-8 pb-8 justify-center flex">
-        <div className="flex space-x-8">
-          {navItems.map((item) => (
-            <Link
-              key={item.href}
-              to={item.href}
-              onClick={() => handleNavClick(item.href)}
-              className={`text-black hover:text-gray-600 transition-colors font-medium cursor-pointer ${
-                activeNav === item.href ? 'font-bold' : 'font-normal'
-              }`}
-              style={{fontSize: '14px'}}
-            >
-              {item.label}
-            </Link>
-          ))}
-        </div>
-      </nav>
+      {/* Navigation */}
+      <div className="relative z-50">
+        <Navigation
+          navItems={navItems}
+          activeNav={activeNav}
+          onNavClick={handleNavClick}
+          textColor="text-black"
+          justify="center"
+        />
+      </div>
 
       {/* Contenu du hero pour Models */}
       <div className="absolute inset-0 z-20 flex items-end justify-center pb-8">

@@ -13,7 +13,7 @@ export const useProfile = () => {
           { label: 'Aurae Profile', href: '/profile' },
           { label: 'Trouver un model', href: '/trouver-modele' },
           { label: 'Matchs & Chat', href: '/matchs' },
-          { label: 'Mes Projets', href: '/projets' },
+          { label: 'Matchs & Chat', href: '/projets' },
         ],
       };
     } else {
@@ -23,7 +23,7 @@ export const useProfile = () => {
           { label: 'Home page', href: '/' },
           { label: 'Aurae Profile', href: '/profile' },
           { label: 'Matchs & Chat', href: '/matchs' },
-          { label: 'Mes Projets', href: '/projets' },
+          { label: 'Matchs & Chat', href: '/projets' },
         ],
       };
     }

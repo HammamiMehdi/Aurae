@@ -23,14 +23,14 @@ const HeroSignUp: React.FC<HeroSignUpProps> = ({
         { label: 'Home page', href: '/' },
         { label: 'Aurae Profile', href: '/profile-agence' },
         { label: 'Trouver un model', href: '/Models' },
-        { label: 'Mes Projets', href: '/projets-modele' },
+        { label: 'Matchs & Chat', href: '/projets-modele' },
       ];
     } else {
       return [
         { label: 'Home page', href: '/' },
         { label: 'Aurae Profile', href: '/profile-modele' },
         { label: 'Trouver un model', href: '/Models' },
-        { label: 'Mes Projets', href: '/projets-modele' },
+        { label: 'Matchs & Chat', href: '/projets-modele' },
       ];
     }
   };

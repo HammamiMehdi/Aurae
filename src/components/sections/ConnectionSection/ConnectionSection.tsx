@@ -1,7 +1,17 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const ConnectionSection: React.FC = () => {
+  const navigate = useNavigate();
+
+  const handleMannequinClick = () => {
+    navigate('/inscription-modele');
+  };
+
+  const handleAgenceClick = () => {
+    navigate('/inscription-agence');
+  };
+
   return (
     <div 
       className="relative w-full overflow-hidden"
@@ -72,10 +82,11 @@ const ConnectionSection: React.FC = () => {
 
         {/* Mannequin */}
         <div 
-          className="absolute right-1 sm:right-4 md:right-8 lg:right-[10rem]"
+          className="absolute right-1 sm:right-4 md:right-8 lg:right-[10rem] cursor-pointer hover:opacity-80 transition-opacity"
           style={{
             top: 'clamp(30rem, 52vh, 37rem)' // Déplacé vers le bas
           }}
+          onClick={handleMannequinClick}
         >
           <div 
             style={{
@@ -114,11 +125,12 @@ const ConnectionSection: React.FC = () => {
 
         {/* Conteneur pour "Vous êtes une", "Agence" et "de mannequins" */}
         <div 
-          className="absolute  sm:left-4 md:left-8 lg:left-[8rem] w-auto"
+          className="absolute sm:left-4 md:left-8 lg:left-[8rem] w-auto cursor-pointer hover:opacity-80 transition-opacity"
           style={{
             top: 'clamp(45rem, 70vh, 45rem)', // 770px converti en rem, responsive avec vh
             width: '40%',
           }}
+          onClick={handleAgenceClick}
         >
           {/* Vous êtes une */}
           <div 

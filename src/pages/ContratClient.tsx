@@ -1,12 +1,27 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import Footer from '../components/layout/Footer';
 import SignaturePopup from '../components/ui/SignaturePopup';
 import ContractViewerPopup from '../components/ui/ContractViewerPopup';
+import Navigation from '../components/layout/Navigation';
+import type { NavItem } from '../types/profiles';
 
 const ContratClient: React.FC = () => {
+  const location = useLocation();
+  const [activeNav, setActiveNav] = useState<string>(location.pathname);
   const [isSignaturePopupOpen, setIsSignaturePopupOpen] = useState(false);
   const [isContractViewerOpen, setIsContractViewerOpen] = useState(false);
+
+  const navItems: NavItem[] = [
+    { label: 'Home page', href: '/' },
+    { label: 'Aurae Profile', href: '/profile-agence' },
+    { label: 'Find a model', href: '/Models' },
+    { label: 'Mes projets', href: '/projets-modele' },
+  ];
+
+  const handleNavClick = (href: string) => {
+    setActiveNav(href);
+  };
 
   const handleSignatureAccept = () => {
     setIsSignaturePopupOpen(false);
@@ -67,23 +82,15 @@ const ContratClient: React.FC = () => {
         </header>
 
         {/* Navigation */}
-        <nav className="relative z-50 px-8 pb-8 justify-center flex">
-          <div className="flex space-x-16">
-            <Link to="/" className="text-white hover:text-gray-300 transition-colors font-medium" style={{fontSize: '14px'}}>
-              Home page
-            </Link>
-            <Link to="/profile-agence" className="text-white hover:text-gray-300 transition-colors font-medium" style={{fontSize: '14px'}}>
-              Aurae Profile
-            </Link>
-            <Link to="/Models" className="text-white hover:text-gray-300 transition-colors font-medium" style={{fontSize: '14px'}}>
-              Find a model
-            </Link>
-            
-            <Link to="/projets-modele" className="text-white hover:text-gray-300 transition-colors font-medium" style={{fontSize: '14px'}}>
-              Mes projets
-            </Link>
-          </div>
-        </nav>
+        <div className="relative z-50">
+          <Navigation
+            navItems={navItems}
+            activeNav={activeNav}
+            onNavClick={handleNavClick}
+            textColor="text-white"
+            justify="center"
+          />
+        </div>
 
         {/* Main Title */}
         <div className="absolute inset-0 z-20 flex items-start justify-start px-16 pt-64">
