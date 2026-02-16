@@ -13,12 +13,13 @@ const HeroProfileCreateur: React.FC<HeroProfileCreateurProps> = ({
   const location = useLocation();
   const [activeNav, setActiveNav] = useState<string>(location.pathname);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [windowSize, setWindowSize] = useState({ width: window.innerWidth, height: window.innerHeight });
 
   const navItems: NavItem[] = [
     { label: "Home page", href: "/" },
     { label: "Aurae Profile", href: "/profile-createur" },
     { label: "Trouver un model", href: "/Models" },
-    { label: "Matchs & Chat", href: "/projets-modele" },
+    { label: "Matchs & Chat", href: "/matchs" },
   ];
 
   const handleNavClick = (href: string) => {
@@ -27,18 +28,61 @@ const HeroProfileCreateur: React.FC<HeroProfileCreateurProps> = ({
 
   useEffect(() => {
     setIsLoaded(true);
+    
+    const handleResize = () => {
+      setWindowSize({ width: window.innerWidth, height: window.innerHeight });
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
+
+  // Calcul des valeurs responsives pour le background
+  // MacBook Air 13" : 1440x900 (ratio 16:10)
+  const getScale = () => {
+    const aspectRatio = windowSize.width / windowSize.height;
+    // Pour MacBook Air 13" (ratio ~1.6), on utilise un scale légèrement plus grand
+    if (aspectRatio > 1.5) {
+      return isLoaded ? 1.35 : 1.25; // Format large (16:10, 16:9)
+    } else {
+      return isLoaded ? 1.3 : 1.2; // Format plus carré
+    }
+  };
+
+  const getTranslateX = () => {
+    // Ajustement basé sur la largeur de l'écran
+    if (windowSize.width >= 1440) {
+      return '5%'; // MacBook Air 13" et plus grand
+    } else if (windowSize.width >= 1024) {
+      return '4%';
+    } else {
+      return '3%';
+    }
+  };
+
+  const getTranslateY = () => {
+    // Ajustement basé sur la hauteur de l'écran
+    if (windowSize.height >= 900) {
+      return '10%'; // MacBook Air 13" et plus grand
+    } else if (windowSize.height >= 768) {
+      return '9%';
+    } else {
+      return '8%';
+    }
+  };
 
   return (
     <section className="relative w-screen h-screen overflow-hidden">
       {/* Background Image avec animation d'entrée */}
       <div
-        className={`absolute inset-0 bg-cover bg-center bg-no-repeat scale-110 transition-transform duration-1000 ${
-          isLoaded ? "scale-100 opacity-100" : "scale-110 opacity-0"
+        className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-1000 ${
+          isLoaded ? "opacity-100" : "opacity-0"
         }`}
         style={{
           backgroundImage: `url('${backgroundImage}')`,
-          transform: isLoaded ? "scale(1.3) translateX(5%) translateY(10%)" : "scale(1.2) translateX(5%) translateY(10%)",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          transform: `scale(${getScale()}) translateX(${getTranslateX()}) translateY(${getTranslateY()})`,
         }}
       />
 

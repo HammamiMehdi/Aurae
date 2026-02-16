@@ -37,7 +37,7 @@ const HeroSignUp: React.FC<HeroSignUpProps> = ({
         { label: 'Home page', href: '/' },
         { label: 'Aurae Profile', href: '/profile-modele' },
         { label: 'Trouver un model', href: '/Models' },
-        { label: 'Matchs & Chat', href: '/projets-modele' },
+        { label: 'Matchs & Chat', href: '/matchs' },
       ];
     }
   };

@@ -15,7 +15,7 @@ const HeaderModels: React.FC<HeaderModelsProps> = ({ backgroundImage }) => {
     { label: 'Home page', href: '/' },
     { label: 'Aurae Profile', href: '/profile-agence' },
     { label: 'Trouver un model', href: '/Models' },
-    { label: 'Matchs & Chat', href: '/projets-modele' },
+    { label: 'Matchs & Chat', href: '/matchs' },
   ];
 
   const handleNavClick = (href: string) => {
