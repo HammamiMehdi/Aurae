@@ -4,6 +4,9 @@ import { Link, useNavigate } from 'react-router-dom';
 const ConnectionSection: React.FC = () => {
   const navigate = useNavigate();
 
+  const handleCreatifClick = () => {
+    navigate('/inscription-createur');
+  };
   const handleMannequinClick = () => {
     navigate('/inscription-modele');
   };
@@ -49,7 +52,7 @@ const ConnectionSection: React.FC = () => {
         </Link>
 
         {/* Vous êtes - Créatif */}
-        <div className="absolute top-[17%] sm:top-[20%] md:top-[21%] lg:top-[19%] left-[12%] ">
+        <div className="absolute top-[17%] sm:top-[20%] md:top-[21%] lg:top-[19%] left-[12%] cursor-pointer hover:opacity-80 transition-opacity" onClick={handleCreatifClick}>
           <div 
             style={{
               fontFamily: 'Inter',

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 interface HeroSignUpProps {
-  profile: 'agence' | 'modele';
+  profile: 'agence' | 'modele' | 'createur';
   backgroundImage: string;
   mainText: string;
   subText: string;
@@ -19,6 +19,13 @@ const HeroSignUp: React.FC<HeroSignUpProps> = ({
 
   const getNavItems = () => {
     if (profile === 'agence') {
+      return [
+        { label: 'Home page', href: '/' },
+        { label: 'Aurae Profile', href: '/profile-agence' },
+        { label: 'Trouver un model', href: '/Models' },
+        { label: 'Matchs & Chat', href: '/projets-modele' },
+      ];
+    } else if (profile === 'createur') {
       return [
         { label: 'Home page', href: '/' },
         { label: 'Aurae Profile', href: '/profile-agence' },

@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
 import InscriptionAgence from './pages/InscriptionAgence.tsx'
 import InscriptionModele from './pages/InscriptionModele.tsx'
+import InscriptionCreateur from './pages/InscriptionCreateur.tsx'
 import Login from './pages/Login';
 import ProfileAgence from './pages/ProfileAgence.tsx'
 import ProfileModele from './pages/ProfileModele.tsx'
@@ -29,7 +30,8 @@ function AnimatedRoutes() {
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<PageTransition><App /></PageTransition>} />
         <Route path="/inscription-agence" element={<PageTransition><InscriptionAgence /></PageTransition>} />
-        <Route path="/inscription-modele" element={<PageTransition><InscriptionModele /></PageTransition>} /> 
+        <Route path="/inscription-modele" element={<PageTransition><InscriptionModele /></PageTransition>} />
+        <Route path="/inscription-createur" element={<PageTransition><InscriptionCreateur /></PageTransition>} /> 
         <Route path="/login" element={<PageTransition><Login /></PageTransition>} />
         <Route path="/forgotPassword" element={<PageTransition><ForgotPassword /></PageTransition>} />
         <Route path="/profile-agence" element={<PageTransition><ProfileAgence /></PageTransition>} />
