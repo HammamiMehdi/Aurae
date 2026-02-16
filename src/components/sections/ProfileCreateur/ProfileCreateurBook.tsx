@@ -22,22 +22,22 @@ const ProfileCreateurBook: React.FC = () => {
     {
       id: 1,
       name: "Look Book Élégance",
-      image: "/images/image_modele_1.jpg",
+      image: "/images/crea1.png",
     },
     {
       id: 2,
       name: "Campagne Beauté 2024",
-      image: "/images/image_modele_2.jpg",
+      image: "/images/crea2.png",
     },
     {
       id: 3,
       name: "Editorial Mode",
-      image: "/images/image_modele_3.jpg",
+      image: "/images/crea1.png",
     },
     {
       id: 4,
       name: "Shooting Commercial",
-      image: "/images/image_modele_4.jpg",
+      image: "/images/crea2.png",
     },
   ];
 
