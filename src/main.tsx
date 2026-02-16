@@ -10,10 +10,12 @@ import InscriptionCreateur from './pages/InscriptionCreateur.tsx'
 import Login from './pages/Login';
 import ProfileAgence from './pages/ProfileAgence.tsx'
 import ProfileModele from './pages/ProfileModele.tsx'
+import ProfileCreateur from './pages/ProfileCreateur.tsx'
 import ForgotPassword from './pages/ForgotPassword.tsx'
 import MesProjetsModele from './pages/MesProjetsModele.tsx'
 import Projet from './pages/Projet.tsx'
 import Models from './pages/Models.tsx'
+import Photographes from './pages/Photographes.tsx'
 import ContratClient from './pages/ContratClient.tsx'
 import AddProjectPage from './pages/AddProjectPage.tsx'
 import MatchsChat from './pages/MatchsChat.tsx'
@@ -36,9 +38,11 @@ function AnimatedRoutes() {
         <Route path="/forgotPassword" element={<PageTransition><ForgotPassword /></PageTransition>} />
         <Route path="/profile-agence" element={<PageTransition><ProfileAgence /></PageTransition>} />
         <Route path="/profile-modele" element={<PageTransition><ProfileModele /></PageTransition>} />
+        <Route path="/profile-createur" element={<PageTransition><ProfileCreateur /></PageTransition>} />
         <Route path="/projets-modele" element={<PageTransition><MesProjetsModele /></PageTransition>} />
         <Route path="/projet" element={<PageTransition><Projet /></PageTransition>} />
         <Route path="/Models" element={<PageTransition><Models /></PageTransition>} />
+        <Route path="/photographes" element={<PageTransition><Photographes /></PageTransition>} />
         <Route path="/add-project" element={<PageTransition><AddProjectPage /></PageTransition>} />
         <Route path="/contrat-client" element={<PageTransition><ContratClient /></PageTransition>} />
         <Route path="/matchs" element={<PageTransition><MatchsChat /></PageTransition>} />

@@ -10,15 +10,24 @@ interface Model {
 }
 
 const collageModels: Model[] = [
-  { name: 'Lena.L', image: '/images/lena-L.jpg', top: 'clamp(5%, 8vh, 12%)', left: 'clamp(2%, 2vw, 5%)', width: 'clamp(200px, 35vw, 400px)', zIndex: 2 },
-  { name: 'Katharina.G', image: '/images/image_modele_1.jpg', top: 'clamp(2%, 3vh, 6%)', left: 'clamp(30%, 35vw, 40%)', width: 'clamp(180px, 32vw, 380px)', zIndex: 3 },
-  { name: 'Demi.K', image: '/images/Demi-K.jpg', top: 'clamp(6%, 10vh, 14%)', left: 'clamp(55%, 64vw, 70%)', width: 'clamp(210px, 37vw, 420px)', zIndex: 4 },
-  { name: 'Ayinde.A', image: '/images/Ayinde-A.jpg', top: 'clamp(60%, 80vh, 90%)', left: 'clamp(0%, 0vw, 3%)', width: 'clamp(180px, 32vw, 380px)', zIndex: 1 },
-  { name: 'Cheer.M', image: '/images/Cheer.M.jpg', top: 'clamp(45%, 60vh, 70%)', left: 'clamp(25%, 32vw, 38%)', width: 'clamp(170px, 30vw, 360px)', zIndex: 5 },
-  { name: 'Eloise.L', image: '/images/Eloise.jpg', top: 'clamp(62%, 82vh, 92%)', left: 'clamp(60%, 70vw, 75%)', width: 'clamp(200px, 36vw, 410px)', zIndex: 1 },
-  { name: 'Bianca.S', image: '/images/Image_home_page.png', top: 'clamp(105%, 125vh, 115%)', left: 'clamp(3%, 6vw, 10%)', width: 'clamp(140px, 24vw, 300px)', zIndex: 1 },
-  { name: 'Esther.M', image: '/images/Esther.jpg', top: 'clamp(80%, 110vh, 110%)', left: 'clamp(28%, 36vw, 42%)', width: 'clamp(320px, 60vw, 460px)', zIndex: 1 },
-  { name: 'Berenice.L', image: '/images/Berenice-l.jpg', top: 'clamp(110%, 140vh, 150%)', left: 'clamp(48%, 55vw, 62%)', width: 'clamp(320px, 60vw, 650px)', zIndex: 1 },
+  // Top row - Left
+  { name: 'Lena.L', image: '/images/lena-L.jpg', top: 'clamp(2%, 3vh, 5%)', left: 'clamp(1%, 1.5vw, 3%)', width: 'clamp(255px, 40vw, 475px)', zIndex: 2 },
+  // Top row - Middle (slightly overlapping Lena.L on the right)
+  { name: 'Katharina.G', image: '/images/image_modele_1.jpg', top: 'clamp(1%, 2vh, 3%)', left: 'clamp(25%, 30vw, 35%)', width: 'clamp(235px, 38vw, 465px)', zIndex: 3 },
+  // Top row - Right (overlapping Katharina.G on the right)
+  { name: 'Demi.K', image: '/images/Demi-K.jpg', top: 'clamp(3%, 5vh, 7%)', left: 'clamp(52%, 58vw, 63%)', width: 'clamp(275px, 44vw, 525px)', zIndex: 4 },
+  // Middle row - Left (below Lena.L)
+  { name: 'Ayinde.A', image: '/images/Ayinde-A.jpg', top: 'clamp(53%, 63vh, 70%)', left: 'clamp(0%, 0vw, 2%)', width: 'clamp(235px, 38vw, 455px)', zIndex: 1 },
+  // Middle row - Middle (overlapping bottom of Katharina.G and left of Demi.K)
+  { name: 'Cheer.M', image: '/images/Cheer.M.jpg', top: 'clamp(43%, 53vh, 60%)', left: 'clamp(20%, 25vw, 30%)', width: 'clamp(210px, 34vw, 435px)', zIndex: 5 },
+  // Middle row - Right (below Demi.K)
+  { name: 'Eloise.L', image: '/images/Eloise.jpg', top: 'clamp(55%, 65vh, 72%)', left: 'clamp(58%, 64vw, 69%)', width: 'clamp(245px, 40vw, 495px)', zIndex: 1 },
+  // Bottom row - Left (below Ayinde.A, overlapping bottom left of Cheer.M)
+  { name: 'Bianca.S', image: '/images/Image_home_page.png', top: 'clamp(88%, 98vh, 105%)', left: 'clamp(1%, 1.5vw, 4%)', width: 'clamp(370px, 57vw, 570px)', zIndex: 2 },
+  // Bottom row - Middle (overlapping bottom of Cheer.M and left of Eloise.L)
+  { name: 'Esther.M', image: '/images/Esther.jpg', top: 'clamp(80%, 90vh, 97%)', left: 'clamp(24%, 30vw, 36%)', width: 'clamp(390px, 66vw, 610px)', zIndex: 1 },
+  // Bottom row - Right (below Eloise.L)
+  { name: 'Berenice.L', image: '/images/Berenice-l.jpg', top: 'clamp(105%, 115vh, 122%)', left: 'clamp(42%, 48vw, 54%)', width: 'clamp(415px, 71vw, 815px)', zIndex: 1 },
 ];
 
 interface ModelCardProps {
@@ -82,11 +91,13 @@ const ModelsGallery: React.FC = () => {
   return (
     <section className="w-full bg-white pb-64 mt-8 mb-64">
       <div 
-        className="hidden lg:block relative mx-auto px-8 my-auto"
+        className="hidden lg:block relative  my-auto"
         style={{ 
           height: 'auto',
-          minHeight: 'clamp(1200px, 110vh, 1400px)',
-          width: '100%'
+          minHeight: 'clamp(1600px, 150vh, 1500px)',
+          paddingBottom: 'clamp(150px, 20vh, 300px)',
+          width: '100%',
+          marginLeft: '20px'
         }}
       >
         {collageModels.map((model) => (
