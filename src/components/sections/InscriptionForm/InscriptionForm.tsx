@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const InscriptionForm: React.FC<{ profile?: 'modele' | 'agence' }> = ({ profile }) => {
+const InscriptionForm: React.FC<{ profile?: 'modele' | 'agence' }> = ({  }) => {
   const [formData, setFormData] = useState({
     nomPrenom: '',
     dateNaissance: '',

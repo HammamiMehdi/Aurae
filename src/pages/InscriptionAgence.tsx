@@ -1,7 +1,6 @@
 import React from "react";
 import Footer from "../components/layout/Footer";
 import HeroSignUp from "../components/sections/Hero/HeroSignUp";
-import InscriptionForm from "../components/sections/InscriptionForm/InscriptionForm";
 import EntrepriseForm from "../components/sections/InscriptionForm/EntrepriseForm";
 import InscriptionFormAgence from "../components/sections/InscriptionForm/InscriptionFormAgence";
 

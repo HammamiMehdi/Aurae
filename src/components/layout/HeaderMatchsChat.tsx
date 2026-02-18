@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import {  useLocation, useNavigate } from 'react-router-dom';
 import Navigation from './Navigation';
 import type { NavItem } from '../../types/profiles';
 import HeaderStandard from './HeaderStandard';
@@ -25,9 +25,7 @@ const HeaderMatchsChat: React.FC<HeaderMatchsChatProps> = ({ backgroundImage }) 
     navigate(href);
   };
 
-  const handleLogoClick = () => {
-    navigate("/");
-  };
+  
 
   return (
     <section className="relative w-screen h-[20vh] overflow-hidden bg-white">

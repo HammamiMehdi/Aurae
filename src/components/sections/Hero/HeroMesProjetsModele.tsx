@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import React, { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import {  useLocation } from "react-router-dom";
 import Navigation from '../../layout/Navigation';
 import type { NavItem } from '../../../types/profiles';
 import HeaderStandard from "../../layout/HeaderStandard";

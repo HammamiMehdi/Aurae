@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import {  useLocation } from 'react-router-dom';
 import Footer from '../../layout/Footer';
 import Navigation from '../../layout/Navigation';
 import type { NavItem } from '../../../types/profiles';
