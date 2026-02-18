@@ -1,12 +1,16 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom'; // Import du hook de navigation
 
 const ProfileAgenceContent: React.FC = () => {
+  const navigate = useNavigate(); // Initialisation du hook
+
   return (
     <div className="w-full bg-white">
       {/* Section avec "Ajouter un nouveau projet" aligné à droite */}
       <div className="w-full px-4 sm:px-6 md:px-8 py-8 sm:py-10 md:py-12">
         <div className="max-w-7xl mx-auto flex justify-center sm:justify-end mb-6">
           <div 
+            onClick={() => navigate('/add-project')} // Redirection au clic
             style={{
               fontFamily: 'Inter',
               fontWeight: 400,
@@ -15,10 +19,11 @@ const ProfileAgenceContent: React.FC = () => {
               lineHeight: '100%',
               letterSpacing: '0%',
               fontVariantNumeric: 'lining-nums proportional-nums',
+              cursor: 'pointer', // Curseur main au survol
             }}
-            className="text-black"
+            className="text-black hover:opacity-70 transition-opacity" // Petit effet au survol
           >
-           Créer un nouveau projet
+            Créer un nouveau projet
           </div>
         </div>
       </div>

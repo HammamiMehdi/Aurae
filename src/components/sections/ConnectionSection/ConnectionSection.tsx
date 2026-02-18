@@ -100,6 +100,7 @@ const ConnectionSection: React.FC = () => {
               lineHeight: '120%',
               letterSpacing: '-2%',
               textAlign: 'right',
+              marginRight: '30px'
             }}
           >
             Mannequin
@@ -162,13 +163,14 @@ const ConnectionSection: React.FC = () => {
               fontSize: 'clamp(2rem, 5vw, 3.75rem)', // 32px à 60px convertis en rem
               lineHeight: '120%',
               letterSpacing: '-2%',
+              marginTop: '30px'
             }}
           >
             Agence
           </div>
           
           {/* de mannequins */}
-          <div 
+          {/* <div 
             className="absolute"
             style={{
               top: 'clamp(3.4375rem, 5vh, 3.4375rem)', // Position relative au conteneur
@@ -183,7 +185,7 @@ const ConnectionSection: React.FC = () => {
             }}
           >
             de mannequins
-          </div>
+          </div> */}
         </div>
         {/* Texte de connexion */}
         <div 
@@ -218,11 +220,12 @@ const ConnectionSection: React.FC = () => {
             textAlign: 'center',
           }}
         >
-          Auræ redéfinit le casting à l'ère de l'intelligence artificielle.<br className="hidden sm:block" />
+          Auræ est une nouvelle manière de penser le casting.<br className="hidden sm:block" />
           <span className="block sm:inline"> </span>
-          Une plateforme où mannequins, agences et créateurs visuels se connectent et collaborent à travers des outils <br/> intuitifs et sensibles.<br className="hidden sm:block" />
+          Un espace dédié aux talents — photographes, réalisateurs, set designers, illustrateurs, mannequins — et à celles  <br/>et ceux qui veulent créer autrement.
+ <br className="hidden sm:block" />
           <span className="block sm:inline"> </span>
-          Grâce à l'IA, Auræ simplifie la recherche, le booking et la gestion des talents tout en ouvrant une nouvelle dimension : la création et la cession d'avatars IA, permettant des campagnes virtuelles, éthiques et sécurisées.
+          Ici, les rencontres deviennent des collaborations, les intuitions deviennent des projets, et chaque talent trouve sa <br/>juste visibilité.
         </div>
       </div>
     </div>

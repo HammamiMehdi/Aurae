@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Navigation from '../../layout/Navigation';
 import type { NavItem } from '../../../types/profiles';
+import HeaderStandard from '../../layout/HeaderStandard';
 
 interface HeroProfileAgenceProps {
   backgroundImage: string;
@@ -15,7 +16,7 @@ const HeroProfileAgence: React.FC<HeroProfileAgenceProps> = ({ backgroundImage }
   const navItems: NavItem[] = [
     { label: 'Home page', href: '/' },
     { label: 'Aurae Profile', href: '/profile-agence' },
-    { label: 'Trouver un model', href: '/Models' },
+    { label: 'Trouver un talent', href: '/Models' },
     { label: 'Match&chat', href: '/projets-modele' },
   ];
 
@@ -41,46 +42,10 @@ const HeroProfileAgence: React.FC<HeroProfileAgenceProps> = ({ backgroundImage }
           }}
         />
         
-        {/* Header avec logo et navigation */}
-        <header className="relative z-50 flex justify-between items-center p-3 sm:p-4 md:p-5">
-          <Link to="/" className="text-white cursor-pointer hover:opacity-80 transition-opacity">
-            <h1 
-              className="text-[16px] sm:text-[18px] md:text-[20px] font-bold leading-[1.2] tracking-[-0.72px]"
-              style={{ 
-                fontFamily: 'Inter, sans-serif',
-                fontWeight: 700,
-                fontStyle: 'normal'
-              }}
-            >
-              <span>Auræ</span>{' '}
-              <span 
-                className="italic text-[16px] sm:text-[18px] md:text-[20px] leading-[1.2] tracking-[-0.72px]"
-                style={{ 
-                  fontFamily: 'Instrument Sans, sans-serif',
-                  fontWeight: 400,
-                  fontStyle: 'italic'
-                }}
-              >
-                Studio
-              </span>
-            </h1>
-          </Link>
+        <HeaderStandard textColor="text-white" />
 
-          <div className="flex items-center gap-3">
-            {/* Profile Circle */}
-            <Link 
-              to="/profile-agence" 
-              className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gray-300 overflow-hidden hover:opacity-80 transition-opacity"
-            >
-              <img
-                src={backgroundImage}
-                alt="Profile"
-                className="w-full h-full object-cover"
-              />
-            </Link>
-
-            {/* Hamburger menu button - visible only on mobile */}
-            <button
+        {/* Hamburger menu button - visible only on mobile */}
+        {/* <button
               onClick={toggleMenu}
               className="md:hidden text-white p-2 focus:outline-none transition-opacity hover:opacity-80"
               aria-label="Toggle menu"
@@ -102,9 +67,7 @@ const HeroProfileAgence: React.FC<HeroProfileAgenceProps> = ({ backgroundImage }
                   }`}
                 />
               </div>
-            </button>
-          </div>
-        </header>
+            </button> */}
 
         {/* Navigation */}
         <div className="relative z-50">

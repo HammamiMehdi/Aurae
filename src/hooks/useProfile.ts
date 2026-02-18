@@ -11,7 +11,7 @@ export const useProfile = () => {
         navItems: [
           { label: 'Home page', href: '/' },
           { label: 'Aurae Profile', href: '/profile' },
-          { label: 'Trouver un model', href: '/trouver-modele' },
+          { label: 'Trouver un talent', href: '/trouver-modele' },
           { label: 'Matchs & Chat', href: '/matchs' },
           { label: 'Matchs & Chat', href: '/matchs' },
         ],

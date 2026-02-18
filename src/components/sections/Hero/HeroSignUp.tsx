@@ -22,21 +22,21 @@ const HeroSignUp: React.FC<HeroSignUpProps> = ({
       return [
         { label: 'Home page', href: '/' },
         { label: 'Aurae Profile', href: '/profile-agence' },
-        { label: 'Trouver un model', href: '/Models' },
-        { label: 'Matchs & Chat', href: '/projets-modele' },
+        { label: 'Trouver un talent', href: '/Models' },
+        { label: 'Matchs & Chat', href: '/matchs' },
       ];
     } else if (profile === 'createur') {
       return [
         { label: 'Home page', href: '/' },
         { label: 'Aurae Profile', href: '/profile-agence' },
-        { label: 'Trouver un model', href: '/Models' },
-        { label: 'Matchs & Chat', href: '/projets-modele' },
+        { label: 'Trouver un talent', href: '/Models' },
+        { label: 'Matchs & Chat', href: '/matchs' },
       ];
     } else {
       return [
         { label: 'Home page', href: '/' },
         { label: 'Aurae Profile', href: '/profile-modele' },
-        { label: 'Trouver un model', href: '/Models' },
+        { label: 'Trouver un talent', href: '/Models' },
         { label: 'Matchs & Chat', href: '/matchs' },
       ];
     }

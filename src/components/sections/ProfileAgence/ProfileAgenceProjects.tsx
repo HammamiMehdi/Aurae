@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 
 const ProfileAgenceProjects: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -7,6 +8,7 @@ const ProfileAgenceProjects: React.FC = () => {
   const [currentTranslate, setCurrentTranslate] = useState(0);
   const [prevTranslate, setPrevTranslate] = useState(0);
   const carouselRef = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate(); 
 
   const projects = [
     {
@@ -254,7 +256,7 @@ const ProfileAgenceProjects: React.FC = () => {
         </div>
       </div>
       {/* Texte "Voir tous les projets" */}
-      <div className="w-full flex justify-center mt-6 sm:mt-8 md:mt-10">
+      <div className="w-full flex justify-center mt-6 sm:mt-8 md:mt-10" onClick={() => navigate('/add-project')} >
         <span
           style={{
             fontFamily: "Inter",

@@ -37,10 +37,10 @@ const HeroFooter: React.FC<HeroFooterProps> = ({
           }}
         >
           <span className="block sm:inline">
-            Auræ est une plateforme de casting intelligente qui connecte mannequins, agences et créatifs du monde entier.
+          Auræ est une plateforme de casting intelligente qui connecte talents, agences et créatifs du monde entier.
           </span><br/>
           <span className="block sm:inline mt-2 sm:mt-0">
-            {' '}Elle permet de réserver un mannequin réel ou d'accéder à son avatar IA pour créer des campagnes à distance en toute<br/> simplicité.
+            {' '}Elle permet de réserver un talent (photographe, illustrateur, set designer…), un talent réel ou son avatar IA pour créer des campagnes à <br/>distance en toute simplicité.
           </span>
         </p>
       </div>

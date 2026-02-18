@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import Navigation from '../../layout/Navigation';
 import type { NavItem } from '../../../types/profiles';
+import HeaderStandard from "../../layout/HeaderStandard";
 
 interface HeroMesProjetsModeleProps {
   backgroundImage: string;
@@ -51,55 +52,7 @@ const HeroMesProjetsModele: React.FC<HeroMesProjetsModeleProps> = ({
         }`}
       />
 
-      {/* Header minimal avec logo et navigation */}
-      <header className="relative z-50 flex justify-between items-center p-5">
-        {/* Logo à gauche avec animation */}
-        <Link
-          to="/"
-          className={`text-white cursor-pointer transition-all duration-700 hover:scale-105 hover:opacity-80 ${
-            isLoaded ? "translate-y-0 opacity-100" : "-translate-y-4 opacity-0"
-          }`}
-        >
-          <h1 
-            className="text-[20px] font-bold leading-[43.2px] tracking-[-0.72px]"
-            style={{ 
-              fontFamily: 'Inter, sans-serif',
-              fontWeight: 700,
-              fontStyle: 'normal'
-            }}
-          >
-            <span>Auræ</span>{' '}
-            <span 
-              className="italic text-[20px] leading-[43.2px] tracking-[-0.72px]"
-              style={{ 
-                fontFamily: 'Instrument Sans, sans-serif',
-                fontWeight: 400,
-                fontStyle: 'italic'
-              }}
-            >
-              Studio
-            </span>
-          </h1>
-        </Link>
-
-        {/* Image de profil à droite avec animation */}
-        <div
-          className={`flex items-center transition-all duration-700 hover:scale-110 ${
-            isLoaded ? "translate-y-0 opacity-100" : "-translate-y-4 opacity-0"
-          }`}
-        >
-          <div
-            className="w-12 h-12 rounded-full overflow-hidden border-2 border-white transition-all duration-300 hover:border-gray-300 cursor-pointer"
-            style={{
-              backgroundImage: `url('${backgroundImage}')`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              filter: "grayscale(100%) brightness(1.1)",
-            }}
-            onClick={() => console.log("Profile image clicked")}
-          />
-        </div>
-      </header>
+<HeaderStandard textColor="text-white" />
 
       {/* Navigation */}
       <div 

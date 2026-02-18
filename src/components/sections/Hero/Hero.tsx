@@ -44,7 +44,7 @@ const Hero: React.FC<HeroProps> = ({
       return [
         { label: 'Home page', href: '/' },
         { label: 'Aurae Profile', href: '/profile-agence' },
-        { label: 'Trouver un model', href: '/Models' },
+        { label: 'Trouver un talent', href: '/Models' },
         { label: 'Matchs & Chat', href: '/matchs' },
       ];
     } else {

@@ -62,7 +62,7 @@ const InscriptionForm: React.FC<{ profile?: 'modele' | 'agence' }> = ({ profile 
                     letterSpacing: '0px',
                   }}
                 >
-                  Nom/Prénom
+                  Nom/Prénom *
                 </label>
                 <input
                   type="text"
@@ -93,7 +93,7 @@ const InscriptionForm: React.FC<{ profile?: 'modele' | 'agence' }> = ({ profile 
                     letterSpacing: '0px',
                   }}
                 >
-                  Date de naissance
+                  Date de naissance *
                 </label>
                 <input
                   type="date"
@@ -125,7 +125,7 @@ const InscriptionForm: React.FC<{ profile?: 'modele' | 'agence' }> = ({ profile 
                     letterSpacing: '0px',
                   }}
                 >
-                  Email
+                  Email *
                 </label>
                 <input
                   type="email"
@@ -156,7 +156,7 @@ const InscriptionForm: React.FC<{ profile?: 'modele' | 'agence' }> = ({ profile 
                     letterSpacing: '0px',
                   }}
                 >
-                  Mot de passe
+                  Mot de passe *
                 </label>
                 <div className="relative">
                   <input
@@ -203,7 +203,7 @@ const InscriptionForm: React.FC<{ profile?: 'modele' | 'agence' }> = ({ profile 
                     letterSpacing: '0px',
                   }}
                 >
-                  Numéro de téléphone
+                  Numéro de téléphone *
                 </label>
                 <input
                   type="tel"
@@ -236,7 +236,7 @@ const InscriptionForm: React.FC<{ profile?: 'modele' | 'agence' }> = ({ profile 
                       letterSpacing: '0px',
                     }}
                   >
-                    Lien Instagram
+                    Lien Instagram 
                   </label>
                   <span 
                     className="text-xs text-gray-500 italic"
@@ -246,7 +246,7 @@ const InscriptionForm: React.FC<{ profile?: 'modele' | 'agence' }> = ({ profile 
                       fontSize: '12px',
                     }}
                   >
-                    Facultatif
+                    
                   </span>
                 </div>
                 <div className="relative">
@@ -283,7 +283,7 @@ const InscriptionForm: React.FC<{ profile?: 'modele' | 'agence' }> = ({ profile 
             </div>
 
             {/* Rôle - Sur toute la largeur quand pas en mode modèle */}
-            {profile !== 'modele' && (
+            
               <div className="mb-6">
                 <div className="input-container">
                   <label 
@@ -296,7 +296,7 @@ const InscriptionForm: React.FC<{ profile?: 'modele' | 'agence' }> = ({ profile 
                       letterSpacing: '0px',
                     }}
                   >
-                    Rôle
+                    Rôle *
                   </label>
                   <select
                     value={formData.role}
@@ -318,16 +318,16 @@ const InscriptionForm: React.FC<{ profile?: 'modele' | 'agence' }> = ({ profile 
                     }}
                   >
                     <option value="">Sélectionnez votre rôle</option>
+                    <option value="photographe">Mannequin </option>
                     <option value="photographe">Photographe</option>
-                    <option value="styliste">Styliste</option>
-                    <option value="maquilleur">Maquilleur</option>
-                    <option value="directeur">Directeur artistique</option>
-                    <option value="agence">Agence</option>
-                    <option value="autre">Autre</option>
+                    <option value="styliste">réalisateur</option>
+                    <option value="maquilleur">illustrateur</option>
+                    <option value="directeur">set designer</option>
+                    
                   </select>
                 </div>
               </div>
-            )}
+            
 
             {/* Ville et Pays - Sur toute la largeur */}
             <div className="mb-6">
@@ -343,7 +343,7 @@ const InscriptionForm: React.FC<{ profile?: 'modele' | 'agence' }> = ({ profile 
                       letterSpacing: '0px',
                     }}
                   >
-                    Ville
+                    Ville *
                   </label>
                   <input
                     type="text"
@@ -374,7 +374,7 @@ const InscriptionForm: React.FC<{ profile?: 'modele' | 'agence' }> = ({ profile 
                       letterSpacing: '0px',
                     }}
                   >
-                    Pays
+                    Pays *
                   </label>
                   <input
                     type="text"

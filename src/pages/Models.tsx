@@ -8,7 +8,7 @@ const Models: React.FC = () => {
     <div className="min-h-screen bg-white">
       <HeaderModels backgroundImage="/images/models-hero.jpg" />
       <FiltersModels />
-      <div className="mt-64">
+      <div className="mt-8">
       <ModelsGallery />
       </div>
       {/* Gallery section below ModelsGallery component */}

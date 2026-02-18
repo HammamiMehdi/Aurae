@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Navigation from './Navigation';
 import type { NavItem } from '../../types/profiles';
+import HeaderStandard from './HeaderStandard';
 
 interface HeaderModelsProps {
   backgroundImage?: string;
@@ -14,7 +15,7 @@ const HeaderModels: React.FC<HeaderModelsProps> = ({ backgroundImage }) => {
   const navItems: NavItem[] = [
     { label: 'Home page', href: '/' },
     { label: 'Aurae Profile', href: '/profile-agence' },
-    { label: 'Trouver un model', href: '/Models' },
+    { label: 'Trouver un talent', href: '/Models' },
     { label: 'Matchs & Chat', href: '/matchs' },
   ];
 
@@ -36,32 +37,7 @@ const HeaderModels: React.FC<HeaderModelsProps> = ({ backgroundImage }) => {
         />
       )}
 
-      {/* Header avec logo et navigation - texte en noir */}
-      <header className="relative z-50 flex justify-between items-center p-5">
-        <Link to="/" className="text-black cursor-pointer hover:opacity-80 transition-opacity">
-          <h1 
-            className="text-[20px] font-bold leading-[43.2px] tracking-[-0.72px]"
-            style={{ 
-              fontFamily: 'Inter, sans-serif',
-              fontWeight: 700,
-              fontStyle: 'normal'
-            }}
-          >
-            <span>Auræ</span>{' '}
-            <span 
-              className="italic text-[20px] leading-[43.2px] tracking-[-0.72px]"
-              style={{ 
-                fontFamily: 'Instrument Sans, sans-serif',
-                fontWeight: 400,
-                fontStyle: 'italic'
-              }}
-            >
-              Studio
-            </span>
-          </h1>
-        </Link>
-      </header>
-
+<HeaderStandard textColor="text-black" />
       {/* Navigation */}
       <div className="relative z-50">
         <Navigation

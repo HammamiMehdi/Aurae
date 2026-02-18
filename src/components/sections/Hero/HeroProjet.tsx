@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Navigation from '../../layout/Navigation';
 import type { NavItem } from '../../../types/profiles';
+import HeaderStandard from '../../layout/HeaderStandard';
 
 interface HeroProjetProps {
     backgroundImage: string;
@@ -14,7 +15,7 @@ interface HeroProjetProps {
     const navItems: NavItem[] = [
       { label: 'Home page', href: '/' },
       { label: 'Aurae Profile', href: '/profile-agence' },
-      { label: 'Trouver un model', href: '/Models' },
+      { label: 'Trouver un talent', href: '/Models' },
       { label: 'Matchs & Chat', href: '/matchs' },
     ];
   
@@ -34,31 +35,7 @@ interface HeroProjetProps {
           }}
         />
         
-        {/* Header avec logo et navigation */}
-        <header className="relative z-50 flex justify-between items-center p-5">
-          <Link to="/" className="text-white cursor-pointer hover:opacity-80 transition-opacity">
-            <h1 
-              className="text-[20px] font-bold leading-[43.2px] tracking-[-0.72px]"
-              style={{ 
-                fontFamily: 'Inter, sans-serif',
-                fontWeight: 700,
-                fontStyle: 'normal'
-              }}
-            >
-              <span>Auræ</span>{' '}
-              <span 
-                className="italic text-[20px] leading-[43.2px] tracking-[-0.72px]"
-                style={{ 
-                  fontFamily: 'Instrument Sans, sans-serif',
-                  fontWeight: 400,
-                  fontStyle: 'italic'
-                }}
-              >
-                Studio
-              </span>
-            </h1>
-          </Link>
-        </header>
+        <HeaderStandard textColor="text-white" />
   
         {/* Navigation */}
         <div className="relative z-50">

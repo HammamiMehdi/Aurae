@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Navigation from './Navigation';
 import type { NavItem } from '../../types/profiles';
+import HeaderStandard from './HeaderStandard';
 
 interface HeaderMatchsChatProps {
   backgroundImage?: string;
@@ -15,7 +16,7 @@ const HeaderMatchsChat: React.FC<HeaderMatchsChatProps> = ({ backgroundImage }) 
   const navItems: NavItem[] = [
     { label: 'Home page', href: '/' },
     { label: 'Aurae Profile', href: '/profile-agence' },
-    { label: 'Trouver un model', href: '/Models' },
+    { label: 'Trouver un talent', href: '/Models' },
     { label: 'Matchs & Chat', href: '/matchs' },
   ];
 
@@ -42,43 +43,7 @@ const HeaderMatchsChat: React.FC<HeaderMatchsChatProps> = ({ backgroundImage }) 
         />
       )}
 
-      {/* Header avec logo et navigation - texte en noir */}
-      <header className="relative z-50 flex justify-between items-center p-5">
-        <Link to="/" onClick={handleLogoClick} className="text-black cursor-pointer hover:opacity-80 transition-opacity">
-          <h1 
-            className="text-[20px] font-bold leading-[43.2px] tracking-[-0.72px]"
-            style={{ 
-              fontFamily: 'Inter, sans-serif',
-              fontWeight: 700,
-              fontStyle: 'normal'
-            }}
-          >
-            <span>Auræ</span>{' '}
-            <span 
-              className="italic text-[20px] leading-[43.2px] tracking-[-0.72px]"
-              style={{ 
-                fontFamily: 'Instrument Sans, sans-serif',
-                fontWeight: 400,
-                fontStyle: 'italic'
-              }}
-            >
-              Studio
-            </span>
-          </h1>
-        </Link>
-
-        {/* Profile Circle */}
-        <Link 
-          to="/profile-agence" 
-          className="w-12 h-12 rounded-full bg-gray-300 overflow-hidden hover:opacity-80 transition-opacity"
-        >
-          <img
-            src="/images/profile_modele_page.jpg"
-            alt="Profile"
-            className="w-full h-full object-cover grayscale"
-          />
-        </Link>
-      </header>
+<HeaderStandard textColor="text-black" />
 
       {/* Navigation */}
       <div className="relative z-50">

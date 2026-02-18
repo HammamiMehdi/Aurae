@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import du hook de navigation
 import Footer from '../components/layout/Footer';
 import HeroProjet from '../components/sections/Hero/HeroProjet';
 import MoodboardUpload from '../components/sections/Projet/MoodboardUpload';
 import BriefForm, { type BriefFormData } from '../components/sections/Projet/BriefForm';
 
 const AddProjectPage: React.FC = () => {
+  const navigate = useNavigate(); // Initialisation de la navigation
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [briefData, setBriefData] = useState<BriefFormData>({
     clientBrand: '',
@@ -21,10 +23,15 @@ const AddProjectPage: React.FC = () => {
 
   const handleSubmit = () => {
     setIsSubmitting(true);
-    // TODO: Replace with API submission when backend is ready
+    
+    // Simulation de l'envoi au backend
     setTimeout(() => {
       setIsSubmitting(false);
-      alert('Projet envoyé avec succès.');
+      // Optionnel : Tu peux garder l'alerte ou la supprimer pour une transition plus fluide
+      // alert('Projet envoyé avec succès.'); 
+      
+      // Redirection vers la route /profession
+      navigate('/profession');
     }, 1200);
   };
 
