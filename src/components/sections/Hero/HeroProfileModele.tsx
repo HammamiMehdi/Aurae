@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import {  useLocation } from "react-router-dom";
-import Navigation from '../../layout/Navigation';
-import type { NavItem } from '../../../types/profiles';
+import { useLocation } from "react-router-dom";
+import Navigation from "../../layout/Navigation";
+import type { NavItem } from "../../../types/profiles";
 import HeaderStandard from "../../layout/HeaderStandard";
+import { Heart } from "lucide-react";
 
 interface HeroProfileModeleProps {
   backgroundImage: string;
@@ -18,7 +19,7 @@ const HeroProfileModele: React.FC<HeroProfileModeleProps> = ({
   const navItems: NavItem[] = [
     { label: "Home page", href: "/" },
     { label: "Aurae Profile", href: "/profile-modele" },
-    { label: "Trouver un model", href: "/Models" },
+    { label: "Trouver un talent", href: "/Models" },
     { label: "Mes Projets", href: "/projets-modele" },
   ];
 
@@ -35,11 +36,13 @@ const HeroProfileModele: React.FC<HeroProfileModeleProps> = ({
       {/* Background Image avec animation d'entrée */}
       <div
         className={`absolute inset-0 bg-cover bg-center bg-no-repeat scale-110 transition-transform duration-1000 ${
-          isLoaded ? "scale-100 opacity-100" : "scale-110 opacity-0"
+          isLoaded ? "scale-100 opacity-100" : "scale-100 opacity-0"
         }`}
         style={{
           backgroundImage: `url('${backgroundImage}')`,
-          transform: isLoaded ? "scale(1.4) translateX(-10%)" : "scale(1.6) translateX(-10%)",
+          transform: isLoaded
+            ? "scale(1.4) translateX(-10%)"
+            : "scale(1.6) translateX(-10%)",
         }}
       />
 
@@ -54,7 +57,7 @@ const HeroProfileModele: React.FC<HeroProfileModeleProps> = ({
       <HeaderStandard textColor="text-white" />
 
       {/* Navigation */}
-      <div 
+      <div
         className={`relative z-50 transition-all duration-700 ${
           isLoaded ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
         }`}
@@ -72,42 +75,49 @@ const HeroProfileModele: React.FC<HeroProfileModeleProps> = ({
       <div className="absolute inset-0 z-20 text-white">
         {/* Container for Katharina.G and Submit the project */}
         <div
-          className="absolute flex flex-col items-end"
+          className="absolute flex flex-col  justify-center items-center" 
           style={{
             left: "60%",
             top: "40%",
+            height: "120px", 
           }}
         >
-          {/* Katharina.G avec animation */}
           <div
-            className={`transition-all duration-1000 ${
-              isLoaded
-                ? "translate-x-0 opacity-100"
-                : "translate-x-8 opacity-0"
+            className={`flex items-center transition-all duration-1000 ${
+              isLoaded ? "translate-x-0 opacity-100" : "translate-x-8 opacity-0"
             }`}
-            style={{
-              width: "360px",
-              height: "77px",
-              fontFamily: "Inter",
-              fontWeight: 700,
-              fontStyle: "normal",
-              fontSize: "40px",
-              lineHeight: "120%",
-              letterSpacing: "-2%",
-              transitionDelay: "300ms",
-              textAlign: "right",
-              marginRight: "30px",
-            }}
+            style={{ transitionDelay: "300ms", marginBottom: "10px" }}
           >
-            Katharina.G
+            {/* Coeur simple sans background */}
+            <div className="mr-4">
+              <Heart
+                size={32}
+                color="#D10000"
+                fill="#D10000" // Remplissage complet comme sur votre image
+                style={{ filter: "drop-shadow(0px 2px 4px rgba(0,0,0,0.2))" }}
+              />
+            </div>
+
+            {/* Texte Katharina.G */}
+            <div
+              style={{
+                fontFamily: "Inter",
+                fontWeight: 700,
+                fontStyle: "normal",
+                fontSize: "64px",
+                lineHeight: "120%",
+                letterSpacing: "-2%",
+                textAlign: "right",
+              }}
+            >
+              Katharina.G
+            </div>
           </div>
 
-          {/* Submit the project avec animation */}
+          {/* Proposer le projet avec animation */}
           <div
             className={`flex items-center justify-center transition-all duration-1000 ${
-              isLoaded
-                ? "translate-x-0 opacity-100"
-                : "translate-x-8 opacity-0"
+              isLoaded ? "translate-x-0 opacity-100" : "translate-x-8 opacity-0"
             }`}
             style={{
               width: "auto",
@@ -115,18 +125,21 @@ const HeroProfileModele: React.FC<HeroProfileModeleProps> = ({
               height: "30px",
               backgroundColor: "#1B1F26B8",
               borderRadius: "16px",
-              opacity: 0.5,
+              opacity: 0.8, // Augmenté légèrement pour la lisibilité
               transitionDelay: "400ms",
+              //alignSelf: "flex-end", // Aligné à droite sous le texte
+              marginRight: "0px",
             }}
           >
             <span
               style={{
                 fontFamily: "Inter",
-                fontWeight: 400,
+                fontWeight: 400, 
                 fontStyle: "normal",
                 fontSize: "12px",
                 lineHeight: "100%",
                 letterSpacing: "0%",
+                color: "white",
                 fontVariantNumeric: "lining-nums proportional-nums",
               }}
             >
@@ -138,9 +151,7 @@ const HeroProfileModele: React.FC<HeroProfileModeleProps> = ({
         {/* Mesures du modèle avec animation */}
         <div
           className={`absolute transition-all duration-1000 ${
-            isLoaded
-              ? "translate-y-0 opacity-100"
-              : "translate-y-8 opacity-0"
+            isLoaded ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
           }`}
           style={{
             top: "70%",
@@ -176,9 +187,7 @@ const HeroProfileModele: React.FC<HeroProfileModeleProps> = ({
         {/* Informations supplémentaires avec animation */}
         <div
           className={`absolute transition-all duration-1000 ${
-            isLoaded
-              ? "translate-y-0 opacity-100"
-              : "translate-y-8 opacity-0"
+            isLoaded ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
           }`}
           style={{
             top: "calc(70% + 100px)",
@@ -195,7 +204,8 @@ const HeroProfileModele: React.FC<HeroProfileModeleProps> = ({
             transitionDelay: "550ms",
           }}
         >
-          Âge : 25 ans  <br /> Agence : Modelmanagement Paris  <br /> Langues : Anglais, Allemand, Français
+          Âge : 25 ans <br /> Agence : Modelmanagement Paris <br /> Langues :
+          Anglais, Allemand, Français
         </div>
 
         {/* Container for IA option and location - Bottom right */}
@@ -209,9 +219,7 @@ const HeroProfileModele: React.FC<HeroProfileModeleProps> = ({
           {/* Background IA option avec animation */}
           <div
             className={`transition-all duration-1000 flex items-center justify-center ${
-              isLoaded
-                ? "translate-x-0 opacity-100"
-                : "translate-x-8 opacity-0"
+              isLoaded ? "translate-x-0 opacity-100" : "translate-x-8 opacity-0"
             }`}
             style={{
               width: "135px",
@@ -241,9 +249,7 @@ const HeroProfileModele: React.FC<HeroProfileModeleProps> = ({
           {/* 📍 Europe & Asie */}
           <div
             className={`transition-all duration-1000 ${
-              isLoaded
-                ? "translate-x-0 opacity-100"
-                : "translate-x-8 opacity-0"
+              isLoaded ? "translate-x-0 opacity-100" : "translate-x-8 opacity-0"
             }`}
             style={{
               transitionDelay: "700ms",

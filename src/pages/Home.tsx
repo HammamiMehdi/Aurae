@@ -24,7 +24,19 @@ const Home: React.FC<HomeProps> = ({ onSignupClick }) => {
           footer: 'medium'
         }}
       />
-      
+      {/* <Hero
+        profile="agence"
+        backgroundImage="/images/template1.png"
+        mainText="Auræ"
+        subText="Révéler les talents, créer l'exception"
+        onSignupClick={onSignupClick}
+        textSizes={{
+          logo: 'large',
+          mainText: 'large',
+          subText: 'medium',
+          footer: 'medium'
+        }}
+      /> */}
       <ConnectionSection />
       <Footer />
     </div>

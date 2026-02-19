@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import CalendarModal from "../../ui/CalendarModal";
 
 // Icônes simples en SVG
 const CalendarIcon = () => (
@@ -27,6 +28,7 @@ const ProfileModeleBook: React.FC = () => {
   const [currentTranslate, setCurrentTranslate] = useState(0);
   const [prevTranslate, setPrevTranslate] = useState(0);
   const carouselRef = useRef<HTMLDivElement>(null);
+  const [isCalendarOpen, setIsCalendarOpen] = useState(false);
 
   const projects = [
     {
@@ -50,6 +52,29 @@ const ProfileModeleBook: React.FC = () => {
       image: "/images/image_modele_4.jpg",
     },
   ];
+
+  // const projects = [
+  //   {
+  //     id: 1,
+  //     name: "Look Book Élégance",
+  //     image: "/images/template1.png",
+  //   },
+  //   {
+  //     id: 2,
+  //     name: "Campagne Beauté 2024",
+  //     image: "/images/template1.png",
+  //   },
+  //   {
+  //     id: 3,
+  //     name: "Editorial Mode",
+  //     image: "/images/template1.png",
+  //   },
+  //   {
+  //     id: 4,
+  //     name: "Shooting Commercial",
+  //     image: "/images/template1.png",
+  //   },
+  // ];
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) =>
@@ -135,22 +160,31 @@ const ProfileModeleBook: React.FC = () => {
       <div className="w-full mb-8" style={{ padding: '0 20px' }}>
         <div className="flex justify-between items-center">
           {/* Partie gauche - Mes projets */}
-          <div className="flex items-center gap-2">
-          <CalendarIcon />
-            <span
-              style={{
-                fontFamily: "Inter",
-                fontWeight: 700,
-                fontStyle: "Bold",
-                fontSize: "15px",
-                lineHeight: "120%",
-                letterSpacing: "-2%",
-                textAlign: "center",
-              }}
-            >
-              Mon agenda
-            </span>
-          </div>
+          <div 
+        className="flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity"
+        onClick={() => setIsCalendarOpen(true)}
+      >
+        <CalendarIcon />
+        <span
+          style={{
+            fontFamily: "Inter",
+            fontWeight: 700,
+            fontStyle: "normal", // "Bold" est géré par fontWeight: 700
+            fontSize: "15px",
+            lineHeight: "120%",
+            letterSpacing: "-2%",
+            textAlign: "center",
+          }}
+        >
+          Mon agenda
+        </span>
+      </div>
+
+      {/* Popup du calendrier */}
+      <CalendarModal 
+        isOpen={isCalendarOpen} 
+        onClose={() => setIsCalendarOpen(false)} 
+      />
 
           {/* Partie droite - Mon agenda */}
           <div className="flex items-center gap-2">

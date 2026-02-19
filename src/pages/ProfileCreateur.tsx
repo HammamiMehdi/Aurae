@@ -8,6 +8,7 @@ const ProfileCreateur: React.FC = () => {
     <div className="min-h-screen bg-white flex flex-col">
       {/* Hero avec image et textes spécifiques pour le profil créateur */}
       <HeroProfileCreateur backgroundImage="/images/createur-hero.png" />
+      {/* <HeroProfileCreateur backgroundImage="/images/template1.png" /> */}
 
       {/* Section Mon Portfolio avec carousel */}
       <ProfileCreateurBook />

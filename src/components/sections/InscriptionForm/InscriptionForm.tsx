@@ -1,5 +1,34 @@
 import React, { useState } from 'react';
 
+  // 1. Définition des sous-catégories par métier
+  const SUB_CATEGORIES = {
+    mannequin: [
+      "Mode", "Beauté", "E-commerce", "Commercial", "Luxe", "Fitness", 
+      "Curve / Plus size", "Senior", "Enfant / Junior", "Main", "Silhouette", 
+      "Talent hybride (acteur / danseur / performer)"
+    ],
+    photographe: [
+      "Mode", "Beauté", "Nature morte", "E-commerce", "Campagne publicitaire", 
+      "Lifestyle", "Portrait", "Éditorial", "Produit", "Joaillerie", 
+      "Cosmétique", "Food", "Architecture / Intérieur", "Art / Conceptuel"
+    ],
+    realisateur: [
+      "Film publicitaire", "Fashion film", "Clip musical", "Film corporate", 
+      "Documentaire", "Film produit", "Contenu social media", "Film e-commerce", 
+      "Film beauté", "Film expérimental"
+    ],
+    set_designer: [
+      "Nature morte", "Décor studio", "Scénographie événementielle", 
+      "Décor campagne publicitaire", "Vitrine retail", "Installation artistique", 
+      "Food styling", "Décor digital / 3D", "Direction props"
+    ],
+    illustrateur: [
+      "Illustration mode", "Illustration beauté", "Illustration éditoriale", 
+      "Illustration publicitaire", "Illustration digitale", "Illustration 3D", 
+      "Motion design", "Typographie", "Storyboard", "Packaging"
+    ]
+  };
+
 const InscriptionForm: React.FC<{ profile?: 'modele' | 'agence' }> = ({  }) => {
   const [formData, setFormData] = useState({
     nomPrenom: '',
@@ -8,6 +37,7 @@ const InscriptionForm: React.FC<{ profile?: 'modele' | 'agence' }> = ({  }) => {
     motDePasse: '',
     telephone: '',
     role: '',
+    sousCategorie: '', 
     ville: '',
     pays: '',
     instagram: '' // Nouveau champ ajouté
@@ -16,7 +46,9 @@ const InscriptionForm: React.FC<{ profile?: 'modele' | 'agence' }> = ({  }) => {
   const handleInputChange = (field: string, value: string) => {
     setFormData(prev => ({
       ...prev,
-      [field]: value
+      [field]: value,
+      // Réinitialiser la sous-catégorie si le rôle change
+      ...(field === 'role' ? { sousCategorie: '' } : {})
     }));
   };
 
@@ -24,6 +56,35 @@ const InscriptionForm: React.FC<{ profile?: 'modele' | 'agence' }> = ({  }) => {
     e.preventDefault();
     console.log('Données du formulaire :', formData);
   };
+
+  // Styles réutilisables pour éviter la répétition
+  const inputStyle = {
+    height: '60px',
+    borderRadius: '15px',
+    border: '1px solid #7E7C7E',
+    padding: '16px',
+    backgroundColor: '#FDF9F5',
+    fontFamily: 'Inter Tight, sans-serif',
+    fontSize: '14px'
+  };
+
+  const labelStyle = {
+    fontFamily: 'Inter Tight, sans-serif',
+    fontWeight: 400,
+    fontSize: '14px',
+    lineHeight: '100%',
+    letterSpacing: '0px',
+  };
+
+  const selectArrowStyle = {
+    appearance: 'none' as const,
+    backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%237E7C7E' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e")`,
+    backgroundPosition: 'right 16px center',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: '16px'
+  };
+
+
 
   return (
     <div 
@@ -284,49 +345,51 @@ const InscriptionForm: React.FC<{ profile?: 'modele' | 'agence' }> = ({  }) => {
 
             {/* Rôle - Sur toute la largeur quand pas en mode modèle */}
             
-              <div className="mb-6">
-                <div className="input-container">
-                  <label 
-                    className="text-gray-700 block mb-2 text-sm"
-                    style={{
-                      fontFamily: 'Inter Tight, sans-serif',
-                      fontWeight: 400,
-                      fontSize: '14px', 
-                      lineHeight: '100%',
-                      letterSpacing: '0px',
-                    }}
-                  >
-                    Rôle *
-                  </label>
-                  <select
-                    value={formData.role}
-                    onChange={(e) => handleInputChange('role', e.target.value)}
-                    className="w-full transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
-                    style={{
-                      height: '60px',
-                      borderRadius: '15px', 
-                      border: '1px solid #7E7C7E',
-                      padding: '16px', 
-                      backgroundColor: '#FDF9F5',
-                      fontFamily: 'Inter Tight, sans-serif',
-                      fontSize: '14px', 
-                      appearance: 'none',
-                      backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%237E7C7E' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e")`,
-                      backgroundPosition: 'right 16px center',
-                      backgroundRepeat: 'no-repeat',
-                      backgroundSize: '16px' 
-                    }}
-                  >
-                    <option value="">Sélectionnez votre rôle</option>
-                    <option value="photographe">Mannequin </option>
-                    <option value="photographe">Photographe</option>
-                    <option value="styliste">réalisateur</option>
-                    <option value="maquilleur">illustrateur</option>
-                    <option value="directeur">set designer</option>
-                    
-                  </select>
-                </div>
+             {/* SECTION RÔLES ET SOUS-CATÉGORIES */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+              {/* Champ Rôle */}
+              <div className="input-container">
+                <label className="text-gray-700 block mb-2 text-sm" style={labelStyle}>
+                  Je suis *
+                </label>
+                <select
+                  value={formData.role}
+                  onChange={(e) => handleInputChange('role', e.target.value)}
+                  className="w-full transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
+                  style={{ ...inputStyle, ...selectArrowStyle }}
+                >
+                  <option value="">Sélectionnez votre rôle</option>
+                  <option value="mannequin">Mannequin</option>
+                  <option value="photographe">Photographe</option>
+                  <option value="realisateur">Réalisateur</option>
+                  <option value="set_designer">Set designer</option>
+                  <option value="illustrateur">Illustrateur</option>
+                </select>
               </div>
+
+              {/* Champ Sous-catégorie Dynamique */}
+              <div className={`input-container transition-opacity duration-300 ${!formData.role ? 'opacity-50 pointer-events-none' : 'opacity-100'}`}>
+                <label className="text-gray-700 block mb-2 text-sm" style={labelStyle}>
+                  Spécialité *
+                </label>
+                <select
+                  disabled={!formData.role}
+                  value={formData.sousCategorie}
+                  onChange={(e) => handleInputChange('sousCategorie', e.target.value)}
+                  className="w-full transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
+                  style={{ ...inputStyle, ...selectArrowStyle }}
+                >
+                  <option value="">
+                    {!formData.role ? "Sélectionnez d'abord un rôle" : "Sélectionnez une spécialité"}
+                  </option>
+                  {formData.role && SUB_CATEGORIES[formData.role as keyof typeof SUB_CATEGORIES].map((sub) => (
+                    <option key={sub} value={sub.toLowerCase()}>
+                      {sub}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </div>
             
 
             {/* Ville et Pays - Sur toute la largeur */}

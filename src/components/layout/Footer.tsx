@@ -38,7 +38,7 @@ const Footer: React.FC = () => {
             <nav className="flex flex-nowrap gap-4 sm:gap-6">
               <Link to="/" className="text-black hover:text-black transition-colors" style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700, fontStyle: 'bold', fontSize: '12px', lineHeight: '120%', letterSpacing: '-2%', whiteSpace: 'nowrap' }}>Home page</Link>
               <Link to="/profile-agence" className="text-black hover:text-black transition-colors" style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700, fontStyle: 'bold', fontSize: '12px', lineHeight: '120%', letterSpacing: '-2%', whiteSpace: 'nowrap' }}>Aurae Profile</Link>
-              <Link to="/Models" className="text-black hover:text-black transition-colors" style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700, fontStyle: 'bold', fontSize: '12px', lineHeight: '120%', letterSpacing: '-2%', whiteSpace: 'nowrap' }}>Trouver un model</Link>
+              <Link to="/Models" className="text-black hover:text-black transition-colors" style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700, fontStyle: 'bold', fontSize: '12px', lineHeight: '120%', letterSpacing: '-2%', whiteSpace: 'nowrap' }}>Trouver un talent</Link>
               <Link to="/add-project" className="text-black hover:text-black transition-colors" style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700, fontStyle: 'bold', fontSize: '12px', lineHeight: '120%', letterSpacing: '-2%', whiteSpace: 'nowrap' }}>Matchs & Chat</Link>
               <Link to="/projets-modele" className="text-black hover:text-black transition-colors" style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700, fontStyle: 'bold', fontSize: '12px', lineHeight: '120%', letterSpacing: '-2%', whiteSpace: 'nowrap' }}>Mes projets</Link>
             </nav>

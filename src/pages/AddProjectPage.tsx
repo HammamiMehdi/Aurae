@@ -38,6 +38,7 @@ const AddProjectPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       <HeroProjet backgroundImage="/images/Profile_agence_page.jpg" />
+      {/* <HeroProjet backgroundImage="/images/template1.png" /> */}
 
       <BriefForm value={briefData} onChange={handleBriefChange} />
 

@@ -19,6 +19,24 @@ const ProfileModeleProjets: React.FC = () => {
     },
   ];
 
+  // const projets = [
+  //   {
+  //     id: 1,
+  //     image: "/images/template1.png",
+  //     alt: "Projet modèle 3",
+  //   },
+  //   {
+  //     id: 2,
+  //     image: "/images/template1.png",
+  //     alt: "Projet modèle 2",
+  //   },
+  //   {
+  //     id: 3,
+  //     image: "/images/template1.png",
+  //     alt: "Projet modèle 1",
+  //   },
+  // ];
+
   return (
     <div className="w-full bg-white ">
       {/* Titre aligné à droite */}

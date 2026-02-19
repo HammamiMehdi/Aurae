@@ -19,7 +19,7 @@ const HeroMesProjetsModele: React.FC<HeroMesProjetsModeleProps> = ({
   const navItems: NavItem[] = [
     { label: "Home page", href: "/" },
     { label: "Aurae Profile", href: "/profile-modele" },
-    { label: "Trouver un model", href: "/Models" },
+    { label: "Trouver un talent", href: "/Models" },
     { label: "Mes Projets", href: "/projets-modele" },
   ];
 

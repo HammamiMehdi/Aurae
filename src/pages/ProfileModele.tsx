@@ -8,8 +8,9 @@ import ProfileModeleProjets from "../components/sections/ProfileModele/ProfileMo
 const ProfileModele: React.FC = () => {
   return (
     <div className="min-h-screen bg-white flex flex-col">
-      {/* Hero avec image et textes spécifiques pour le profil modèle */}
+      {/* Hero avec image et textes spécifiques pour le profil modèle RAMADAN*/}
       <HeroProfileModele backgroundImage="/images/profile_modele_page.jpg" />
+      {/* <HeroProfileModele backgroundImage="/images/template1.png" /> */}
 
       {/* Section Mon Book avec carousel */}
       <ProfileModeleBook />

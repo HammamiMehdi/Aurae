@@ -43,7 +43,20 @@ const ChatMessage: React.FC = () => {
     >
       {/* Header Component */}
       <HeaderMatchsChat />
-
+      <h2
+        className="text-black text-left flex-shrink-0"
+        style={{
+          fontFamily: 'Inter',
+          fontWeight: 700,
+          fontStyle: 'bold',
+          fontSize: '70px',
+          lineHeight: '120%',
+          letterSpacing: '-2%',
+          marginBottom:'10px'
+        }}
+      >
+        Messagerie 
+      </h2>
       {/* Chat Message Component */}
       <ChatMessageComponent modelName={model.name} modelImage={model.image} />
       

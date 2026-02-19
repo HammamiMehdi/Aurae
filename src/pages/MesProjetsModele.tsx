@@ -8,8 +8,11 @@ const MesProjetsModele: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero avec image de fond */}
-      <HeroMesProjetsModele backgroundImage="/images/profile_modele_page.jpg" />
-      <ProjectCarousel
+      <HeroMesProjetsModele backgroundImage="/images/profile_modele_page.jpg" /> 
+      {/* <HeroMesProjetsModele backgroundImage="/images/template1.png" /> */}
+      
+      
+      <ProjectCarousel 
         projects={[
           {
             id: 1,
@@ -33,6 +36,30 @@ const MesProjetsModele: React.FC = () => {
           },
         ]}
       />
+       {/* <ProjectCarousel
+        projects={[
+          {
+            id: 1,
+            title: "Campagne Beauté 2024",
+            image: "/images/template1.png",
+          },
+          {
+            id: 2,
+            title: "Look Book Élégance",
+            image: "/images/template1.png",
+          },
+          {
+            id: 3,
+            title: "Editorial Mode",
+            image: "/images/template1.png",
+          },
+          {
+            id: 4,
+            title: "Shooting Commercial",
+            image: "/images/template1.png",
+          },
+        ]}
+      />  */}
 
 <ArchivedCarousel 
   projects={[
@@ -58,6 +85,31 @@ const MesProjetsModele: React.FC = () => {
     }
   ]}
 />
+
+{/* <ArchivedCarousel 
+  projects={[
+    {
+      id: 5,
+      title: "Collection Été 2023",
+      image: "/images/template1.png"
+    },
+    {
+      id: 6,
+      title: "Portfolio Classique",
+      image: "/images/template1.png"
+    },
+    {
+      id: 7,
+      title: "Mode Sportive",
+      image: "/images/template1.png"
+    },
+    {
+      id: 8,
+      title: "Événement Galaxie",
+      image: "/images/template1.png"
+    }
+  ]}
+/> */}
   <Footer />
     </div>
   );

@@ -19,7 +19,7 @@ const HeroProfileCreateur: React.FC<HeroProfileCreateurProps> = ({
   const navItems: NavItem[] = [
     { label: "Home page", href: "/" },
     { label: "Aurae Profile", href: "/profile-createur" },
-    { label: "Trouver un model", href: "/Models" },
+    { label: "Trouver un talent", href: "/Models" },
     { label: "Matchs & Chat", href: "/matchs" },
   ];
 
@@ -115,68 +115,87 @@ const HeroProfileCreateur: React.FC<HeroProfileCreateurProps> = ({
       <div className="absolute inset-0 z-20 text-white">
         {/* Container for nom créateur et Submit the project */}
         <div
-          className="absolute flex flex-col items-end"
-          style={{
-            left: "60%",
-            top: "40%",
-          }}
-        >
-          {/* Nom du créateur avec animation */}
-          <div
-            className={`transition-all duration-1000 ${
-              isLoaded
-                ? "translate-x-0 opacity-100"
-                : "translate-x-8 opacity-0"
-            }`}
-            style={{
-              width: "360px",
-              height: "77px",
-              fontFamily: "Inter",
-              fontWeight: 700,
-              fontStyle: "normal",
-              fontSize: "40px",
-              lineHeight: "120%",
-              letterSpacing: "-2%",
-              transitionDelay: "300ms",
-              textAlign: "right",
-              marginRight: "30px",
-            }}
-          >
-            Paul. Krausser
-          </div>
+  className="absolute flex flex-col items-end"
+  style={{
+    left: "60%",
+    top: "40%",
+  }}
+>
+  {/* Conteneur Nom + Coeur avec animation */}
+  <div
+    className={`flex items-center transition-all duration-1000 ${
+      isLoaded ? "translate-x-0 opacity-100" : "translate-x-8 opacity-0"
+    }`}
+    style={{
+      width: "433px",
+      height: "77px",
+      transitionDelay: "300ms",
+      marginRight: "30px",
+      justifyContent: "flex-end", // Aligne le contenu à droite du conteneur
+    }}
+  >
+    {/* Coeur simple rouge à gauche du nom */}
+    <div className="mr-4">
+      <svg 
+        width="32" 
+        height="32" 
+        viewBox="0 0 24 24" 
+        fill="#D10000" 
+        style={{ filter: "drop-shadow(0px 2px 4px rgba(0,0,0,0.2))" }}
+      >
+        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+      </svg>
+    </div>
 
-          {/* Submit the project avec animation */}
-          <div
-            className={`flex items-center justify-center transition-all duration-1000 ${
-              isLoaded
-                ? "translate-x-0 opacity-100"
-                : "translate-x-8 opacity-0"
-            }`}
-            style={{
-              width: "auto",
-              padding: "10px 20px",
-              height: "30px",
-              backgroundColor: "#1B1F26B8",
-              borderRadius: "16px",
-              opacity: 0.5,
-              transitionDelay: "400ms",
-            }}
-          >
-            <span
-              style={{
-                fontFamily: "Inter",
-                fontWeight: 400,
-                fontStyle: "normal",
-                fontSize: "12px",
-                lineHeight: "100%",
-                letterSpacing: "0%",
-                fontVariantNumeric: "lining-nums proportional-nums",
-              }}
-            >
-              Proposer le projet
-            </span>
-          </div>
-        </div>
+    {/* Nom du créateur */}
+    <div
+      style={{
+        fontFamily: "Inter",
+        fontWeight: 700,
+        fontStyle: "normal",
+        fontSize: "40px", // Ajusté pour Paul. Krausser
+        lineHeight: "120%",
+        letterSpacing: "-2%",
+        textAlign: "right",
+        color: "white"
+      }}
+    >
+      Paul. Krausser
+    </div>
+  </div>
+
+  {/* Submit the project avec animation */}
+  <div
+    className={`flex items-center justify-center transition-all duration-1000 ${
+      isLoaded ? "translate-x-0 opacity-100" : "translate-x-8 opacity-0"
+    }`}
+    style={{
+      width: "auto",
+      padding: "10px 20px",
+      height: "30px",
+      backgroundColor: "#1B1F26B8",
+      borderRadius: "16px",
+      opacity: 0.8, // Augmenté pour la visibilité sur fond image
+      transitionDelay: "400ms",
+      marginRight: "30px",
+    }}
+  >
+    <span
+      style={{
+        fontFamily: "Inter",
+        fontWeight: 400,
+        fontStyle: "normal",
+        fontSize: "12px",
+        lineHeight: "100%",
+        letterSpacing: "0%",
+        color: "white",
+        fontVariantNumeric: "lining-nums proportional-nums",
+      }}
+    >
+      Proposer le projet
+    </span>
+  </div>
+</div>
 
         {/* Informations du créateur avec animation */}
         <div

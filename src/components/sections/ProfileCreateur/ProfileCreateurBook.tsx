@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import CalendarModal from "../../ui/CalendarModal";
 
 // Icônes simples en SVG
 const CalendarIcon = () => (
@@ -17,6 +18,7 @@ const ProfileCreateurBook: React.FC = () => {
   const [currentTranslate, setCurrentTranslate] = useState(0);
   const [prevTranslate, setPrevTranslate] = useState(0);
   const carouselRef = useRef<HTMLDivElement>(null);
+  const [isCalendarOpen, setIsCalendarOpen] = useState(false);
 
   const projects = [
     {
@@ -40,6 +42,29 @@ const ProfileCreateurBook: React.FC = () => {
       image: "/images/crea2.png",
     },
   ];
+
+  // const projects = [
+  //   {
+  //     id: 1,
+  //     name: "Look Book Élégance",
+  //     image: "/images/template1.png",
+  //   },
+  //   {
+  //     id: 2,
+  //     name: "Campagne Beauté 2024",
+  //     image: "/images/template1.png",
+  //   },
+  //   {
+  //     id: 3,
+  //     name: "Editorial Mode",
+  //     image: "/images/template1.png",
+  //   },
+  //   {
+  //     id: 4,
+  //     name: "Shooting Commercial",
+  //     image: "/images/template1.png",
+  //   },
+  // ];
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) =>
@@ -125,14 +150,17 @@ const ProfileCreateurBook: React.FC = () => {
       <div className="w-full mb-8" style={{ padding: '0 20px' }}>
         <div className="flex justify-between items-center">
           {/* Partie gauche - Mon agenda */}
-          <div className="flex items-center gap-2">
+          <div 
+        className="flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity"
+        onClick={() => setIsCalendarOpen(true)}
+      >
           <CalendarIcon />
             <span
               style={{
                 fontFamily: "Inter",
-                fontWeight: 700,
-                fontStyle: "Bold",
-                fontSize: "15px",
+                fontWeight: 400,
+                fontStyle: "Regular",
+                fontSize: "20px",
                 lineHeight: "120%",
                 letterSpacing: "-2%",
                 textAlign: "center",
@@ -142,6 +170,11 @@ const ProfileCreateurBook: React.FC = () => {
             </span>
           </div>
 
+      {/* Popup du calendrier */}
+      <CalendarModal 
+        isOpen={isCalendarOpen} 
+        onClose={() => setIsCalendarOpen(false)} 
+      />
           {/* Partie droite - Mes projets */}
           <div className="flex items-center gap-2">
             
@@ -149,9 +182,9 @@ const ProfileCreateurBook: React.FC = () => {
             <span
               style={{
                 fontFamily: "Inter",
-                fontWeight: 700,
-                fontStyle: "Bold",
-                fontSize: "15px",
+                fontWeight: 400,
+                fontStyle: "Regular",
+                fontSize: "20px",
                 lineHeight: "120%",
                 letterSpacing: "-2%",
                 textAlign: "center",

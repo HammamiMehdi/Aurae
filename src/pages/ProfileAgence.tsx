@@ -6,10 +6,14 @@ import ProfileAgenceProjects from './../components/sections/ProfileAgence/Profil
 const ProfileAgence: React.FC = () => {
     return (
       <div className="min-h-screen bg-white flex flex-col">
-        {/* Hero avec image et textes spécifiques pour le profil agence */}
+        {/* Hero avec image et textes spécifiques pour le profil agence RAMADAN */}
         <HeroProfileAgence 
           backgroundImage="/images/Profile_agence_page.jpg"
         />
+
+        {/* <HeroProfileAgence 
+          backgroundImage="/images/template1.png"
+        /> */}
         
         {/* Contenu principal du profil agence */}
         <ProfileAgenceContent />
