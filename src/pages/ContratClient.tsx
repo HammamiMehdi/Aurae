@@ -15,8 +15,9 @@ const ContratClient: React.FC = () => {
   const navItems: NavItem[] = [
     { label: 'Home page', href: '/' },
     { label: 'Aurae Profile', href: '/profile-agence' },
-    { label: 'Find a model', href: '/Models' },
-    { label: 'Mes projets', href: '/projets-modele' },
+    { label: 'Trouver un talent', href: '/Models' },
+    { label: 'Matchs & Chat', href: '/matchs' },
+    { label: 'Contact & RDV', href: 'https://calendly.com/constance-landowski/30min' },
   ];
 
   const handleNavClick = (href: string) => {

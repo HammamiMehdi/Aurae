@@ -16,6 +16,7 @@ const HeaderPhotographes: React.FC<HeaderPhotographesProps> = ({ backgroundImage
     { label: 'Aurae Profile', href: '/profile-agence' },
     { label: 'Trouver un talent', href: '/Models' },
     { label: 'Matchs & Chat', href: '/matchs' },
+    { label: 'Contact & RDV', href: 'https://calendly.com/constance-landowski/30min' },
   ];
 
   const handleNavClick = (href: string) => {

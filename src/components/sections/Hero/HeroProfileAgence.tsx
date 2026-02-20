@@ -17,7 +17,8 @@ const HeroProfileAgence: React.FC<HeroProfileAgenceProps> = ({ backgroundImage }
     { label: 'Home page', href: '/' },
     { label: 'Aurae Profile', href: '/profile-agence' },
     { label: 'Trouver un talent', href: '/Models' },
-    { label: 'Match&chat', href: '/projets-modele' },
+    { label: 'Match & chat', href: '/projets-modele' },
+    { label: 'Contact & RDV', href: 'https://calendly.com/constance-landowski/30min' },
   ];
 
   const handleNavClick = (href: string) => {

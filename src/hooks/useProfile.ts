@@ -24,6 +24,7 @@ export const useProfile = () => {
           { label: 'Aurae Profile', href: '/profile' },
           { label: 'Matchs & Chat', href: '/matchs' },
           { label: 'Matchs & Chat', href: '/matchs' },
+          { label: 'Contact & RDV', href: 'https://calendly.com/constance-landowski/30min' },
         ],
       };
     }
