@@ -10,7 +10,6 @@ import InscriptionCreateur from './pages/InscriptionCreateur.tsx'
 import Login from './pages/Login';
 import ProfileAgence from './pages/ProfileAgence.tsx'
 import ProfileModele from './pages/ProfileModele.tsx'
-import ProfileCreateur from './pages/ProfileCreateur.tsx'
 import ForgotPassword from './pages/ForgotPassword.tsx'
 import MesProjetsModele from './pages/MesProjetsModele.tsx'
 import Projet from './pages/Projet.tsx'
@@ -38,7 +37,6 @@ function AnimatedRoutes() {
         <Route path="/forgotPassword" element={<PageTransition><ForgotPassword /></PageTransition>} />
         <Route path="/profile-agence" element={<PageTransition><ProfileAgence /></PageTransition>} />
         <Route path="/profile-modele" element={<PageTransition><ProfileModele /></PageTransition>} />
-        <Route path="/profile-createur" element={<PageTransition><ProfileCreateur /></PageTransition>} />
         <Route path="/projets-modele" element={<PageTransition><MesProjetsModele /></PageTransition>} />
         <Route path="/projet" element={<PageTransition><Projet /></PageTransition>} />
         <Route path="/Models" element={<PageTransition><Models /></PageTransition>} />

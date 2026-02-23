@@ -8,7 +8,7 @@ const ProfileAgenceContent: React.FC = () => {
     <div className="w-full bg-white">
       {/* Section avec "Ajouter un nouveau projet" aligné à droite */}
       <div className="w-full px-4 sm:px-6 md:px-8 py-8 sm:py-10 md:py-12">
-        <div className="max-w-7xl mx-auto flex justify-center sm:justify-end mb-6">
+        <div className="flex justify-center sm:justify-end mb-6">
           <div 
             onClick={() => navigate('/add-project')} // Redirection au clic
             style={{
