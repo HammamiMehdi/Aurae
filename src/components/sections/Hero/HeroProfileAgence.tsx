@@ -99,7 +99,7 @@ const HeroProfileAgence: React.FC<HeroProfileAgenceProps> = ({ backgroundImage }
                 fontStyle: 'normal',
                 fontSize: 'clamp(1.75rem, 4vw, 3rem)', // Réduit : 28px à 48px convertis en rem
                 lineHeight: '120%',
-                letterSpacing: '-10%',
+                letterSpacing: '1%',
                 textAlign: 'right',
               }}
             >
