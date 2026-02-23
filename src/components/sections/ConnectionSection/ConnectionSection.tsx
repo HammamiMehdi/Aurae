@@ -131,7 +131,7 @@ const ConnectionSection: React.FC = () => {
         <div 
           className="absolute sm:left-4 md:left-8 lg:left-[8rem] w-auto cursor-pointer hover:opacity-80 transition-opacity"
           style={{
-            top: 'clamp(45rem, 70vh, 45rem)', // 770px converti en rem, responsive avec vh
+            top: 'clamp(50rem, 75vh, 50rem)', // Déplacé plus bas
             width: '40%',
           }}
           onClick={handleAgenceClick}
@@ -156,7 +156,7 @@ const ConnectionSection: React.FC = () => {
             className="absolute"
             style={{
               top: 'clamp(0.625rem, 1vh, 0.625rem)', // Position relative au conteneur
-              left: 'clamp(5rem, 15vw, 5rem)', // Position relative au conteneur
+              left: 'clamp(6rem, 16vw, 7rem)', // Position relative au conteneur
               fontFamily: 'Inter',
               fontWeight: 700,
               fontStyle: 'normal',
