@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import type { NavItem } from '../../types/profiles';
 
@@ -24,6 +24,10 @@ const Header: React.FC<HeaderProps> = ({
   onNavClick
 }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [user, setUser] = useState<any>(null);
+
+  
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -46,57 +50,13 @@ const Header: React.FC<HeaderProps> = ({
   return (
     <>
       <header 
-        className={`relative z-30 flex justify-between items-center ${backgroundColor}`}
+        className={`relative z-30 flex justify-between mt-10 items-center ${backgroundColor}`}
         style={{
           padding: 'clamp(0.75rem, 2vw, 2rem) clamp(1rem, 3vw, 2.5rem)'
         }}
       >
-        <Link to="/" className={`${textColor} hover:opacity-80 transition-opacity cursor-pointer`}>
-          <h1 
-            className="font-bold leading-[1.2]"
-            style={{ 
-              fontFamily: 'Inter, sans-serif',
-              fontWeight: 700,
-              fontStyle: 'normal',
-              fontSize: 'clamp(1.125rem, 2.2vw, 1.5rem)', // 18px à 24px convertis en rem
-              letterSpacing: '-0.045rem' // -0.72px converti en rem
-            }}
-          >
-            <span>Auræ</span>{' '}
-            <span 
-              className="italic leading-[1.2]"
-              style={{ 
-                fontFamily: 'Instrument Sans, sans-serif',
-                fontWeight: 400,
-                fontStyle: 'italic',
-                fontSize: 'clamp(1.125rem, 2.2vw, 1.5rem)', // 18px à 24px convertis en rem
-                letterSpacing: '-0.045rem' // -0.72px converti en rem
-              }}
-            >
-              Studio
-            </span>
-          </h1>
-        </Link>
         
-        {/* Desktop Sign up button - hidden on mobile */}
-        {showSignup && (
-          <button 
-            onClick={onSignupClick}
-            className={`hidden md:block ${textColor} bg-transparent rounded-full transition-all duration-300 cursor-pointer`}
-            style={{
-              fontFamily: 'Inter, sans-serif',
-              fontWeight: 400,
-              fontStyle: 'normal',
-              fontSize: 'clamp(0.8125rem, 1.2vw, 1rem)', // 13px à 16px convertis en rem
-              lineHeight: '120%',
-              letterSpacing: '-2%',
-              padding: 'clamp(0.375rem, 0.8vw, 0.5rem) clamp(0.75rem, 2vw, 1.5rem)'
-            }}
-          >
-            Sign up
-          </button>
-        )}
-
+       
         {/* Hamburger menu button - visible only on mobile */}
         <button
           onClick={toggleMenu}
@@ -220,21 +180,7 @@ const Header: React.FC<HeaderProps> = ({
             </nav>
           )}
 
-          {/* Sign up button in menu */}
-          {showSignup && (
-            <button 
-              onClick={handleSignupClick}
-              className="text-white bg-black border border-black rounded-full hover:bg-gray-800 transition-all duration-300 cursor-pointer font-medium mt-auto"
-              style={{
-                fontFamily: 'Inter, monospace',
-                fontSize: 'clamp(0.75rem, 1.5vw, 0.875rem)',
-                padding: 'clamp(0.5rem, 1.5vw, 0.625rem) clamp(1.25rem, 4vw, 1.5rem)',
-                marginBottom: 'clamp(1rem, 3vw, 1.5rem)'
-              }}
-            >
-              Sign up
-            </button>
-          )}
+         
         </div>
       </div>
     </>

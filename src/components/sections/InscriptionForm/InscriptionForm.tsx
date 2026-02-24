@@ -29,8 +29,40 @@ import React, { useState } from 'react';
     ]
   };
 
-const InscriptionForm: React.FC<{ profile?: 'modele' | 'agence' }> = ({  }) => {
-  const [formData, setFormData] = useState({
+interface InscriptionFormProps {
+  profile?: 'modele' | 'agence';
+  formData?: {
+    nomPrenom: string;
+    dateNaissance: string;
+    email: string;
+    motDePasse: string;
+    telephone: string;
+    role: string;
+    sousCategorie: string;
+    ville: string;
+    pays: string;
+    instagram: string;
+  };
+  onFormDataChange?: (data: {
+    nomPrenom: string;
+    dateNaissance: string;
+    email: string;
+    motDePasse: string;
+    telephone: string;
+    role: string;
+    sousCategorie: string;
+    ville: string;
+    pays: string;
+    instagram: string;
+  }) => void;
+}
+
+const InscriptionForm: React.FC<InscriptionFormProps> = ({ 
+  profile,
+  formData: externalFormData,
+  onFormDataChange 
+}) => {
+  const [internalFormData, setInternalFormData] = useState({
     nomPrenom: '',
     dateNaissance: '',
     email: '',
@@ -40,21 +72,26 @@ const InscriptionForm: React.FC<{ profile?: 'modele' | 'agence' }> = ({  }) => {
     sousCategorie: '', 
     ville: '',
     pays: '',
-    instagram: '' // Nouveau champ ajouté
+    instagram: ''
   });
 
+  // Use external form data if provided, otherwise use internal state
+  const formData = externalFormData || internalFormData;
+  const setFormData = onFormDataChange || setInternalFormData;
+
   const handleInputChange = (field: string, value: string) => {
-    setFormData(prev => ({
-      ...prev,
+    const updatedData = {
+      ...formData,
       [field]: value,
       // Réinitialiser la sous-catégorie si le rôle change
       ...(field === 'role' ? { sousCategorie: '' } : {})
-    }));
+    };
+    setFormData(updatedData);
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Données du formulaire :', formData);
+    // Form submission is handled by CreateurForm
   };
 
   // Styles réutilisables pour éviter la répétition

@@ -2,21 +2,16 @@ import React, { useState } from 'react';
 import {  useLocation } from 'react-router-dom';
 import Footer from '../../layout/Footer';
 import Navigation from '../../layout/Navigation';
-import type { NavItem } from '../../../types/profiles';
 import HeaderStandard from '../../layout/HeaderStandard';
+import { getNavItems } from '../../../utils/navigation';
 
 const FiltresPage: React.FC = () => {
   const location = useLocation();
   const [activeNav, setActiveNav] = useState<string>(location.pathname);
   const [isOverlayOpen, setIsOverlayOpen] = useState<boolean>(false);
 
-  const navItems: NavItem[] = [
-    { label: 'Home page', href: '/' },
-    { label: 'Aurae Profile', href: '/profile-agence' },
-    { label: 'Trouver un talent', href: '/Models' },
-    { label: 'Matchs & Chat', href: '/matchs' },
-    { label: 'Contact & RDV', href: 'https://calendly.com/constance-landowski/30min' },
-  ];
+  // Use centralized navigation items for agence profile
+  const navItems = getNavItems('agence');
 
   const handleNavClick = (href: string) => {
     setActiveNav(href);

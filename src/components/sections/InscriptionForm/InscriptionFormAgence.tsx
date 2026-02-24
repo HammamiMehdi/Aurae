@@ -1,30 +1,27 @@
 import React, { useState } from 'react';
+import type { AgencyFormData } from '../../../pages/InscriptionAgence';
 
-const InscriptionFormAgence: React.FC = () => {
-  const [formData, setFormData] = useState({
-    nomPrenom: '',
-    dateNaissance: '',
-    email: '',
-    motDePasse: '',
-    telephone: '',
-    role: '',
-    ville: '',
-    pays: '',
-    instagram: ''
-  });
+interface InscriptionFormAgenceProps {
+  formData: AgencyFormData;
+  onFormDataChange: (data: AgencyFormData) => void;
+}
 
+const InscriptionFormAgence: React.FC<InscriptionFormAgenceProps> = ({ 
+  formData, 
+  onFormDataChange 
+}) => {
   const [showPassword, setShowPassword] = useState(false);
 
   const handleInputChange = (field: string, value: string) => {
-    setFormData(prev => ({
-      ...prev,
+    onFormDataChange({
+      ...formData,
       [field]: value
-    }));
+    });
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Données Agence/Production :', formData);
+    // Form submission is handled by EntrepriseForm
   };
 
   const labelStyle = {

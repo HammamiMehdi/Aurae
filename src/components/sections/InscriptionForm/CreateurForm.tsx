@@ -1,33 +1,37 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { api, ApiError } from '../../../services/api';
+import type { CreatorInscriptionFormData, CreatorFormData } from '../../../pages/InscriptionCreateur';
 
-const CreateurForm: React.FC = () => {
-  const [formData, setFormData] = useState({
-    nomEntreprise: '',
-    description: '',
-    statutJuridique: '',
-    tva: '',
-    services: [] as string[],
-    justificatif: null as File | null,
-    charteAurae: false,
-    cgu: false,
-    cgv: false
-  });
+interface CreateurFormProps {
+  formData: CreatorFormData;
+  onFormDataChange: (data: CreatorFormData) => void;
+  inscriptionFormData: CreatorInscriptionFormData;
+}
 
+const CreateurForm: React.FC<CreateurFormProps> = ({ 
+  formData, 
+  onFormDataChange,
+  inscriptionFormData 
+}) => {
   const [dragActive, setDragActive] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const navigate = useNavigate();
 
   const handleInputChange = (field: string, value: string | string[] | boolean) => {
-    setFormData(prev => ({
-      ...prev,
+    onFormDataChange({
+      ...formData,
       [field]: value
-    }));
+    });
   };
 
   const handleFileChange = (file: File) => {
-    setFormData(prev => ({
-      ...prev,
+    onFormDataChange({
+      ...formData,
       justificatif: file
-    }));
+    });
   };
 
   const handleDrag = (e: React.DragEvent) => {
@@ -50,9 +54,71 @@ const CreateurForm: React.FC = () => {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Données du formulaire créateur :', formData);
+    setError(null);
+
+    // Validate required fields from inscription form
+    if (!inscriptionFormData.nomPrenom || !inscriptionFormData.email || !inscriptionFormData.motDePasse || 
+        !inscriptionFormData.role || !inscriptionFormData.ville || !inscriptionFormData.pays) {
+      setError('Veuillez remplir tous les champs obligatoires du formulaire de profil.');
+      return;
+    }
+
+    // Validate required fields from creator form
+    if (!formData.description) {
+      setError('Veuillez remplir la description.');
+      return;
+    }
+
+    // Validate consents
+    if (!formData.charteAurae || !formData.cgu || !formData.cgv) {
+      setError('Vous devez accepter la charte Aurae, les CGU et les CGV pour continuer.');
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const response = await api.registerCreator({
+        // From InscriptionForm
+        fullName: inscriptionFormData.nomPrenom,
+        birthDate: inscriptionFormData.dateNaissance,
+        email: inscriptionFormData.email,
+        password: inscriptionFormData.motDePasse,
+        phone: inscriptionFormData.telephone || undefined,
+        role: inscriptionFormData.role,
+        sousCategorie: inscriptionFormData.sousCategorie || undefined,
+        city: inscriptionFormData.ville,
+        country: inscriptionFormData.pays,
+        instagram: inscriptionFormData.instagram || undefined,
+        
+        // From CreateurForm
+        companyName: formData.nomEntreprise || undefined,
+        bio: formData.description,
+        legalStatus: formData.statutJuridique || undefined,
+        vatNumber: formData.tva || undefined,
+        services: formData.services.length > 0 ? formData.services : undefined,
+        verificationDoc: formData.justificatif || undefined,
+        acceptedCharter: formData.charteAurae,
+        acceptedCGU: formData.cgu,
+        acceptedCGV: formData.cgv,
+      });
+
+      // Success - redirect to login or dashboard
+      console.log('Registration successful:', response);
+      alert('Inscription réussie ! Vous pouvez maintenant vous connecter.');
+      navigate('/login');
+    } catch (err) {
+      if (err instanceof ApiError) {
+        setError(err.message || 'Une erreur est survenue lors de l\'inscription.');
+      } else {
+        setError('Une erreur inattendue est survenue. Veuillez réessayer.');
+      }
+      console.error('Registration error:', err);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleServiceChange = (service: string) => {
@@ -351,7 +417,7 @@ const CreateurForm: React.FC = () => {
                       </p>
                       <button
                         type="button"
-                        onClick={() => setFormData(prev => ({ ...prev, justificatif: null }))}
+                        onClick={() => onFormDataChange({ ...formData, justificatif: null })}
                         className="text-red-600 hover:text-red-800 text-sm"
                         style={{ fontFamily: 'Inter Tight, sans-serif' }}
                       >
@@ -483,10 +549,22 @@ const CreateurForm: React.FC = () => {
               </label>
             </div>
 
+            {error && (
+              <div className="mt-4 p-4 bg-red-50 border border-red-200 rounded-lg">
+                <p className="text-red-600 text-sm" style={{ fontFamily: 'Inter, sans-serif' }}>
+                  {error}
+                </p>
+              </div>
+            )}
             <div className="mt-8 text-center">
               <button
                 type="submit"
-                className="px-8 py-3 bg-black text-white rounded-2xl hover:bg-gray-800 transition-all duration-200 transform hover:scale-105"
+                disabled={isSubmitting}
+                className={`px-8 py-3 bg-black text-white rounded-2xl transition-all duration-200 transform ${
+                  isSubmitting 
+                    ? 'opacity-50 cursor-not-allowed' 
+                    : 'hover:bg-gray-800 hover:scale-105'
+                }`}
                 style={{
                   fontFamily: 'Inter, sans-serif',
                   fontWeight: 600,
@@ -494,7 +572,7 @@ const CreateurForm: React.FC = () => {
                   minWidth: '180px'
                 }}
               >
-                Finaliser l'inscription
+                {isSubmitting ? 'Inscription en cours...' : 'Finaliser l\'inscription'}
               </button>
             </div>
           </div>

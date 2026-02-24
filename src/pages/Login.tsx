@@ -3,11 +3,14 @@ import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import AnimatedInput from "../components/ui/AnimatedInput";
 import Footer from "../components/layout/Footer";
+import { api, ApiError } from "../services/api";
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoaded, setIsLoaded] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-50px" });
   const navigate = useNavigate();
@@ -39,9 +42,58 @@ const Login: React.FC = () => {
     // Implémenter la logique de connexion Facebook
   };
 
-  const handleLogin = () => {
-    console.log("Tentative de connexion:", { email, password });
-    // Implémenter la logique de connexion
+  const handleLogin = async (e?: React.FormEvent) => {
+    if (e) {
+      e.preventDefault();
+    }
+    
+    setError(null);
+
+    // Basic validation
+    if (!email || !password) {
+      setError("Veuillez remplir tous les champs.");
+      return;
+    }
+
+    if (password.length < 6) {
+      setError("Le mot de passe doit contenir au moins 6 caractères.");
+      return;
+    }
+
+    setIsLoading(true);
+
+    try {
+      const response = await api.login({
+        email: email.trim(),
+        password: password,
+      });
+
+      // Store token and user info in localStorage
+      localStorage.setItem('accessToken', response.accessToken);
+      localStorage.setItem('user', JSON.stringify(response.user));
+
+      // Dispatch custom event to notify Header component of auth state change
+      window.dispatchEvent(new Event('authStateChanged'));
+
+      console.log('Login successful:', response);
+      
+      // Redirect based on user role or to dashboard/home
+      // You can customize this based on your routing structure
+      navigate('/'); // or navigate('/dashboard') or navigate(`/${response.user.role}`)
+    } catch (err) {
+      if (err instanceof ApiError) {
+        if (err.status === 401) {
+          setError("Email ou mot de passe incorrect.");
+        } else {
+          setError(err.message || 'Une erreur est survenue lors de la connexion.');
+        }
+      } else {
+        setError('Une erreur inattendue est survenue. Veuillez réessayer.');
+      }
+      console.error('Login error:', err);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleForgotPassword = () => {
@@ -194,7 +246,21 @@ const Login: React.FC = () => {
           </motion.div>
 
           {/* Formulaire de connexion */}
-          <motion.div className="w-full max-w-md ">
+          <motion.form 
+            onSubmit={handleLogin}
+            className="w-full max-w-md"
+          >
+            {error && (
+              <motion.div 
+                className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg"
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+              >
+                <p className="text-red-600 text-sm" style={{ fontFamily: 'Inter, sans-serif' }}>
+                  {error}
+                </p>
+              </motion.div>
+            )}
             <AnimatedInput
               type="email"
               placeholder="Email"
@@ -208,7 +274,7 @@ const Login: React.FC = () => {
               onChange={(e) => setPassword(e.target.value)}
               showPasswordToggle={true}
             />
-          </motion.div>
+          </motion.form>
 
           {/* Mot de passe oublié */}
           <motion.div className="w-full max-w-md mb-8 text-right">
@@ -231,7 +297,12 @@ const Login: React.FC = () => {
           {/* Bouton de connexion */}
           <motion.button
             onClick={handleLogin}
-            className="bg-white bg-opacity-20 text-white hover:bg-opacity-30 transition-all mb-8 flex items-center justify-center backdrop-blur-md"
+            disabled={isLoading}
+            className={`bg-white bg-opacity-20 text-white transition-all mb-8 flex items-center justify-center backdrop-blur-md ${
+              isLoading 
+                ? 'opacity-50 cursor-not-allowed' 
+                : 'hover:bg-opacity-30'
+            }`}
             style={{
               width: "231px",
               height: "50px",
@@ -244,8 +315,8 @@ const Login: React.FC = () => {
               fontWeight: 600, // Bold
               fontStyle: "normal",
             }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            whileHover={isLoading ? {} : { scale: 1.05 }}
+            whileTap={isLoading ? {} : { scale: 0.95 }}
           >
             <span
               style={{
@@ -254,7 +325,7 @@ const Login: React.FC = () => {
                 letterSpacing: "0%",
               }}
             >
-              Accéder à Auræ
+              {isLoading ? 'Connexion...' : 'Accéder à Auræ'}
             </span>
           </motion.button>
 

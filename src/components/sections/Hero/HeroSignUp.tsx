@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { getNavItems } from '../../../utils/navigation';
 
 interface HeroSignUpProps {
   profile: 'agence' | 'modele' | 'createur';
@@ -17,38 +18,11 @@ const HeroSignUp: React.FC<HeroSignUpProps> = ({
   const location = useLocation();
   const [activeNav, setActiveNav] = useState<string>(location.pathname);
 
-  const getNavItems = () => {
-    if (profile === 'agence') {
-      return [
-        { label: 'Home page', href: '/' },
-        { label: 'Aurae Profile', href: '/profile-agence' },
-        { label: 'Trouver un talent', href: '/Models' },
-        { label: 'Matchs & Chat', href: '/matchs' },
-        { label: 'Contact & RDV', href: 'https://calendly.com/constance-landowski/30min' },
-      ];
-    } else if (profile === 'createur') {
-      return [
-        { label: 'Home page', href: '/' },
-        { label: 'Aurae Profile', href: '/profile-agence' },
-        { label: 'Trouver un talent', href: '/Models' },
-        { label: 'Matchs & Chat', href: '/matchs' },
-        { label: 'Contact & RDV', href: 'https://calendly.com/constance-landowski/30min' },
-      ];
-    } else {
-      return [
-        { label: 'Home page', href: '/' },
-        { label: 'Aurae Profile', href: '/profile-modele' },
-        { label: 'Trouver un talent', href: '/Models' },
-        { label: 'Matchs & Chat', href: '/matchs' },
-      ];
-    }
-  };
-
   const handleNavClick = (href: string) => {
     setActiveNav(href);
   };
 
-  const navItems = getNavItems();
+  const navItems = getNavItems(profile);
 
   return (
     <section className="relative w-screen h-screen overflow-hidden">

@@ -2,10 +2,24 @@ import React, { useState } from 'react';
 
 interface ModeleFormProps {
   onNext?: () => void;
+  formData?: {
+    situationPro: string;
+    statutJuridique: string;
+    justificatif: File | null;
+  };
+  onFormDataChange?: (data: {
+    situationPro: string;
+    statutJuridique: string;
+    justificatif: File | null;
+  }) => void;
 }
 
-const ModeleForm: React.FC<ModeleFormProps> = ({ onNext }) => {
-  const [formData, setFormData] = useState({
+const ModeleForm: React.FC<ModeleFormProps> = ({ 
+  onNext,
+  formData: externalFormData,
+  onFormDataChange 
+}) => {
+  const [internalFormData, setInternalFormData] = useState({
     situationPro: '',
     statutJuridique: '',
     justificatif: null as File | null
@@ -13,18 +27,22 @@ const ModeleForm: React.FC<ModeleFormProps> = ({ onNext }) => {
 
   const [dragActive, setDragActive] = useState(false);
 
+  // Use external form data if provided, otherwise use internal state
+  const formData = externalFormData || internalFormData;
+  const setFormData = onFormDataChange || setInternalFormData;
+
   const handleInputChange = (field: string, value: string) => {
-    setFormData(prev => ({
-      ...prev,
+    setFormData({
+      ...formData,
       [field]: value
-    }));
+    });
   };
 
   const handleFileChange = (file: File) => {
-    setFormData(prev => ({
-      ...prev,
+    setFormData({
+      ...formData,
       justificatif: file
-    }));
+    });
   };
 
   const handleDrag = (e: React.DragEvent) => {
@@ -214,7 +232,7 @@ const ModeleForm: React.FC<ModeleFormProps> = ({ onNext }) => {
                         </p>
                         <button
                           type="button"
-                          onClick={() => setFormData(prev => ({ ...prev, justificatif: null }))}
+                          onClick={() => setFormData({ ...formData, justificatif: null })}
                           className="text-red-600 hover:text-red-800 text-sm"
                           style={{fontFamily: 'Inter Tight, sans-serif'}}
                         >

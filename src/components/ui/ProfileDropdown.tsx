@@ -1,6 +1,7 @@
 import React from 'react';
 import { createPortal } from 'react-dom';
-import { Heart, MessageSquare, Calendar, Tag, User, Settings, Globe } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { Heart, MessageSquare, Calendar, Tag, User, Settings, Globe, LogOut } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 interface ProfileDropdownProps {
@@ -10,7 +11,24 @@ interface ProfileDropdownProps {
 }
 
 const ProfileDropdown: React.FC<ProfileDropdownProps> = ({ isOpen, onClose, anchorRect }) => {
+  const navigate = useNavigate();
+
   if (!isOpen || !anchorRect) return null;
+
+  const handleLogout = () => {
+    // Clear authentication data
+    localStorage.removeItem('accessToken');
+    localStorage.removeItem('user');
+
+    // Dispatch custom event to notify Header components of auth state change
+    window.dispatchEvent(new Event('authStateChanged'));
+
+    // Close dropdown
+    onClose();
+
+    // Redirect to login page
+    navigate('/login');
+  };
 
   const menuItems = [
     { icon: <Heart size={18} />, label: 'Favoris', href: '/favoris' },
@@ -89,6 +107,35 @@ const ProfileDropdown: React.FC<ProfileDropdownProps> = ({ isOpen, onClose, anch
               </span>
             </Link>
           ))}
+
+          {/* Ligne de séparation avant logout */}
+          <div className="w-full flex justify-center py-1">
+            <hr 
+              style={{ 
+                border: 'none', 
+                borderTop: '1px solid #9A9A9A', 
+                width: '90%',
+                margin: '4px 0' 
+              }} 
+            />
+          </div>
+
+          {/* Logout button */}
+          <button
+            onClick={handleLogout}
+            className="flex items-center gap-3 px-4 py-2 hover:bg-red-50 text-red-600 transition-colors w-full text-left"
+          >
+            <span className="text-red-600">
+              <LogOut size={18} />
+            </span>
+            <span style={{ 
+              fontFamily: 'Inter, sans-serif', 
+              fontSize: '14px', 
+              fontWeight: 400 
+            }}>
+              Déconnexion
+            </span>
+          </button>
         </div>
       </div>
     </>,

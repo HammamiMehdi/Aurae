@@ -1,36 +1,37 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { api, ApiError } from '../../../services/api';
+import type { AgencyFormData, EnterpriseFormData } from '../../../pages/InscriptionAgence';
 
-const EntrepriseForm: React.FC = () => {
-  const [formData, setFormData] = useState({
-    nomEntreprise: '',
-    description: '',
-    statutJuridique: '',
-    tva: '',
-    services: [] as string[],
-    ville: '',
-    pays: '',
-    profession: '',
-    justificatif: null as File | null,
-    charteAurae: false,
-    cgu: false,
-    cgv: false
-  });
+interface EntrepriseFormProps {
+  formData: EnterpriseFormData;
+  onFormDataChange: (data: EnterpriseFormData) => void;
+  agencyFormData: AgencyFormData;
+}
 
+const EntrepriseForm: React.FC<EntrepriseFormProps> = ({ 
+  formData, 
+  onFormDataChange,
+  agencyFormData 
+}) => {
   const [dragActive, setDragActive] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const navigate = useNavigate();
 
   const handleInputChange = (field: string, value: string | string[] | boolean) => {
-    setFormData(prev => ({
-      ...prev,
+    onFormDataChange({
+      ...formData,
       [field]: value
-    }));
+    });
   };
 
   const handleFileChange = (file: File) => {
-    setFormData(prev => ({
-      ...prev,
+    onFormDataChange({
+      ...formData,
       justificatif: file
-    }));
+    });
   };
 
   const handleDrag = (e: React.DragEvent) => {
@@ -53,9 +54,72 @@ const EntrepriseForm: React.FC = () => {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Données du formulaire entreprise :', formData);
+    setError(null);
+
+    // Validate required fields from agency form
+    if (!agencyFormData.nomPrenom || !agencyFormData.email || !agencyFormData.motDePasse || 
+        !agencyFormData.dateNaissance || !agencyFormData.role || !agencyFormData.ville || 
+        !agencyFormData.pays) {
+      setError('Veuillez remplir tous les champs obligatoires du formulaire de profil.');
+      return;
+    }
+
+    // Validate required fields from enterprise form
+    if (!formData.nomEntreprise || !formData.description || !formData.statutJuridique) {
+      setError('Veuillez remplir tous les champs obligatoires du formulaire entreprise.');
+      return;
+    }
+
+    // Validate consents
+    if (!formData.charteAurae || !formData.cgu || !formData.cgv) {
+      setError('Vous devez accepter la charte Aurae, les CGU et les CGV pour continuer.');
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const response = await api.registerAgency({
+        // From InscriptionFormAgence
+        fullName: agencyFormData.nomPrenom,
+        birthDate: agencyFormData.dateNaissance,
+        email: agencyFormData.email,
+        password: agencyFormData.motDePasse,
+        phone: agencyFormData.telephone || undefined,
+        agencyType: agencyFormData.role,
+        city: agencyFormData.ville,
+        country: agencyFormData.pays,
+        instagram: agencyFormData.instagram || undefined,
+        
+        // From EntrepriseForm
+        companyName: formData.nomEntreprise,
+        companyDescription: formData.description,
+        legalStatus: formData.statutJuridique,
+        vatNumber: formData.tva || undefined,
+        services: formData.services,
+        profession: formData.profession || undefined,
+        verificationDoc: formData.justificatif || undefined,
+        acceptedCharter: formData.charteAurae,
+        acceptedCGU: formData.cgu,
+        acceptedCGV: formData.cgv,
+      });
+
+      // Success - redirect to login or dashboard
+      console.log('Registration successful:', response);
+      alert('Inscription réussie ! Vous pouvez maintenant vous connecter.');
+      navigate('/login');
+    } catch (err) {
+      if (err instanceof ApiError) {
+        setError(err.message || 'Une erreur est survenue lors de l\'inscription.');
+      } else {
+        setError('Une erreur inattendue est survenue. Veuillez réessayer.');
+      }
+      console.error('Registration error:', err);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleServiceChange = (service: string) => {
@@ -455,7 +519,7 @@ const EntrepriseForm: React.FC = () => {
                       </p>
                       <button
                         type="button"
-                        onClick={() => setFormData(prev => ({ ...prev, justificatif: null }))}
+                        onClick={() => onFormDataChange({ ...formData, justificatif: null })}
                         className="text-red-600 hover:text-red-800 text-sm"
                         style={{fontFamily: 'Inter Tight, sans-serif'}}
                       >
@@ -584,10 +648,22 @@ const EntrepriseForm: React.FC = () => {
                 </span>
               </label>
             </div>
+            {error && (
+              <div className="mt-4 p-4 bg-red-50 border border-red-200 rounded-lg">
+                <p className="text-red-600 text-sm" style={{ fontFamily: 'Inter, sans-serif' }}>
+                  {error}
+                </p>
+              </div>
+            )}
             <div className="mt-8 text-center">
               <button
                 type="submit"
-                className="px-8 py-3 bg-black text-white rounded-2xl hover:bg-gray-800 transition-all duration-200 transform hover:scale-105" 
+                disabled={isSubmitting}
+                className={`px-8 py-3 bg-black text-white rounded-2xl transition-all duration-200 transform ${
+                  isSubmitting 
+                    ? 'opacity-50 cursor-not-allowed' 
+                    : 'hover:bg-gray-800 hover:scale-105'
+                }`}
                 style={{
                   fontFamily: 'Inter, sans-serif',
                   fontWeight: 600,
@@ -595,7 +671,7 @@ const EntrepriseForm: React.FC = () => {
                   minWidth: '180px' 
                 }}
               >
-                Finaliser l'inscription
+                {isSubmitting ? 'Inscription en cours...' : 'Finaliser l\'inscription'}
               </button>
             </div>
           </div>
